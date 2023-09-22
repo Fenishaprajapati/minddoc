@@ -2,24 +2,59 @@
 
 {% block content %}
 
-<div class="col-md-6 offset-md-3">
+
     <form method="POST" action="{% url 'home'%}">
       {% csrf_token %}
 
+      {% if user.is_authenticated %}
+            <br>
+            <table class="table table-bordered table-hover">
+              <thead class="table-success">
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Phone</th>
+                  <th scope="col">Zipcode</th>
+                  <th scope="col">Date-Time</th>
+                </tr>
+              </thead>
+              <tbody class="table-group-divider">
+              <!--this records are coming from parameter given in else part of the home view and that is connected to records variable-->
+                    {% if records %}
+                        {% for record in records %}
+                        <tr>
+<!--record.id will show the address of that id in the bottom of the page-->
+                            <td><a href="{% url 'record' record.id %}">{{ record.id }}</a></td>
+                            <td>{{ record.firstname }}
+                            {{ record.lastname }}</td>
+                            <td>{{ record.email }}</td>
+                            <td>{{ record.contactNumber }}</td>
+                            <td>{{ record.zipcode }}</td>
+                            <td>{{ record.created_at }}</td>
+                        </tr>
+                        {% endfor %}
+                    {% endif %}
+              </tbody>
+            </table>
+
+      {% else %}
       <br>
-      <h2>Login!</h2><br>
+        <div class="col-md-6 offset-md-3">
+          <h2>Login!</h2><br>
+          <div class="mb-3">
+            <input type="text" placeholder="Username" class="form-control" name="username" aria-describedby="emailHelp">
+          </div>
 
-      <div class="mb-3">
-        <input type="text" placeholder="Username" class="form-control" name="username" aria-describedby="emailHelp">
-      </div>
+          <div class="mb-3">
+            <input type="password" class="form-control" name="password" placeholder="Password">
+          </div>
 
-      <div class="mb-3">
-        <input type="password" class="form-control" name="password" placeholder="Password">
-      </div>
-
-      <button type="submit" class="btn btn-primary">Login</button>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+      {% endif %}
 
     </form>
-  </div>
+
 
 {% endblock %}

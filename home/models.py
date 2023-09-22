@@ -1,12 +1,16 @@
+# import datetime
 from django.db import models
-import datetime
+
 
 # Create your models here.
-class Customer(models.Model):
-    cust_id = models.AutoField
-    cust_name = models.CharField(max_length=50)
-    cust_mail = models.CharField(max_length=50)
-    cust_number = models.CharField(max_length=10)
+class Record(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    firstname = models.CharField(max_length=50)
+    lastname = models.CharField(max_length=50)
+    email = models.CharField(max_length=50)
+    contactNumber = models.CharField(max_length=50)
+    zipcode = models.CharField(max_length=50)
+    # birthdate = models.DateField()
 
     def __str__(self):
-        return self.cust_name 
+        return f"{self.firstname} {self.lastname}"

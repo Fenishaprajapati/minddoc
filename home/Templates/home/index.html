@@ -1,12 +1,30 @@
 {% extends 'home/base.html' %}
 
 {% block content %}
+{% load static %}
+<style>
+        /* Styling for the big picture */
+        .big-picture {
+            background-image: url({% static 'home/photo.jpg' %}); /* Replace 'your-image.jpg' with your image URL */
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Adjust the height as needed */
+        }
 
+        /* Styling for the About Us section */
+        .about-us {
+            background-color: #f2f2f2; /* Background color for the section */
+            padding: 40px;
+            height: 250px;
+        }
 
-    <form method="POST" action="{% url 'home'%}">
-      {% csrf_token %}
-
-      {% if user.is_authenticated %}
+        /* Styling for the text in the About Us section */
+        .about-us-text {
+            max-width: 800px; /* Adjust the maximum width as needed */
+            margin: 0 auto;
+        }
+</style>
+{% if user.is_authenticated %}
             <br>
             <table class="table table-bordered table-hover">
               <thead class="table-success">
@@ -40,21 +58,18 @@
 
       {% else %}
       <br>
-        <div class="col-md-6 offset-md-3">
-          <h2>Login!</h2><br>
-          <div class="mb-3">
-            <input type="text" placeholder="Username" class="form-control" name="username" aria-describedby="emailHelp">
-          </div>
+      <div class="big-picture">
+        <!-- You can add any content you want to display on top of the image here -->
+      </div>
 
-          <div class="mb-3">
-            <input type="password" class="form-control" name="password" placeholder="Password">
-          </div>
-
-          <button type="submit" class="btn btn-primary">Login</button>
+    <div class="about-us">
+        <div class="about-us-text">
+            <h2>About Us</h2>
+            <p><strong>Let us heal you.</strong><br><h3>Register and fill out a form to see your current mental health.</h3></p>
+            <!-- Add more content about your company here -->
         </div>
-      {% endif %}
-
-    </form>
+    </div>
+{% endif %}
 
 
 {% endblock %}

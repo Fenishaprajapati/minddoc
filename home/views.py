@@ -5,14 +5,14 @@ from .forms import SignUpForm, AddRecordForm
 from .models import Record
 
 # from dns import message
-
-
 def home(request):
+    records = Record.objects.all()
+    return render(request, 'home/index.html', {'records': records})
+
+def login_user(request):
 
     # this will grab everything from the record table and copy it here
     # to get all the record cols
-    records = Record.objects.all()
-
 
     if request.method == 'POST':
         username = request.POST['username']
@@ -27,10 +27,10 @@ def home(request):
             return redirect('home')
         else:
             messages.success(request, "There was an error TRY AGAIN!")
-            return redirect('home')
+            return redirect('login')
 
     else:  # in this case they are not posting any data means not logging in direct going home
-        return render(request, 'home/index.html', {'records': records})
+        return render(request, 'home/login_user.html')
 
 
 def logout_user(request):

@@ -67,14 +67,35 @@
     a{
         text-decoration: none;
     }
-
+    .logo {
+                width: 120px; 
+                height: auto;
+                left: 0px;
+                right:10px;
+                position: absolute;
+                font-weight:bolder;
+                font-style:inherit;
+                font-size:200%;
+                color: chocolate;
+                font-family:Georgia, 'Times New Roman', Times, serif;
+                top:-6%;
+                left:0;
+                /* height: 1px; */
+            }
+            .logo img{
+                /* height: 50px;
+                margin-right: 490px; */
+            }
+    .logo::after
+            {
+                background: white;
+            }
     
     nav{
         background: white;
         border-radius: 50px;
         padding: 4px;
         box-shadow: 40px 30px 35px -10px rgba(10, 10, 0, 0.4);
-        border-color: black;
         margin-top: 19px;
         border-color: black;
         text-align: center;
@@ -111,15 +132,17 @@
         transform: translate(-50%, -50%);
         z-index: -1;
         opacity: 0;
+        font-color: black;
     }
 
-    nav ul li:hover{
+    {% comment %} nav ul li:hover{
         color: black;
-    }
+    } {% endcomment %}
 
     nav ul li:hover::after{
         top: 60%;
         opacity: 1;
+        font-color: black;
     }
 
     /* Dropdown styles */
@@ -153,22 +176,12 @@
         nav ul .dropdown ul li:hover {
             background-color: transparent;
         }
-        .logo {
-            width: 120px; height: auto;
-            left: 0px;
-            right:10px;
-            position: absolute;
-            font-weight:bolder;
-            font-style:inherit;
-            font-size:200%;
-            color: chocolate;
-            width: 100px;
-            font-family:Georgia, 'Times New Roman', Times, serif;
-            top:-6%;
-        }
+        
         
 
 </style>
+{% load static %}
+
 <header>
     <nav>
         <ul>

@@ -4,55 +4,222 @@
 {% load static %}
 <style>
         *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-      }
-
-        /* Styling for the big picture */
-        .big-picture::before {
-            background-image: url({% static 'home/photo.jpg' %}); /* Replace 'your-image.jpg' with your image URL */
-            background-size: cover;
-            background-position: center;
-            height: 100vh; /* Adjust the height as needed */
-            /* opacity: 50%; */
-            margin-top: 70px;
-            /* background-color: rgba(255, 255, 255, 0.5);  */
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 260px;
-            width: 70%;
-            /* height: 100%; */
-            background-color: #fff; /* Adjust the color as needed */
-            opacity: 0.2; /* Adjust the opacity as needed */
-            z-index: -1;
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: Montserrat,sans-serif;
         }
 
-        /* Styling for the About Us section */
-        .about-us {
-            background-color: #f2f2f2; /* Background color for the section */
+      
+        .main{
+            /* display: inline-block; */
+            /* border: 2px solid rgb(201, 186, 186); */
+            justify-content: space-around;
+            height: 50%;
+            width: 100%;
+            box-sizing: border-box;
+            align-items: center;
+        }
+        .item{
+             display: inline-block;
+            /*flex-direction:column;
+            flex-wrap:wrap;  */
+            justify-content: space-around;
+        }
+        #photo {
+            height: 100px;  
+        }
+        #photo img {
+            height: 50%;
+            width: auto;
+            margin-left: 600px;
+            position:absolute;
+            left: 380px;
+            top:250px;
+        }     
+    
+        #text {
+            margin-top: 270px;
+            margin-left: -100px;
+        }
+    
+        #text h1 {
+            left: 390px;
+            margin-bottom:10px;
+            color: chocolate;
+            font-size: 55px;
+        }
+
+        #text h3{
+            font-size: 20px;
+            color: rgb(118, 117, 117);
+        }
+
+        #text h2{
+            font-size: 30px;
+            color: green;
+        }
+        .my-button {
+        display: inline-block;
+        padding: 10px 60px;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        border: 1px solid #343470;
+        color: #ffffff;
+        background-color: #275070;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+        }
+
+        .my-button:hover {
+        background-color: #ffffff;
+        color: #343470;
+        }
+        
+        .aboutus{
+            margin-top: 270px;
+            margin-left: 470px;
+        }
+        .aboutus #h1{
+            left: 400px;
+            margin-bottom:10px;
+            color: #343470;
+            font-size: 55px;
+        }
+
+        .aboutus #h4{
+            margin-left: -110px;
+            margin-bottom:10px;
+            color: grey;
+            font-size: 17px;
+        }
+
+         /* Card container */
+        .card-container {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+
+        /* Individual card styling */
+        .card {
+            width: 260px;
             padding: 40px;
-            height: 250px;
-            margin-bottom: 100px;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 18px;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0);
+            background-color: #f7adb7;
+            cursor: pointer;
+            background-position: center bottom;
         }
 
-        /* Styling for the text in the About Us section */
-        .about-us-text {
-            max-width: 800px; /* Adjust the maximum width as needed */
-            margin: 0 auto;
+        h2{
+            color:rgb(255, 255, 255);
+            justify-content: center;
+            text-align: center;
+            font-size: 25px;
+            text-wrap: wrap;
         }
 
-        /*mental health matters*/
-        .matters{
-          font-weight: bolder;
-          padding:20%;
-          margin-left:10%;
-          color: black;
-          
+        .card:hover{
+            background-color: #9b4e58;
         }
+
+        a{
+            text-decoration: none;
+        }
+
+        .card img{
+            width: 70px;
+            margin-left: 50px;
+        }
+
+
+
+        
 </style>
+    
+    <div class="main">
+        <div class="item" id="text">
+            <br><br>
+            <h1>Mental Health Matters.</h1>
+            <h3>Navigating anxiety issues, depression, phobias, or brain concerns can be overwhelming.</h3>
+            <h3 style="text-decoration:underline;">We got you.</h3>
+            <br><br><br>
+            <h3 style="color:#343470; font-size: 20px; font-weight: 200px;">Know your current mental state better by filling a small questionnaire |<br></h3>
+            <a href="#" class="my-button">Take a Quiz</a>  
+        </div>
+        <div class="item" id="photo">
+            <img src="{% static 'home/Freudian Mommy.png' %}" alt="logo">
+        </div>
+    </div>
+
+<div class="aboutus">
+    <h1 id="h1">About Minddoc</h1>
+    <h4 id="h4">Our safe space provides you a non judgemental, holistic wellness experience.</h4>
+</div>
+<br>
+        <!-- Card container -->
+        <div class="card-container">
+            <!-- Card 1 -->
+            <div class="card" id="card1">
+                <a href="">
+                <h2>Treat
+                <br>Mental States</h2><br>
+                <img src="{% static 'home/state.png' %}">
+                </a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card" id="card2">
+                <h2>Treat
+                <br>Phobias</h2><br>
+                <img src="{% static 'home/phobia.png' %}">
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card" id="card3">
+                <h2>Meet our
+                <br>Consultant</h2><br>
+                <img src="{% static 'home/doctor.png' %}">
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card" id="card4">
+                <h2>Goal
+                <br>Based Care</h2><br>
+                <img src="{% static 'home/goal.png' %}">
+            </div>
+        </div><br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 {% if user.is_authenticated %}
             <br>
@@ -87,23 +254,5 @@
             </table>
 
       {% else %}
-      <br>
-      <div class="big-picture">
-        <h1 class="matters">Mental Health MATTERS.</h1>
-      </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-    <div class="about-us">
-        <div class="about-us-text">
-            <h2>About Us</h2>
-            <p><strong>Let us heal you.</strong><br><h3>Register and fill out a form to see your current mental health.</h3></p>
-            <!-- Add more content about your company here -->
-        </div>
-    </div>
 {% endif %}
-
-
 {% endblock %}

@@ -298,6 +298,139 @@
             background-color: #e0518b;
         }
 
+/* why minddoc */
+
+        .whyminddoc{
+            margin-top: 270px;
+            margin-left: 470px;
+        }
+        .whyminddoc #h1{
+            left: 400px;
+            margin-bottom:10px;
+            color: #343470;
+            font-size: 55px;
+        }
+
+        
+
+
+    .whycardcontainer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: center;
+      width:90%;
+      box-shadow: 1px 14px 25px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      margin-left: 6%;
+    }
+
+    .card-why {
+      margin: 5px;
+      padding: 24px;
+      text-align: center;
+      background-color: #fff;
+      box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      width: calc(33.33% - 20px); /* Three cards in one row */
+      box-sizing: border-box;
+    }
+
+    .card-why:nth-child(4),
+    .card-why:nth-child(5) {
+      width: calc(50% - 100px); /* Two cards in the next row */
+    }
+
+    .card-why img {
+      max-width: 15%;
+      border-radius: 8%;
+      margin-bottom: 10px;
+    }
+
+    .card-why h3 {
+      margin: 1px;
+      color: chocolate;
+      font-size: 20px;
+    }
+
+
+/* doctor details */
+    .doctor{
+        margin-top: 270px;
+        margin-left: 470px;
+    }
+
+    .doctor #h1{
+        left: 400px;
+        margin-bottom:10px;
+        color: #343470;
+        font-size: 55px;
+    }
+
+
+.doctor-container {
+      display: flex;
+      width: 90%;
+      /* background-color: #fff; */
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      justify-content: center;
+      align-items: center;
+      height: 7%;
+      margin-left: 5%;
+      background: linear-gradient(to left, white, #84acd1);
+      /* background: radial-gradient(circle, white, #84acd1); */
+      background: conic-gradient(from -215deg, white, #84acd1);
+    }
+
+    .doctor-image {
+      border-radius: 10px 0 0 10px;
+      margin-inline-end: -200px;
+    }
+
+    .doctor-image img {
+      width: 60%;
+      height: 60%;
+      margin-top: 2px;
+      
+    }
+
+    .doctor-details {
+      padding: 80px;
+      margin-right: 190px;
+    }
+
+    .doctor-details h2 {
+      margin-bottom: 1px;
+      color: black;
+      margin-right: 67px;
+      font-weight: bolder;
+    }
+
+    .details-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .details-list li {
+      margin-bottom: 10px;
+    }
+
+    .details-list span {
+      font-weight: bold;
+    }
+
+    .details-list a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    .details-list a:hover {
+      text-decoration: underline;
+    }
+
 
         
 </style>
@@ -389,6 +522,9 @@
             </div>
           </div>
           <br><br><br><br><br><br>
+
+          
+
 <!-- /* animated container of questions */ -->
         <div class="container-questions">
             <!-- Image Container -->
@@ -410,7 +546,71 @@
                 <button class="cute-button">Consult our Doctor!</button>
             </div>
         </div>
-        <br><br>
+        
+
+
+
+
+
+<!-- why Minddoc -->
+
+    <div class="whyminddoc">
+        <h1 id="h1">Why Minddoc?</h1><br>
+    </div>      
+
+    <div class="whycardcontainer">
+        <div class="card-why">
+        <img src="{% static 'home/study-your-daily-schedule.png' %}" alt="Image 1">
+        <h3>Study your daily schedule</h3>
+        </div>
+
+        <div class="card-why">
+        <img src="{% static 'home/personalized-care-plans.png' %}" alt="Image 2">
+        <h3>Pesonalized care plans</h3>
+        </div>
+
+        <div class="card-why">
+        <img src="{% static 'home/scientist.png' %}" alt="Image 3">
+        <h3>Science backed care</h3>
+        </div>
+
+        <div class="card-why">
+        <img src="{% static 'home/coach.png' %}" alt="Image 4">
+        <h3>Health coach support</h3>
+        </div>
+
+        <div class="card-why">
+        <img src="{% static 'home/route.png' %}" alt="Image 5">
+        <h3>Goal based approach</h3>
+        </div>
+    </div>
+
+<!-- doctor details     -->
+    <div class="doctor">
+        <h1 id="h1">Meet our Doctor</h1><br>
+    </div> 
+
+    <div class="doctor-container">
+
+        <div class="doctor-details">
+          <h2>Dr. Bhavesh Kathiriya</h2><br>
+          <ul class="details-list">
+            <li><span>Degree:</span>MBBS, MD</li>
+            <li><span>Specialization:</span>Neuro-Psychiatry</li>
+            <li><span>Experience:</span> 15 years</li>
+            <li><span>Email:</span> <a href="hubofpsychiatry9999@gmail.com">hubofpsychiatry9999@gmail.com</a></li>
+            <li><span>Phone:</span> +91 9712305042</li>
+            <li><span>Address:</span> Railway Station Road, Surat</li>
+          </ul>
+        </div>
+    
+        <div class="doctor-image">
+          <img src="{% static 'home/real-doctor-1.jpg' %}" alt="Doctor Image">
+        </div>
+    
+      </div><br><br>
+
+
 <!-- /* script of animated container of questions */ -->
         <script>
             // JavaScript for the typing animation

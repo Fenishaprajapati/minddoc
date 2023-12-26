@@ -1,0 +1,499 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<!-- CSS -->
+<style>
+     *{
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: Montserrat,sans-serif;
+        }
+
+    .main-heading-of-mental-states {
+        position: relative;
+        margin-top: 180px;
+        text-align: center;
+        color: white;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        }
+    
+    .main-heading-of-mental-states h1{
+        position: relative;
+        top: 50%;
+        left: 63%;
+        transform: translate(-50%, -50%);
+        color: chocolate;
+        font-size: 38px;
+        }
+
+    .main-heading-of-mental-states h3{
+        position: relative;
+        top: 40%;
+        left: 62%;
+        transform: translate(-50%, -50%);
+        font-size: 18px;
+        color: rgb(118, 117, 117);
+        }
+
+    img{
+        width: 400px;
+        height: 200px;
+        }    
+    
+    .main-image-mentalstate img{
+        margin-left: 450px;
+        margin-top: 30px;
+    }
+
+    
+/* <!-- out integrative care approach is scientifically proven --> */
+    .integrative-approach{
+            margin-top: 150px;
+            margin-left: 10px;
+            background-color: #FFE3EC;
+            width:1300px;
+            height: 360px;
+            border-radius: 20px;         
+        }
+    .integrative-approach #integrative-approach-text{
+        padding-left:300px;
+        padding-top: 30px;
+        color: #343470;
+        font-size: 30px;
+        }
+
+    .integrative-approach .card{
+        height: 50px;
+        width: 1100px;
+        margin-left: 100px;
+        margin-top: 40px;
+        justify-content: center;
+        border-color: bisque;
+        box-shadow: 0px 1px 5px rgb(244, 242, 239);
+        border-radius: 40px;
+        color: #343470;
+    }
+
+    .card h4{
+        font-size: 21px;
+        padding-left: 410px;
+    }
+
+    #card2 h4{
+        padding-left: 395px;
+    }
+
+    #card3 h4{
+        padding-left: 320px;
+    }
+
+
+/* <!-- mental states we treat --> */
+    .mental-state-we-treat #mental-state-we-treat-text{
+        padding-left:430px;
+        margin-top: 40px;
+        color: #343470;
+        font-size: 45px;
+    }
+
+    .mental-state-we-treat h1{
+        padding-top: 10px;
+    }
+
+    .mental-state-we-treat-cards{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .mental-state-we-treat .mental-state-we-treat-card{
+        width:300px;
+        height: 300px;
+        overflow: hidden;
+        margin-top:20px;
+        cursor: pointer;
+        border-radius: 500px;
+    }
+
+    #mental-state-we-treat-card1{
+        background-color: #E6F7FF;
+    }
+
+    #mental-state-we-treat-card2{
+        background-color: #FFF1E6;
+    }
+
+    #mental-state-we-treat-card3{
+        background-color: #f5e8ba;
+    }
+
+    .mental-state-we-treat-card h2{
+        color:#343470;
+        font-size: 25px;
+        margin-top: 120px;
+        margin-left: 10px;
+    }
+
+    .mental-state-we-treat-card h4{
+        color:black;
+        font-size: 19px;
+        margin-left: 10px;
+        text-decoration: underline;
+    }
+
+/* three reasons why modern lifestyles */
+    .three-reasons #three-reasons-text{
+        padding-left:130px;
+        margin-top: 40px;
+        color: #343470;
+        font-size: 38px;
+    }
+
+    .three-reasons h1{
+        padding-top: 10px;
+        padding-bottom: 20px;
+    }
+    
+    .section-container {
+      margin-bottom: 10px;
+    }
+
+    .section {
+      background-color: #d9e4d0;
+      border-radius: 5px; 
+      display: flex;
+      flex-direction: row; 
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      margin-bottom: 5px;
+    }
+
+    .content {
+      display: none;
+      background-color: #ecf6f6; 
+      border-radius: 5px; 
+      margin-top: 5px; 
+      padding: 10px;
+      width: 100%;
+      border-color: 0px 1px 1px #343470;
+    }
+    
+    li {
+      color: #343470;
+      font-size: 19px;
+
+    }
+
+    .plus-minus {
+      cursor: pointer;
+      color: #343470;
+      font-size: 30px;
+    }
+
+/* <!-- frequently asked questions-->     */
+
+    .frequent #frequent-text{
+        padding-left:130px;
+        margin-top: 40px;
+        color: #343470;
+        font-size: 38px;
+    }
+
+    .frequent h1{
+        padding-top: 10px;
+        padding-bottom: 20px;
+        margin-left: 290px;
+    }
+    .accordion {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+    }
+
+    .frequent-section {
+      border: 1px solid #f9f4f4;
+      margin-bottom: 8px;
+      overflow: hidden;
+      border-radius: 50px;
+    }
+
+    .frequent-section-header {
+      background-color: #e5e5e5;
+      padding: 8px;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      justify-content: space-between;
+      font-size: 18px;
+      height: 50px;
+      color: #343470;
+      margin-left: 20px;
+    }
+
+    .frequent-section-content {
+      padding: 8px;
+      display: none;
+      margin-left: 30px;
+    }
+
+    .frequent-plus-minus-sign::after {
+      content: '+';
+      font-size: 20px;
+      margin-right: 19px ;
+    }
+
+    .active .frequent-plus-minus-sign::after {
+      content: '-';
+      margin-right: 19px ;
+    }
+
+</style>
+
+<!-- HTML -->
+
+<!-- main-heading-of-mental-states -->
+    <div class="main-heading-of-mental-states">
+        <div class="main-image-mentalstate">
+            <img src="{% static 'home/mental-state.webp' %}">
+        </div>
+        
+        <div class="main-text-mentalstate">
+            <h1>MENTAL HEALTH CARE THAT GOES BEYOND MEDICINES</h1>
+            <h3>We help you get to your root cause and heal holistically through our science-backed integrative care approach.</h3>
+        </div>
+    </div>
+
+<!-- out integrative care approach is scientifically proven -->
+    <div class="integrative-approach">
+        <h1 id="integrative-approach-text">
+            Our integrative care approach is scientifically proven
+        </h1>
+
+        <div class="card" id="card1">
+            <h4>easy to follow sustainable plans</h4>
+        </div>
+
+        <div class="card" id="card2">
+            <h4>reduce dependence on medication</h4>
+        </div>
+
+        <div class="card" id="card3">
+            <h4>get personalised support on entire lifestyle changes</h4>
+        </div>
+    </div><br><br>
+
+<!-- mental states we treat -->
+    <div class="mental-state-we-treat">
+
+        <h1 id="mental-state-we-treat-text">
+            Mental states we treat
+        </h1>
+
+        <div class="mental-state-we-treat-cards">
+            <div class="mental-state-we-treat-card" id="mental-state-we-treat-card1">
+                <h2>ANXIETY ISSUES</h2>
+                <a href="{% url 'anxiety_issues' %}"><h4>dig a little deeper..</h4></a>
+            </div>
+            
+            <div class="mental-state-we-treat-card" id="mental-state-we-treat-card2">
+                <h2>DEPRESSION ISSUES</h2>
+                <a href="{% url 'depression_issues' %}"><h4>dig a little deeper..</h4></a>
+            </div>
+            
+            <div class="mental-state-we-treat-card" id="mental-state-we-treat-card3">
+                <h2>COMMON DISEASES</h2>
+                <a href="{% url 'common_diseases' %}"><h4>dig a little deeper..</h4></a>
+            </div>
+        </div>
+            
+    </div><br><br>
+    
+<!-- three reasons why modern lifestyles -->
+    <div class="three-reasons">
+
+        <h1 id="three-reasons-text">
+            3 reasons why modern lidestyle is failing your mental health
+        </h1>
+
+        <div class="section-container">
+                <div class="section" id="li-1">
+                  <li>constant connectivity and information overlooked</li>
+                  <div class="plus-minus" onclick="toggleSection(1)">+</div>
+                </div>
+            
+                <div class="content" id="section1">In the whirlwind of pings
+                  and notifications, our brains are doing a constant cha-cha. 
+                  It's like having a million friends who never sleep and always 
+                  have something to say. Our poor minds are in need of a quiet 
+                  corner, away from the digital circus. <br><b>Maybe it's time to hit 
+                  the snooze button on those notifications and embrace the bliss of silence.</b>
+                </div>
+        </div>
+            
+        <div class="section-container">
+                <div class="section" id="li-2">
+                  <li>sedentary lifestyle and lack of physical activity</li>
+                  <div class="plus-minus" onclick="toggleSection(2)">+</div>
+                </div>
+            
+                <div class="content" id="section2">Picture this: Your couch is the comfiest
+                   black hole, and exercise feels like a distant relative who sends yearly
+                    invitations. The world of motion seems like an uncharted territory,
+                     while your remote control gains more mileage. Welcome to the land 
+                     of the perpetually seated. <br><b>Perhaps a stroll around the block could 
+                     be the first step to liberate those legs from couch captivity.</b>
+                </div>
+        </div>
+            
+        <div class="section-container">
+                <div class="section" id="li-3">
+                  <li>urbanization and disconnect from nature</li>
+                  <div class="plus-minus" onclick="toggleSection(3)">+</div>
+                </div>
+            
+                <div class="content" id="section3">Concrete, steel, and glass skyscrapers 
+                  might be our modern castles, but we've left behind the green landscapes 
+                  and chirpy neighbors. Nature, now a weekend getaway, used to be our everyday 
+                  companion. The urban jungle has its perks, but sometimes, we miss the rustle 
+                  of leaves more than the city buzz. <br><b>How about planning a nature escape to 
+                  rekindle the romance with the great outdoors?</b>
+                </div>
+        </div>
+                
+        <script>
+                function toggleSection(sectionNumber) {
+                  for (let i = 1; i <= 3; i++) {
+                    const content = document.getElementById(`section${i}`);
+                    const plusMinus = document.querySelector(`#li-${i} .plus-minus`);
+              
+                    if (i === sectionNumber) {
+                      if (content.style.display === 'block') {
+                        content.style.display = 'none';
+                        plusMinus.textContent = '+';
+                      } else {
+                        // Hide all other sections before displaying the clicked section
+                        for (let j = 1; j <= 3; j++) {
+                          if (j !== sectionNumber) {
+                            const otherContent = document.getElementById(`section${j}`);
+                            const otherPlusMinus = document.querySelector(`#li-${j} .plus-minus`);
+                            otherContent.style.display = 'none';
+                            otherPlusMinus.textContent = '+';
+                          }
+                        }
+              
+                        content.style.display = 'block';
+                        plusMinus.textContent = '-';
+                      }
+                    } else {
+                      content.style.display = 'none';
+                      plusMinus.textContent = '+';
+                    }
+                  }
+                }
+        </script>
+       
+
+    </div><br><br>
+
+<!-- frequently asked questions-->
+    <div class="frequent">
+
+            <h1 id="frequent-text">
+                Frequently asked questions..
+            </h1>
+
+            <div class="frequent-section" style="background-color: rgb(251, 233, 228);">
+                <div class="frequent-section-header" style="background-color: rgb(251, 233, 228);">
+                    - can mental diseases be completely cured or treated ?
+                    <div class="frequent-plus-minus-sign"></div>
+                </div>
+                <div class="frequent-section-content">
+                    <p>Yes, many mental health conditions can be treated or managed effectively, although the word "cure" might not always apply. Treatment often involves a combination of therapies, medications, and support. While some individuals may experience full recovery, others may need ongoing support to manage their symptoms and lead fulfilling lives. It's essential for individuals facing mental health challenges to seek professional help to determine the most appropriate treatment for their specific condition.</p>
+                </div>
+            </div>
+    
+            <div class="frequent-section" style="background-color: rgb(252, 251, 228);">
+                <div class="frequent-section-header"  style="background-color: rgb(252, 251, 228);">
+                    - what are common symptoms of mental illness ?
+                    <div class="frequent-plus-minus-sign"></div>
+                </div>
+                <div class="frequent-section-content">
+                    <p>Common symptoms of mental diseases include feeling very sad or worried, having trouble sleeping, eating too much or too little, and difficulty concentrating. Some people might avoid friends and activities they used to enjoy. Physical symptoms like headaches or stomachaches can also happen. Everyone is different, so symptoms vary. If someone notices these changes in how they feel or act, it's important to talk to someone they trust or a professional. Getting support, like talking to a counselor or doctor, can help understand and manage these symptoms, leading to better mental well-being.</p>
+                </div>
+            </div>
+    
+            <div class="frequent-section" style="background-color: rgb(241, 252, 221);">
+                <div class="frequent-section-header" style="background-color: rgb(241, 252, 221);">
+                    - does every mental state makes you insane ?
+                    <div class="frequent-plus-minus-sign"></div>
+                </div>
+                <div class="frequent-section-content">
+                    <p>No, not every mental state makes a person "insane." Mental health exists on a spectrum, and experiencing challenges doesn't mean someone is insane. Many people face stress, sadness, or anxiety at some point, and these feelings are part of being human. "Insanity" is a legal term and doesn't accurately describe mental health. Most individuals, even those with mental health conditions, can lead fulfilling lives with support and treatment. It's crucial to seek understanding and empathy, recognizing that mental health is diverse, and many people successfully manage and cope with their unique experiences.</p>
+                </div>
+            </div>
+    
+            <div class="frequent-section" style="background-color: rgb(234, 253, 253);">
+                <div class="frequent-section-header" style="background-color: rgb(234, 253, 253);">
+                    - is there a link between social media usage and increased feelings of loneliness ?
+                    <div class="frequent-plus-minus-sign"></div>
+                </div>
+                <div class="frequent-section-content">
+                    <p>Yes, there is a link between social media usage and increased feelings of loneliness. Excessive time on social platforms may lead to social comparison, anxiety, and a sense of inadequacy. Seeing others' curated and seemingly perfect lives can contribute to feelings of isolation. Real-world social interactions are essential for well-being, and an overemphasis on virtual connections can hinder genuine relationships. Finding a balance between online and offline interactions is crucial to maintaining positive mental health, as loneliness is often alleviated through meaningful face-to-face connections and a more realistic perspective on social media content.</p>
+                </div>
+            </div>
+
+    </div>
+  
+  <script>
+    const sections = document.querySelectorAll('.frequent-section');
+  
+    sections.forEach(section => {
+      const header = section.querySelector('.frequent-section-header');
+      const content = section.querySelector('.frequent-section-content');
+  
+      header.addEventListener('click', () => {
+        // Close all other sections
+        sections.forEach(s => {
+          if (s !== section) {
+            s.classList.remove('active');
+            s.querySelector('.frequent-section-content').style.display = 'none';
+          }
+        });
+  
+        // Toggle active class and show/hide content
+        section.classList.toggle('active');
+        content.style.display = content.style.display === 'none' ? 'block' : 'none';
+      });
+    });
+  </script>
+
+</div><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

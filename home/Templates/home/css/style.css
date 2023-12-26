@@ -1,0 +1,422 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat,sans-serif;
+  }
+  .main{
+      /* display: inline-block; */
+      /* border: 2px solid rgb(201, 186, 186); */
+      justify-content: space-around;
+      height: 50%;
+      width: 100%;
+      box-sizing: border-box;
+      align-items: center;
+  }
+  .item{
+       display: inline-block;
+      /*flex-direction:column;
+      flex-wrap:wrap;  */
+      justify-content: space-around;
+  }
+  #photo {
+      height: 100px;  
+  }
+  #photo img {
+      height: 50%;
+      width: auto;
+      margin-left: 600px;
+      position:absolute;
+      left: 380px;
+      top:250px;
+  }     
+
+  #text {
+      margin-top: 270px;
+      margin-left: -100px;
+  }
+
+  #text h1 {
+      left: 390px;
+      margin-bottom:10px;
+      color: chocolate;
+      font-size: 55px;
+  }
+
+  #text h3{
+      font-size: 20px;
+      color: rgb(118, 117, 117);
+  }
+
+  #text h2{
+      font-size: 30px;
+      color: green;
+  }
+  .my-button {
+  display: inline-block;
+  padding: 10px 60px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid #343470;
+  color: #ffffff;
+  background-color: #275070;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+  }
+
+  .my-button:hover {
+  background-color: #ffffff;
+  color: #343470;
+  }
+  
+  .aboutus{
+      margin-top: 270px;
+      margin-left: 470px;
+  }
+  .aboutus #h1{
+      left: 400px;
+      margin-bottom:10px;
+      color: #343470;
+      font-size: 55px;
+  }
+
+  .aboutus #h4{
+      margin-left: -110px;
+      margin-bottom:10px;
+      color: grey;
+      font-size: 17px;
+  }
+
+   /* Card container */
+  .card-container {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+  }
+
+  /* Individual card styling */
+  .card {
+      width: 260px;
+      padding: 40px;
+      margin: 10px;
+      border: 1px solid #ddd;
+      border-radius: 18px;
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0);
+      background-color: #FFD1E8;
+      cursor: pointer;
+      background-position: center bottom;
+  }
+
+  .card h2{
+      color: #5a60a3;
+      /* color: cornsilk; */
+      justify-content: center;
+      text-align: center;
+      font-size: 25px;
+      text-wrap: wrap;
+  }
+
+  .card:hover{
+      background-color: #b8a0a3;
+      color: white;
+  }
+
+  a{
+      text-decoration: none;
+  }
+
+  .card img{
+      width: 70px;
+      margin-left: 50px;
+  }
+
+  .how-it-works{
+      margin-top: 100px;
+      margin-left: 470px;
+  }
+
+  .how-it-works #h1{
+      left: 400px;
+      margin-bottom:10px;
+      color: #343470;
+      font-size: 55px;
+  }
+  .card-container-how-it-works {
+      display: flex;
+      justify-content: space-between;
+      margin: 30px; /* Optional margin for the entire container */
+  }
+
+  
+
+      /* Individual card styling */
+  .card-how-it-works {
+      width: calc(30% - 10px); /* 30% width for each card with some margin */
+      margin: 10px;
+      border: 1px solid #ddd;
+      border-radius: 38px;
+      box-shadow: 10px 18px 18px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      overflow: hidden;
+      cursor: pointer;
+  }
+
+  /* Card heading */
+  .card-heading {
+      padding: 20px;
+      text-align: center;
+      font-size: 1%;
+      align-items: center;
+  }
+  .card-heading img{
+          width: 100px;
+          margin-left: 0px;
+          margin-top: 10px;
+          justify-content: center;
+  }
+
+  .card-heading span{
+          width: 170px;
+          margin-left: 10px;
+          font-size: 20px;
+          font-weight: 20%;
+          margin-right: 20px;
+          margin-top: 20px;
+          padding: 30px;
+  }
+
+      /* Line separating upper and lower parts */
+  .card-divider {
+      border-top: 1px solid chocolate;
+  }
+
+  .card-lower {
+      padding: 20px;
+      color: chocolate;
+  }
+
+/* animated container of questions */
+  .container-questions {
+      height: 400px; /* Set a fixed height for the container */
+      overflow: hidden; /* Hide content overflow */
+      border-radius: 15px; /* Add border-radius for curvy edges */
+      background-color: white; /* Pink background color */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      width: 100%; /* Adjusted width for better responsiveness */
+      margin: 0 auto; /* Center the container */
+      position: relative;
+      border: 1px outset #ff66b2; /* Border color */
+      box-shadow: 30px 30px 2px rgba(255,102,178, 0.3);
+      
+  }
+
+  /* Style for the typing animation container */
+  .typing-animation-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      z-index: 1; /* Ensure the typing animation is above other content */
+      position: absolute;
+      top: 20px; /* Adjust the top position as needed */
+      left: 20px; /* Adjust the left position as needed */
+  }
+
+  /* Style for the typing animation */
+  .typing-animation {
+      overflow: hidden;
+      white-space: nowrap;
+      margin-bottom: 10px;
+      font-size: 33px;
+      color: #ff66b2;
+      margin-left: 645px;
+      margin-top: 40px;
+      font-weight: bolder;
+      margin-top: 140px;
+  }
+
+  /* Style for the text container */
+  .text-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-left: 40px;
+      font-weight: bolder;
+      font-size: 20px; /* Increased font size for better visibility */
+      color: aliceblue;
+      position: relative;
+      z-index: 0; /* Ensure the text container is behind the typing animation */
+  }
+
+  /* Style for the two lines of text */
+  .text-line {
+      height: 50px; /* Set a fixed height for stability */
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: #555;
+      margin-top: 90px;
+  }
+
+  /* Style for the image container */
+  .image-container {
+      flex: 1;
+      background: url("{%static 'home/background.png' %}") center/cover; /*Set your image URL as background*/
+      height: 90%; /* Set the height of the image container */
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 84px;
+  }
+
+  /* Style for the cute button */
+  .cute-button {
+      padding: 10px 20px;
+      background-color: #ff66b2;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+  }
+
+  .cute-button:hover {
+      background-color: #e0518b;
+  }
+
+/* why minddoc */
+
+.whyminddoc{
+      margin-top: 220px;
+      margin-left: 470px;
+}
+.whyminddoc #h1{
+      left: 400px;
+      margin-bottom:10px;
+      color: #343470;
+      font-size: 55px;
+}
+
+.whycardcontainer {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-evenly;
+align-items: center;
+width:90%;
+box-shadow: 1px 14px 25px rgba(0, 0, 0, 0.1);
+border-radius: 10px;
+margin-left: 6%;
+}
+
+.card-why {
+margin: 5px;
+padding: 24px;
+text-align: center;
+background-color: #fff;
+box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+width: calc(33.33% - 20px); /* Three cards in one row */
+box-sizing: border-box;
+}
+
+.card-why:nth-child(4),
+.card-why:nth-child(5) {
+width: calc(50% - 100px); /* Two cards in the next row */
+}
+
+.card-why img {
+max-width: 15%;
+border-radius: 8%;
+margin-bottom: 10px;
+}
+
+.card-why h3 {
+margin: 1px;
+color: chocolate;
+font-size: 20px;
+}
+
+
+/* doctor details */
+.doctor{
+  margin-top: 180px;
+  margin-left: 470px;
+}
+
+.doctor #h1{
+  left: 400px;
+  margin-bottom:10px;
+  color: #343470;
+  font-size: 55px;
+}
+
+
+.doctor-container {
+display: flex;
+width: 90%;
+/* background-color: #fff; */
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+border-radius: 10px;
+overflow: hidden;
+justify-content: center;
+align-items: center;
+height: 7%;
+margin-left: 5%;
+background: linear-gradient(to left, white, #84acd1);
+/* background: radial-gradient(circle, white, #84acd1); */
+background: conic-gradient(from -215deg, white, #84acd1);
+}
+
+.doctor-image {
+border-radius: 10px 0 0 10px;
+margin-inline-end: -200px;
+}
+
+.doctor-image img {
+width: 60%;
+height: 60%;
+margin-top: 2px;
+
+}
+
+.doctor-details {
+padding: 80px;
+margin-right: 190px;
+}
+
+.doctor-details h2 {
+margin-bottom: 1px;
+color: black;
+margin-right: 67px;
+font-weight: bolder;
+}
+
+.details-list {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+.details-list li {
+margin-bottom: 10px;
+}
+
+.details-list span {
+font-weight: bold;
+}
+
+.details-list a {
+color: #007BFF;
+text-decoration: none;
+}
+
+.details-list a:hover {
+text-decoration: underline;
+} 

@@ -9,6 +9,20 @@ def home(request):
     records = Record.objects.all()
     return render(request, 'home/index.html', {'records': records})
 
+def mental_state(request):
+    return render(request, 'home/mental_state.html')
+
+def depression_issues(request):
+    return render(request, 'home/depression_issues.html')
+
+def anxiety_issues(request):
+    return render(request, 'home/anxiety_issues.html')
+
+def common_diseases(request):
+    return render(request, 'home/common_diseases.html')
+
+
+
 def login_user(request):
 
     # this will grab everything from the record table and copy it here

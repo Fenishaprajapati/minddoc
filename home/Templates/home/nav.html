@@ -67,7 +67,7 @@
     a{
         text-decoration: none;
     }
-    .logo {
+    .nav-logo {
                 width: 120px; 
                 height: auto;
                 left: 0px;
@@ -186,11 +186,11 @@
     <nav>
         <ul>
             <!-- {% comment %} <li class="logo"><img src="home/MindDoc.png"></li> {% endcomment %} -->
-            <li class="logo">MindDoc</li>
-            <li><a href="#home">Home</a></li>
+            <li class="nav-logo">MindDoc</li>
+            <li><a href="{% url 'home' %}">Home</a></li>
             <li class="dropdown"><a href="#mentalstate">Explore +</a>
                 <ul>
-                    <li><a href="#mentalstate">Mental State</a></li>
+                    <li><a href="{% url 'mental_state' %}">Mental State</a></li>
                     <li><a href="#phobias">Phobias</a></li>
                 </ul>
             </li>

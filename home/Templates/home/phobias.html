@@ -1,0 +1,73 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<style>
+    *{
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: Montserrat,sans-serif;
+    }
+    .first-question h1{      
+        color: #9A421C;
+        font-size: 38px;
+        margin-top: 220px;
+        margin-left: 450px;
+        margin-bottom: 25px;
+    }
+
+    .first-answer{
+        height: 300px;
+        width: 1200px;
+        border: 1px solid #FEE8DD;
+        margin-left: 45px;
+        background-image: url("{% static 'home/first-answer.jpg'%}");
+        background-position: 130% 47%;
+        background-repeat: no-repeat;
+        background-color: #FEE8DD;
+        border-radius: 5px;
+    }
+
+    .first-answer h3{
+        font-size: 17px;
+        padding-left: 29px;
+        padding-top: 29px;
+    }
+
+</style>
+
+<div class="main-heading">
+    <div class="first-question">
+        <h1>So what is this phobia ?</h1>
+    </div>
+
+    <div class="first-answer">
+        <h3><span style="color: #343470; font-weight: 600;">Imagine your brain being a scaredy-cat on roller skates.</span> <br>Phobia is like when that scaredy-cat sees something and freaks out so much<br> that it starts doing crazy tricks on its roller skates, like backflips and spins.
+            <br><br><br><span style="color: #343470; font-weight: 600;">In a formal tone,</span><br> A phobia is a type of anxiety disorder characterized by an excessive and irrational<br> fear of specific objects, situations, or activities. Individuals with phobias experience<br> intense and persistent fear or anxiety when exposed to the feared stimulus, often<br> leading to avoidance behavior.
+            
+        </h3>
+    </div>
+
+    <div class="second-question">
+        <!-- <h1>And how does these phobias develop ?</h1> -->
+    </div>
+
+    <div class="second-answer">
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', views.home, name="home"),
+    path('home/', views.home, name="home"),
     path('login/', views.login_user, name="login"),
     path('logout/', views.logout_user, name="logout"),
     path('register/', views.register_user, name="register"),
@@ -16,6 +16,7 @@ urlpatterns = [
     path('anxiety_issues/', views.anxiety_issues, name="anxiety_issues"),
     path('depression_issues/', views.depression_issues, name="depression_issues"),
     path('common_diseases/', views.common_diseases, name="common_diseases"),
+    path('phobias/', views.phobias, name="phobias"),
 ]
 
 if settings.DEBUG:

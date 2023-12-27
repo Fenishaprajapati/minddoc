@@ -21,6 +21,8 @@ def anxiety_issues(request):
 def common_diseases(request):
     return render(request, 'home/common_diseases.html')
 
+def phobias(request):
+    return render(request, 'home/phobias.html')
 
 
 def login_user(request):

@@ -4,70 +4,172 @@
 {% load static %}
 
 <style>
-    *{
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-          font-family: Montserrat,sans-serif;
-    }
-    .first-question h1{      
-        color: #9A421C;
-        font-size: 38px;
-        margin-top: 220px;
-        margin-left: 450px;
-        margin-bottom: 25px;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Montserrat, sans-serif;
     }
 
-    .first-answer{
+    #carouselExample {
+        margin-top: 170px;
+    }
+
+    .carousel-inner img {
+        width: 100%;
+        height: 600px;
+        object-fit: cover;
+        border-radius: 40px;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: black;
+        color: rgb(0, 255, 183);
+    }
+
+    .carousel-control-prev-icon {
+        margin-left: -160px; /* Adjust as needed */
+    }
+
+    .carousel-control-next-icon {
+        margin-left: 160px; /* Adjust as needed */
+    }
+
+    .three-parts{
+        margin-top: 200px;
+        margin-bottom: 40px;
+    }
+
+    .three-parts .first{
+        width: 1300px;
         height: 300px;
-        width: 1200px;
-        border: 1px solid #FEE8DD;
-        margin-left: 45px;
-        background-image: url("{% static 'home/first-answer.jpg'%}");
-        background-position: 130% 47%;
-        background-repeat: no-repeat;
-        background-color: #FEE8DD;
-        border-radius: 5px;
+        border: 1px solid rgb(255, 255, 255);
+        display: flex;
+        flex-direction: row;
     }
 
-    .first-answer h3{
-        font-size: 17px;
-        padding-left: 29px;
-        padding-top: 29px;
+    .first .outer{
+        width: 700px;
+        height: 300px;
+        background-color: #fee5f2;
+        border-radius: 10px;
+        z-index:0;
+        margin-right: 8px;
+        
     }
 
+    .first .inner{
+        width: 500px;
+        height: 300px;
+        border-radius: 10px 10px 10px 10px;
+        z-index: 1;
+        margin-right: 10px;
+    }
+
+    .outer h5{
+        color: #343470;
+        font-size: x-larger;
+        padding-left: 15px;
+        padding-top: 125px;
+        font-weight: 600;
+    }
+
+    .inner h4{
+        color: #343470;
+        font-size: x-larger;
+        padding-left: 10px;
+        padding-top: 125px;
+        font-weight: 600;
+    }
+
+    .inner h6{
+        padding-left: 10px;
+        color: #343470;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .inner h6:hover{
+        color: #d65725;
+    }
+
+    .first #inner3{
+        background-color: #E6F7FF;
+        border-radius: 10px;
+    }
+
+    .first #inner2{
+        background-color: #FFF1E6;
+    }
+
+    .first #inner1{
+        background-color: #f9f3d9;
+    }
+    
 </style>
+<!-- the damn carousel -->
+<div id="carouselExample" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'home/last3.png' %}" class="d-block w-100" alt="Slide 1">
+            <div class="carousel-caption d-none d-md-block">
+                <h5></h5>
+                <p></p>
+            </div>
+        </div>
 
-<div class="main-heading">
-    <div class="first-question">
-        <h1>So what is this phobia ?</h1>
+        <div class="carousel-item">
+            <img src="{% static 'home/first1.png' %}" class="d-block w-100" alt="Slide 2">
+            <div class="carousel-caption d-none d-md-block">
+                <h5></h5>
+                <p></p>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="{% static 'home/second2.png' %}" class="d-block w-100" alt="Slide 3">
+            <div class="carousel-caption d-none d-md-block">
+                <h5></h5>
+                <p class="third_p">
+                </p>
+            </div>
+        </div>
     </div>
 
-    <div class="first-answer">
-        <h3><span style="color: #343470; font-weight: 600;">Imagine your brain being a scaredy-cat on roller skates.</span> <br>Phobia is like when that scaredy-cat sees something and freaks out so much<br> that it starts doing crazy tricks on its roller skates, like backflips and spins.
-            <br><br><br><span style="color: #343470; font-weight: 600;">In a formal tone,</span><br> A phobia is a type of anxiety disorder characterized by an excessive and irrational<br> fear of specific objects, situations, or activities. Individuals with phobias experience<br> intense and persistent fear or anxiety when exposed to the feared stimulus, often<br> leading to avoidance behavior.
-            
-        </h3>
-    </div>
-
-    <div class="second-question">
-        <!-- <h1>And how does these phobias develop ?</h1> -->
-    </div>
-
-    <div class="second-answer">
-
-    </div>
+    <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only"></span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only"></span>
+    </a>
 </div>
 
+    <!-- Bootstrap JS and Popper.js -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-
-
-
-
-
-
-
-
-
+<div class="three-parts">
+    <div class="first">
+        <div class="outer">
+            <h5>Phobias could happen because of various..</h5>
+        </div>
+        <div class="inner" id="inner1">
+            <h4>ENTITIES</h4>
+            <h6><a>Know numerous of them..</a></h6>
+        </div>
+        <div class="inner" id="inner2">
+            <h4>OBJECTS</h4>
+            <h6><a>Know numerous of them..</a></h6>
+        </div>
+        <div class="inner" id="inner3">
+            <h4>SITUATIONS</h4>
+            <h6><a>Know numerous of them..</a></h6>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

@@ -37,7 +37,7 @@
     }
 
     .three-parts{
-        margin-top: 200px;
+        margin-top: 150px;
         margin-bottom: 40px;
     }
 
@@ -69,7 +69,7 @@
 
     .outer h5{
         color: #343470;
-        font-size: x-larger;
+        font-size: 25px;
         padding-left: 15px;
         padding-top: 125px;
         font-weight: 600;
@@ -95,18 +95,74 @@
     }
 
     .first #inner3{
-        background-color: #E6F7FF;
+        background-color: #bce8fe;
         border-radius: 10px;
     }
 
     .first #inner2{
-        background-color: #FFF1E6;
+        background-color: #d0effe;
     }
 
     .first #inner1{
-        background-color: #f9f3d9;
+        background-color: #E6F7FF;
     }
     
+
+
+    .lastone {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #F1F2ED;
+            border-radius: 20px;
+            width: 1300px;
+            height: 400px;
+            margin: 150px auto;
+            margin-bottom: 80px;
+        }
+
+        .lasttext {
+            max-width: 60%;
+            color: #343470;
+            margin-left: 50px;
+        }
+
+        .lasttext h4 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: bolder;
+        }
+
+        .lasttext h5 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .lasttext button {
+            background-color: #f73d9d;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .lasttext button:hover {
+            background-color: #e00476;
+        }
+
+        .lastimage {
+            margin-right: 0px;
+            overflow: hidden;
+            border-radius: 50%;
+        }
+
+        .lastimage img {
+            width: 340px;
+            height: 400px;
+        }
+
 </style>
 <!-- the damn carousel -->
 <div id="carouselExample" class="carousel slide" data-ride="carousel">
@@ -159,17 +215,33 @@
         </div>
         <div class="inner" id="inner1">
             <h4>ENTITIES</h4>
-            <h6><a>Know numerous of them..</a></h6>
+            <h6><a href="{% url 'entities' %}">Know numerous of them..</a></h6>
         </div>
         <div class="inner" id="inner2">
             <h4>OBJECTS</h4>
-            <h6><a>Know numerous of them..</a></h6>
+            <h6><a href="{% url 'objects' %}">Know numerous of them..</a></h6>
         </div>
         <div class="inner" id="inner3">
             <h4>SITUATIONS</h4>
-            <h6><a>Know numerous of them..</a></h6>
+            <h6><a href="{% url 'situations' %}">Know numerous of them..</a></h6>
         </div>
     </div>
 </div>
+
+<div class="lastone">
+        <div class="lasttext">
+            <h4>There could be other phobias you suffer other than we depicted above.</h4>
+            <h5>Don't Panic! We got you.</h5>
+            <h5>Consult our experienced psychiatrist.</h5>
+            <a href="{% url 'experts' %}" class="consult-button">
+                <button>Consult!</button>
+            </a>
+        </div>
+
+        <div class="lastimage">
+            <img src="{%static 'home/handle-with-care.jpg'%}" alt="pic">
+        </div>
+</div>
+
 
 {% endblock %}

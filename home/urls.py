@@ -17,6 +17,10 @@ urlpatterns = [
     path('depression_issues/', views.depression_issues, name="depression_issues"),
     path('common_diseases/', views.common_diseases, name="common_diseases"),
     path('phobias/', views.phobias, name="phobias"),
+    path('entities/', views.entities, name="entities"),
+    path('objects/', views.objects, name="objects"),
+    path('situations/', views.situations, name="situations"),
+    path('experts/', views.experts, name="experts"),
 ]
 
 if settings.DEBUG:

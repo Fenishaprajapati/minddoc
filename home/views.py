@@ -24,6 +24,17 @@ def common_diseases(request):
 def phobias(request):
     return render(request, 'home/phobias.html')
 
+def entities(request):
+    return render(request, 'home/entities.html')
+
+def objects(request):
+    return render(request, 'home/objects.html')
+
+def situations(request):
+    return render(request, 'home/situations.html')
+
+def experts(request):
+    return render(request, 'home/experts.html')
 
 def login_user(request):
 

@@ -80,13 +80,9 @@
                 font-family:Georgia, 'Times New Roman', Times, serif;
                 top:-6%;
                 left:0;
-                /* height: 1px; */
             }
-            .logo img{
-                /* height: 50px;
-                margin-right: 490px; */
-            }
-    .logo::after
+            
+    .logo:hover
             {
                 background: white;
             }
@@ -132,17 +128,17 @@
         transform: translate(-50%, -50%);
         z-index: -1;
         opacity: 0;
-        font-color: black;
+        color: black;
     }
 
-    {% comment %} nav ul li:hover{
+    /* {% comment %} nav ul li:hover{
         color: black;
-    } {% endcomment %}
+    } {% endcomment %} */
 
     nav ul li:hover::after{
         top: 60%;
         opacity: 1;
-        font-color: black;
+        color: black;
     }
 
     /* Dropdown styles */
@@ -185,7 +181,6 @@
 <header>
     <nav>
         <ul>
-            <!-- {% comment %} <li class="logo"><img src="home/MindDoc.png"></li> {% endcomment %} -->
             <li class="nav-logo">MindDoc</li>
             <li><a href="{% url 'home' %}">Home</a></li>
             <li class="dropdown"><a href="#mentalstate">Explore +</a>
@@ -194,7 +189,7 @@
                     <li><a href="{% url 'phobias' %}">Phobias</a></li>
                 </ul>
             </li>
-            <li><a href="#experts">Experts</a></li>
+            <li><a href="{% url 'experts' %}">Experts</a></li>
             <li><a href="#goalbasedcare">Goal based care</a></li>
             <li class="dropdown"><a href="#mentalstate">Resources +</a>
                 <ul>

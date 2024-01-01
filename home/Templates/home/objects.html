@@ -40,10 +40,93 @@
     .submenu img{
         height: 50px;
         width: 50px;
-
     }
 
+    .submenu h3:hover{
+        color: #ef057e;
+        font-size: larger;
+        transition: 0.5s ease-out;
+    }
+
+/* cards */
+    .objectcards{
+        width: 1300px;
+        height: 2190px;
+        border: 1px solid rgb(255, 255, 255);
+        margin-top: 90px;
+        margin-left: 0%;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        row-gap: 100px;
+    }
+
+    .objectcards .item{
+        width: 320px;
+        height: 450px;
+        background-color:#fdf4ea;
+        border-radius: 20px;
+        cursor: pointer;
+        column-gap: 40px;
+    }
+
+    .end{
+       justify-self: end;
+    }
+    .center{
+        justify-self: center;
+    }
+
+    .item img{
+        height: 200px;
+        width: 300px;
+        margin-left: 11px;
+        margin-top: 11px;
+        border-radius: 20px;
+    }
+
+    .item h4{
+        color:#343470;
+        font-size: 23px;
+        margin-top: 30px;
+        text-wrap: wrap;
+        text-align: left;
+        margin-left: 18px;
+        font-weight: 600;
+    }
+
+   
+    .item button{
+        background-color: #FDF4EA;
+        color: #343470;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 0px;
+        font-weight: bolder;
+        margin-top: 40px;
+        text-decoration: underline;
+        position: absolute;
+    }
+
+    .item button:hover{
+        color: #ef057e;
+        font-size: larger;
+        transition: 0.5s;
+    }
+
+    .objectcards a{
+        font-weight: 300;
+        font-size: large;
+        margin-left: 0px;
+        cursor: pointer;
+    }
+    
+
+    
 </style>
+
 <!-- menu -->
 <div class="menu">
     <a href="{%url 'objects' %}">
@@ -69,7 +152,100 @@
 
 <!-- cards -->
 <div class="objectcards">
-    
-</div>
+    <div class="item item1">
+        <img src="{%static 'home/NOSOCOMEPHOBIA.jpg' %}">
+        <h4>Do you find hospitals scary?</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item2 center">
+        <img src="{%static 'home/hemophobia.jpg' %}">
+        <h4>HEMOPHOBIA- fear of blood</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item3 end">
+        <img src="{%static 'home/photophobia.jpg' %}">
+        <h4>Does extreme light freakes you out?</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item4 row2">
+        <img src="{%static 'home/trypophobia.jpg' %}">
+        <h4>When you find irrecgular patterns creepy.</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item5 center row2">
+        <img src="{%static 'home/trypandophobia.jpg' %}">
+        <h4>Are needles your weaknessssss?</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item6 end row2">
+        <img src="{%static 'home/Nomophobia1.jpg' %}">
+        <h4>Common trouble.. Addiction of smartphones </h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item7 row3">
+        <img src="{%static 'home/pyrophobia1.jpg' %}">
+        <h4>Fear of fire- PYROPHOBIA</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item8 center row3">
+        <img src="{%static 'home/acidophobia.jpg' %}">
+        <h4>Fear of acidic substances</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item9 end row3">
+        <img src="{%static 'home/kinemortophobia.jpg' %}">
+        <h4>Does zombies makes you jump out of your sofa?</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item10 row4"><img src="{%static 'home/pediophobia.jpg' %}">
+        <h4>Fear of dolls<br>You can't watch annabelle?</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item11 center row4">
+        <img src="{%static 'home/Eisoptrophobia (2).jpg' %}">
+        <h4>Do you often get freaked out because of mirrors or reflection?</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item12 end row4">
+        <img src="{%static 'home/Chronomentrophobia1.jpg' %}">
+        <h4>Can't stand a voice: tick-tick?</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+</div><br><br>
 
 {% endblock %}

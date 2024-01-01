@@ -1,0 +1,252 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Montserrat, sans-serif;
+    }
+
+/* menu */
+    .menu{
+        height: 67px;
+        width: 1300px;
+        border: 1px solid rgb(255, 255, 255);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        margin-top: 170px;
+        margin-left: -25px
+    }
+    .submenu h3{
+        color:#1F405A;
+        margin-top: 10px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .submenu{
+        border: 2px solid rgb(255, 255, 255);
+        border-right-color: grey;
+        text-align: center;
+        width: 433px;
+        height: 67px;
+    }
+    .submenu img{
+        height: 50px;
+        width: 50px;
+    }
+
+    .submenu h3:hover{
+        color: #ef057e;
+        font-size: larger;
+        transition: 0.5s ease-out;
+    }
+
+/* cards */
+    .objectcards{
+        width: 1300px;
+        height: 2190px;
+        border: 1px solid rgb(255, 255, 255);
+        margin-top: 90px;
+        margin-left: 0%;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        row-gap: 100px;
+    }
+
+    .objectcards .item{
+        width: 320px;
+        height: 450px;
+        background-color:#fdf4ea;
+        border-radius: 20px;
+        cursor: pointer;
+        column-gap: 40px;
+    }
+
+    .end{
+       justify-self: end;
+    }
+    .center{
+        justify-self: center;
+    }
+
+    .item img{
+        height: 200px;
+        width: 300px;
+        margin-left: 11px;
+        margin-top: 11px;
+        border-radius: 20px;
+    }
+
+    .item h4{
+        color:#343470;
+        font-size: 23px;
+        margin-top: 30px;
+        text-wrap: wrap;
+        text-align: left;
+        margin-left: 18px;
+        font-weight: 600;
+    }
+
+   
+    .item button{
+        background-color: #FDF4EA;
+        color: #343470;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 0px;
+        font-weight: bolder;
+        margin-top: 40px;
+        text-decoration: underline;
+        position: absolute;
+    }
+
+    .item button:hover{
+        color: #ef057e;
+        font-size: larger;
+        transition: 0.5s;
+    }
+
+    .objectcards a{
+        font-weight: 300;
+        font-size: large;
+        margin-left: 0px;
+        cursor: pointer;
+    }
+    
+
+    
+</style>
+
+<!-- menu -->
+<div class="menu">
+    <a href="{%url 'objects' %}">
+        <div class="submenu obj">
+            <img src="{%static 'home/obj.png'%}">
+            <h3>OBJECTS</h3>
+        </div>
+    </a>
+
+    <a href="{%url 'subjects' %}">
+        <div class="submenu sub">
+            <img src="{%static 'home/sub.png'%}">
+            <h3>SUBJECTS</h3>
+        </div>
+    </a>
+    <a href="{%url 'situations' %}">
+        <div class="submenu sit" style="border-right-color: white;">
+            <img src="{%static 'home/sit.png'%}">
+            <h3>SITUATIONS</h3>
+        </div>
+    </a>
+</div>
+
+<!-- cards -->
+<div class="objectcards">
+    <div class="item item1">
+        <img src="{%static 'home/anthrophobia.jpg' %}">
+        <h4>Fear of heavy crowd or people</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item2 center">
+        <img src="{%static 'home/zoophobia3.jpg' %}">
+        <h4>Does being around animals creeps you out?</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item3 end">
+        <img src="{%static 'home/clowns.jpg' %}">
+        <h4 style="margin-top: 50px;">Fear of clowns</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+<!-- ------------- -->
+    <div class="item item4 row2">
+        <img src="{%static 'home/genophobia (2).jpg' %}">
+        <h4>Fear of sexual activities/relationships</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item5 center row2">
+        <img src="{%static 'home/cacophobia.jpg' %}">
+        <h4>Do you get anxious when it's not a good hair day or good skin day?</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item6 end row2">
+        <img src="{%static 'home/automatonophobia.jpg' %}">
+        <h4>Is it your pet peeve finding humanoid figures somewhere?</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item7 row3">
+        <img src="{%static 'home/ombrophobia2.jpg' %}">
+        <h4>When Monsoon is not your very dearest time of the year..</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item8 center row3">
+        <img src="{%static 'home/kosmikophobia2.jpg' %}">
+        <h4>Fear of cosmic phenomena</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item9 end row3">
+        <img src="{%static 'home/archnophobia.jpg' %}">
+        <h4>Spiderman.. you find him weird,<br> fear of spiders.</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item10 row4"><img src="{%static 'home/ophidiophobia.jpg' %}">
+        <h4>Fear of snakes- OPHIDIOPHOBIA</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item11 center row4">
+        <img src="{%static 'home/antomophobia.jpg' %}">
+        <h4>Can not stand a sight of straight line of multiple insects?</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item12 end row4">
+        <img src="{%static 'home/hylophobia1.jpg' %}">
+        <h4>FEAR OF FORESTS</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+</div><br><br>
+
+{% endblock %}
+ 

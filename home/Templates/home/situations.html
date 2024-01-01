@@ -1,0 +1,251 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Montserrat, sans-serif;
+    }
+
+/* menu */
+    .menu{
+        height: 67px;
+        width: 1300px;
+        border: 1px solid rgb(255, 255, 255);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        margin-top: 170px;
+        margin-left: -25px
+    }
+    .submenu h3{
+        color:#1F405A;
+        margin-top: 10px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .submenu{
+        border: 2px solid rgb(255, 255, 255);
+        border-right-color: grey;
+        text-align: center;
+        width: 433px;
+        height: 67px;
+    }
+    .submenu img{
+        height: 50px;
+        width: 50px;
+    }
+
+    .submenu h3:hover{
+        color: #ef057e;
+        font-size: larger;
+        transition: 0.5s ease-out;
+    }
+
+/* cards */
+    .objectcards{
+        width: 1300px;
+        height: 2190px;
+        border: 1px solid rgb(255, 255, 255);
+        margin-top: 90px;
+        margin-left: 0%;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        row-gap: 100px;
+    }
+
+    .objectcards .item{
+        width: 320px;
+        height: 450px;
+        background-color:#fdf4ea;
+        border-radius: 20px;
+        cursor: pointer;
+        column-gap: 40px;
+    }
+
+    .end{
+       justify-self: end;
+    }
+    .center{
+        justify-self: center;
+    }
+
+    .item img{
+        height: 200px;
+        width: 300px;
+        margin-left: 11px;
+        margin-top: 11px;
+        border-radius: 20px;
+    }
+
+    .item h4{
+        color:#343470;
+        font-size: 23px;
+        margin-top: 30px;
+        text-wrap: wrap;
+        text-align: left;
+        margin-left: 18px;
+        font-weight: 600;
+    }
+
+   
+    .item button{
+        background-color: #FDF4EA;
+        color: #343470;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 0px;
+        font-weight: bolder;
+        margin-top: 40px;
+        text-decoration: underline;
+        position: sticky;
+    }
+
+    .item button:hover{
+        color: #ef057e;
+        font-size: larger;
+        transition: 0.5s;
+    }
+
+    .objectcards a{
+        font-weight: 300;
+        font-size: large;
+        margin-left: 0px;
+        cursor: pointer;
+    }
+    
+
+    
+</style>
+
+<!-- menu -->
+<div class="menu">
+    <a href="{%url 'objects' %}">
+        <div class="submenu obj">
+            <img src="{%static 'home/obj.png'%}">
+            <h3>OBJECTS</h3>
+        </div>
+    </a>
+
+    <a href="{%url 'subjects' %}">
+        <div class="submenu sub">
+            <img src="{%static 'home/sub.png'%}">
+            <h3>SUBJECTS</h3>
+        </div>
+    </a>
+    <a href="{%url 'situations' %}">
+        <div class="submenu sit" style="border-right-color: white;">
+            <img src="{%static 'home/sit.png'%}">
+            <h3>SITUATIONS</h3>
+        </div>
+    </a>
+</div>
+
+<!-- cards -->
+<div class="objectcards">
+    <div class="item item1">
+        <img src="{%static 'home/acrophobia.jpg' %}">
+        <h4>Are you scared of heights?</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item2 center">
+        <img src="{%static 'home/claustrophobia.jpg' %}">
+        <h4>Do you feel conjusted in packed places?</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item3 end">
+        <img src="{%static 'home/Aquaphobia.jpg' %}">
+        <h4>Do you feel peculiar by looking at waterbodies?</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item4 row2">
+        <img src="{%static 'home/glassobphobia.jpg' %}">
+        <h4>When you can not do speak in public</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item5 center row2">
+        <img src="{%static 'home/monophobia.jpg' %}">
+        <h4>Fear of being alone</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item6 end row2">
+        <img src="{%static 'home/nyctophobia (3).jpg' %}">
+        <h4>Nyctophobia- fear of darkness</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item7 row3">
+        <img src="{%static 'home/astrophobia.jpg' %}">
+        <h4>Fear of thunder- ASTRAPHOBIA</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item8 center row3">
+        <img src="{%static 'home/agorophobia.jpg' %}">
+        <h4>AGORAPHOBIA- being in a place where escape might be difficult</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item9 end row3">
+        <img src="{%static 'home/taphophobia2.jpg' %}">
+        <h4>Fear of being buried alive</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item10 row4"><img src="{%static 'home/rhabdophobia.jpg' %}">
+        <h4>Fear of being enchanted by someone</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item11 center row4">
+        <img src="{%static 'home/fomo.jpg' %}">
+        <h4>Do you often feel left out or FOMO?</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+
+    <div class="item item12 end row4">
+        <img src="{%static 'home/pyrophobia1.jpg' %}">
+        <h4>Fear of fire- PYROPHOBIA</h4>
+        <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+        </a>
+    </div>
+</div><br><br>
+
+{% endblock %}

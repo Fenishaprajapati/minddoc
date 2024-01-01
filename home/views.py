@@ -24,8 +24,8 @@ def common_diseases(request):
 def phobias(request):
     return render(request, 'home/phobias.html')
 
-def entities(request):
-    return render(request, 'home/entities.html')
+def subjects(request):
+    return render(request, 'home/subjects.html')
 
 def objects(request):
     return render(request, 'home/objects.html')
@@ -35,6 +35,12 @@ def situations(request):
 
 def experts(request):
     return render(request, 'home/experts.html')
+
+def premium(request):
+    return render(request, 'home/premium.html')
+
+def goal_based_care(request):
+    return render(request, 'home/goal_based_care.html')
 
 def login_user(request):
 

@@ -1,0 +1,75 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Montserrat, sans-serif;
+    }
+
+/* menu */
+    .menu{
+        height: 67px;
+        width: 1300px;
+        border: 1px solid rgb(255, 255, 255);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        margin-top: 170px;
+        margin-left: -25px
+    }
+    .submenu h3{
+        color:#1F405A;
+        margin-top: 10px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .submenu{
+        border: 2px solid rgb(255, 255, 255);
+        border-right-color: grey;
+        text-align: center;
+        width: 433px;
+        height: 67px;
+    }
+    .submenu img{
+        height: 50px;
+        width: 50px;
+
+    }
+
+</style>
+<!-- menu -->
+<div class="menu">
+    <a href="{%url 'objects' %}">
+        <div class="submenu obj">
+            <img src="{%static 'home/obj.png'%}">
+            <h3>OBJECTS</h3>
+        </div>
+    </a>
+
+    <a href="{%url 'subjects' %}">
+        <div class="submenu sub">
+            <img src="{%static 'home/sub.png'%}">
+            <h3>SUBJECTS</h3>
+        </div>
+    </a>
+    <a href="{%url 'situations' %}">
+        <div class="submenu sit" style="border-right-color: white;">
+            <img src="{%static 'home/sit.png'%}">
+            <h3>SITUATIONS</h3>
+        </div>
+    </a>
+</div>
+
+<!-- cards -->
+<div class="objectcards">
+    
+</div>
+
+{% endblock %}

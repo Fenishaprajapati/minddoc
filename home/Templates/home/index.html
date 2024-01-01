@@ -13,35 +13,50 @@
 
       
         .main{
-            /* display: inline-block; */
-            /* border: 2px solid rgb(201, 186, 186); */
-            justify-content: space-around;
-            height: 50%;
+            height: 570px;
+            position: relative;
+            width: 79%;
+            margin-top: 265px;
+            margin-left: 100px;
+            padding: 10px 10%;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            box-sizing: border-box;
-            align-items: center;
+            height: 100%;
+            background-image: url("{% static 'home/mainbackground.png' %}");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            animation: moveupBackground 1s ease-in-out forwards; /* Adjust the animation duration and timing function as needed */
+            z-index: 0;
         }
+
+        @keyframes moveupBackground {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .item{
-             display: inline-block;
-            /*flex-direction:column;
-            flex-wrap:wrap;  */
+            display: inline-block;
             justify-content: space-around;
+            position: relative;
+            z-index: 1;
         }
-        #photo {
-            height: 100px;  
-        }
-        #photo img {
-            height: 50%;
-            width: auto;
-            margin-left: 600px;
-            position:absolute;
-            left: 380px;
-            top:250px;
-        }     
     
         #text {
-            margin-top: 270px;
-            margin-left: -100px;
+            margin-top: -100px;
+            margin-left: 40px;
+            text-align: center;
         }
     
         #text h1 {
@@ -49,38 +64,34 @@
             margin-bottom:10px;
             color: chocolate;
             font-size: 55px;
+            animation-delay: 0.5s;
         }
 
         #text h3{
             font-size: 20px;
             color: rgb(118, 117, 117);
+            text-wrap: nowrap;
+            animation-delay: 1s;
+        } 
+
+        .anim{
+            opacity: 0;
+            transform: translateY(30px);
+            animation: moveup 0.5s linear forwards;
         }
 
-        #text h2{
-            font-size: 30px;
-            color: green;
-        }
-        .my-button {
-        display: inline-block;
-        padding: 10px 60px;
-        font-size: 16px;
-        text-align: center;
-        text-decoration: none;
-        cursor: pointer;
-        border: 1px solid #343470;
-        color: #ffffff;
-        background-color: #275070;
-        border-radius: 5px;
-        transition: background-color 0.3s, color 0.3s;
+        @keyframes moveup{
+            100%{
+                opacity: 1;
+                transform: translateY(0px);
+            }
         }
 
-        .my-button:hover {
-        background-color: #ffffff;
-        color: #343470;
-        }
+
+
         
         .aboutus{
-            margin-top: 270px;
+            margin-top: 150px;
             margin-left: 470px;
         }
         .aboutus #h1{
@@ -276,11 +287,12 @@
         /* Style for the image container */
         .image-container {
             flex: 1;
-            background: url("{%static 'home/background.png' %}") center/cover; /*Set your image URL as background*/
-            height: 90%; /* Set the height of the image container */
-            border-radius: 10px;
+            background: url("{%static 'home/back2.jpg' %}") center/cover; /*Set your image URL as background*/
+            height: 100%; /* Set the height of the image container */
+            border-radius: 15px 0px 0px 15px;
             overflow: hidden;
-            margin-top: 84px;
+            margin-top: 5px;
+            margin-left:5px;
         }
 
         /* Style for the cute button */
@@ -433,16 +445,11 @@
     <div class="main">
         <div class="item" id="text">
             <br><br>
-            <h1>Mental Health Matters.</h1>
-            <h3>Navigating anxiety issues, depression, phobias, or brain concerns can be overwhelming.</h3>
-            <h3 style="text-decoration:underline;">We got you.</h3>
-            <br><br><br>
-            <h3 style="color:#343470; font-size: 20px; font-weight: 200px;">Know your current mental state better by filling a small questionnaire |<br></h3>
-            <a href="#" class="my-button">Take a Quiz</a>  
+            <h1 class="anim">Mental Health Matters.</h1>
+            <h3 class="anim">Navigating anxiety issues, depression, phobias, or brain concerns can be overwhelming.</h3>
+            <h3 style="text-decoration:underline; animation-delay: 1.5s;" class="anim">We got you.</h3> 
         </div>
-        <div class="item" id="photo">
-            <img src="{% static 'home/Freudian Mommy.png' %}" alt="logo">
-        </div>
+        <div class="background-image"></div>
     </div>
 
 <div class="aboutus">
@@ -593,8 +600,6 @@
             <li><span>Specialization:</span>Neuro-Psychiatry</li>
             <li><span>Experience:</span> 15 years</li>
             <li><span>Email:</span> <a href="hubofpsychiatry9999@gmail.com">hubofpsychiatry9999@gmail.com</a></li>
-            <li><span>Phone:</span> +91 9712305042</li>
-            <li><span>Address:</span> Infinity Tower, Surat</li>
           </ul>
         </div>
     

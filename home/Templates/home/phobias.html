@@ -36,76 +36,147 @@
         margin-left: 160px; /* Adjust as needed */
     }
 
-    .three-parts{
-        margin-top: 150px;
-        margin-bottom: 40px;
-    }
 
-    .three-parts .first{
-        width: 1300px;
-        height: 300px;
+
+
+
+    .three-parts{
+        width: 1500px;
+        height: 450px;
         border: 1px solid rgb(255, 255, 255);
+        margin-top: 10px;
+        margin-left: -110px;
         display: flex;
         flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        margin-bottom: 100px;
     }
 
-    .first .outer{
-        width: 700px;
-        height: 300px;
-        background-color: #fee5f2;
-        border-radius: 10px;
-        z-index:0;
-        margin-right: 8px;
-        
+    .three-parts .outer{
+        width: 320px;
+        height: 450px;
+        background-color:#1F405A;
+        border-radius: 20px;
+        cursor: pointer;  
     }
 
-    .first .inner{
-        width: 500px;
-        height: 300px;
-        border-radius: 10px 10px 10px 10px;
-        z-index: 1;
-        margin-right: 10px;
+    .three-parts .inner{
+        width: 320px;
+        height: 450px;
+        background-color:#fdf4ea;
+        border-radius: 20px;
     }
 
-    .outer h5{
-        color: #343470;
-        font-size: 25px;
-        padding-left: 15px;
-        padding-top: 125px;
-        font-weight: 600;
+    .three-parts .outer img{
+        height: 200px;
+        width: 300px;
+        margin-left: 11px;
+        margin-top: 11px;
+        border-radius: 20px;
     }
 
-    .inner h4{
-        color: #343470;
-        font-size: x-larger;
-        padding-left: 10px;
-        padding-top: 125px;
-        font-weight: 600;
+    .three-parts .outer h4{
+        color: white;
+        font-size: 17px;
+        margin-top: 20px;
+        text-wrap: wrap;
+        text-align: left;
+        margin-left: 18px;
+        font-weight: light;
+
+    }
+    .three-parts .outer h3{
+        color: white;
+        font-size: 23px;
+        margin-top: 39px;
+        text-wrap: wrap;
+        text-align: left;
+        margin-left: 22px;
+        font-weight: bolder;
+        margin-bottom: 20px;
     }
 
-    .inner h6{
-        padding-left: 10px;
-        color: #343470;
+    .three-parts button{
+        background-color: #ffffff;
+        color: black;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
         cursor: pointer;
+        margin-left: 18px;
+        font-weight: bolder;
+        margin-top: -20px;
+    }
+    
+    .three-parts button:hover {
+            background-color: #dde8f7;
+    }
+
+    .all-of-them{
+        
+        width: 1400px;
+        border: 1px solid rgb(255, 255, 255);
+    }
+
+    .all-of-them a{
+        color: black;
+        font-weight: 300;
+        font-size: large;
+        margin-left: 1240px;
+        cursor: pointer;
+    }
+    .all-of-them a:hover{
+        color:#1F405A;
+        font-size: x-large;
+        transition: 0.3s;
+    }
+
+    .inner img{
+        height: 200px;
+        width: 300px;
+        margin-left: 11px;
+        margin-top: 11px;
+        border-radius: 20px;
+    }
+
+    .three-parts .inner h4{
+        color:#343470;
+        font-size: 23px;
+        margin-top: 30px;
+        text-wrap: wrap;
+        text-align: left;
+        margin-left: 18px;
+        font-weight: 600;
+    }
+    
+    .three-parts .inner button{
+        background-color: #FDF4EA;
+        color: #343470;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 0px;
+        font-weight: bolder;
+        margin-top: 40px;
         text-decoration: underline;
     }
 
-    .inner h6:hover{
-        color: #d65725;
+    .three-parts .inner button:hover{
+        color: black;
     }
+    
+    .three-parts .inner img{
+        height: 200px;
+        width: 300px;
+        margin-left: 9px;
+        margin-top: 11px;
+        border-radius: 20px;
+    }
+   
 
-    .first #inner3{
-        background-color: #bce8fe;
-        border-radius: 10px;
-    }
-
-    .first #inner2{
-        background-color: #d0effe;
-    }
-
-    .first #inner1{
-        background-color: #E6F7FF;
-    }
+    
     
 
 
@@ -202,31 +273,124 @@
         <span class="sr-only"></span>
     </a>
 </div>
-
     <!-- Bootstrap JS and Popper.js -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+
+<br><br>
+<div class="all-of-them">
+    <a href="{%url 'objects' %}">All of them &#x2192;</a>
+</div>
+<a href="{%url 'objects' %}">
 <div class="three-parts">
-    <div class="first">
+    
         <div class="outer">
-            <h5>Phobias could happen because of various..</h5>
+            <img src="{%static 'home/objects (1).png' %}">
+            <h4>Phobias could take place because of various..</h4>
+            <h3>OBJECTS</h3>
+            <a href="{%url 'objects' %}">
+                <button>Know more!</button>
+            </a>
         </div>
         <div class="inner" id="inner1">
-            <h4>ENTITIES</h4>
-            <h6><a href="{% url 'entities' %}">Know numerous of them..</a></h6>
-        </div>
+            <img src="{%static 'home/NOSOCOMEPHOBIA.jpg' %}">
+            <h4>Do you find hospitals scary?</h4>
+            <a href="">
+                <button>Read blog</button>
+            </a>
+        </div>  
         <div class="inner" id="inner2">
-            <h4>OBJECTS</h4>
-            <h6><a href="{% url 'objects' %}">Know numerous of them..</a></h6>
+            <img src="{%static 'home/hemophobia.jpg' %}">
+            <h4>HEMOPHOBIA- fear of blood</h4>
+            <a href="">
+                <button>Read blog</button>
+            </a>
         </div>
         <div class="inner" id="inner3">
-            <h4>SITUATIONS</h4>
-            <h6><a href="{% url 'situations' %}">Know numerous of them..</a></h6>
+            <img src="{%static 'home/photophobia.jpg' %}">
+            <h4>Does extreme light freakes you out?</h4>
+            <a href="">
+                <button>Read blog</button>
+            </a>
         </div>
-    </div>
 </div>
+</a>
+
+<br><br>
+<div class="all-of-them">
+    <a href="{%url 'subjects' %}">All of them &#x2192;</a>
+</div>
+<a href="{%url 'subjects' %}">
+<div class="three-parts">
+    <div class="outer">
+        <img src="{%static 'home/subjects.png' %}">
+        <h4>Phobias could take place because of various..</h4>
+        <h3>SUBJECTS</h3>
+        <a href="{%url 'subjects' %}">
+            <button>Know more!</button>
+        </a>
+    </div>
+    <div class="inner" id="inner1">
+        <img src="{%static 'home/anthrophobia.jpg' %}">
+        <h4>Fear of heavy crowd or people</h4>
+        <a href="">
+            <button>Read blog</button>
+        </a>
+    </div>  
+    <div class="inner" id="inner2">
+        <img src="{%static 'home/zoophobia3.jpg' %}">
+        <h4>Does being around animals creeps you out?</h4>
+        <a href="">
+            <button>Read blog</button>
+        </a>
+    </div>
+    <div class="inner" id="inner3">
+        <img src="{%static 'home/clowns.jpg' %}">
+        <h4 style="margin-top: 50px;">Fear of clowns</h4>
+        <a href="">
+            <button>Read blog</button>
+        </a>
+    </div>
+</div></a>
+
+<br><br>
+<div class="all-of-them">
+    <a href="{%url 'situations' %}">All of them &#x2192;</a>
+</div>
+<a href="{%url 'situations' %}">
+<div class="three-parts">
+    <div class="outer">
+        <img src="{%static 'home/situations1.png' %}">
+        <h4>Phobias could take place because of various..</h4>
+        <h3>SITUATIONS</h3>
+        <a href="{%url 'situations' %}">
+            <button>Know more!</button>
+        </a>
+    </div>
+    <div class="inner" id="inner1">
+        <img src="{%static 'home/acrophobia.jpg' %}">
+        <h4>Are you scared of heights?</h4>
+        <a href="">
+            <button>Read blog</button>
+        </a>
+    </div>  
+    <div class="inner" id="inner2">
+        <img src="{%static 'home/claustrophobia.jpg' %}">
+        <h4>Do you feel conjusted in packed places?</h4>
+        <a href="">
+            <button>Read blog</button>
+        </a>
+    </div>
+    <div class="inner" id="inner3">
+        <img src="{%static 'home/Aquaphobia.jpg' %}">
+        <h4>Do you feel peculiar by looking at waterbodies?</h4>
+        <a href="">
+            <button>Read blog</button>
+        </a>
+    </div>
+</div></a>
 
 <div class="lastone">
         <div class="lasttext">

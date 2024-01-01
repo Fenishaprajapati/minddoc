@@ -3,4 +3,329 @@
 {% block content %}
 {% load static %}
 
+<style>
+    .doctor{
+        margin-top: 180px;
+        margin-left: 470px;
+    }
+
+    .doctor #h1{
+        left: 400px;
+        margin-bottom:10px;
+        color: chocolate;
+        font-size: 35px;
+    }
+
+/*  ------------------  */
+    .doctor-container {
+      display: flex;
+      width: 1300px;
+      background-color: #fff;
+      overflow: hidden;
+      height: 7%;
+      margin-left: -5px;
+      flex-direction: row;
+      border-radius: 20px;
+      border: 1px solid rgb(255, 255, 255);
+      margin-top: 30px;
+      box-shadow: 3px 3px 1px 36px #e8f3fd;
+    }
+
+    .doctor-image {
+      border-radius: 10px 0 0 10px;
+      margin-inline-end: -100px;
+    }
+
+    .doctor-image img {
+      width: 50%;
+      height: 90%;
+      margin-top: 18px;
+      margin-left: 140px;
+    }
+
+    .doctor-details {
+      margin-right: 210px;
+      margin-left: 60px;
+      margin-top: 64px;
+    }
+
+    .doctor-details h2 {
+      margin-bottom: 1px;
+      color: #343470;
+      margin-right: 67px;
+      font-weight: bold;
+      font-size: 40px;
+      text-wrap: nowrap;
+    }
+
+    .details-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .details-list li {
+      margin-bottom: 10px;
+    }
+
+    .details-list span {
+      font-weight: bold;
+    }
+
+    .details-list a {
+      color: chocolate;
+      text-decoration: none;
+    }
+
+    .details-list a:hover {
+      text-decoration: underline;
+      color: #343470;
+    } 
+
+/* we-only-work-with-best     */
+
+    .we-only-work-with-best #h2{
+        color:#343470;
+        margin-top: 150px;
+        margin-left: 450px;
+    }
+
+    .we-only-work-with-best-cards{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .we-only-work-with-best .we-only-work-with-best-card{
+        width:300px;
+        height: 350px;
+        overflow: hidden;
+        margin-top:20px;
+        cursor: pointer;
+        border-radius: 10px;
+        
+    }
+
+    .we-only-work-with-best-card{
+        background-color: #FEFBF9;
+        border: 0.5px solid rgb(220, 219, 219);
+    }
+    
+    
+    .we-only-work-with-best-card img{
+        width: 170px;
+        height: 170px;
+        margin-top: 30px;
+        margin-left: 70px;
+    }
+
+    .we-only-work-with-best-card h4{
+        color:#343470;
+        font-size: 23px;
+        margin-left: 32px;
+        font-weight: 600;
+        margin-top: 10px;
+    }
+
+    .we-only-work-with-best-card h5{
+        color:black;
+        font-size: 15px;
+        margin-left: 1px;
+        font-weight:100;
+        margin-top: 25px;
+    }
+
+/* to talk your heart out */
+
+    .money-heading h1{
+        color:#080865;
+        font-size: 30px;
+        margin-left: 125px;
+        text-wrap: nowrap;
+        margin-top: 60px;
+        margin-bottom: 68px;
+    }
+
+    .money{
+        width: 1350px;
+        height: 400px;
+        border: 2px solid rgb(198, 197, 197);
+        margin-left: -10px;  
+        border-radius: 30px;  
+        background-color: #FCF1F7;
+    }
+    
+
+    .money-image img{
+        width: 300px;
+        height: 302px;
+        margin-top: 46px;
+        margin-left: 76px;
+        border: 1px solid rgb(255, 255, 255);
+        box-shadow: 0px 0px 18px 19px white;
+    }
+     
+    .money-text{
+        margin-top: -290px;
+        margin-left: 500px;
+        color: #343470;
+    }
+
+    .money-button button{
+            background-color: #f73d9d;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 40px;
+            margin-left: 1-0px;
+            cursor: pointer;
+    }
+
+    .money-button button:hover {
+            background-color: #8e0d4f;
+        }
+
+    .details{
+        width: 1350px;
+        height: 200px;
+        border: 2px solid rgb(198, 197, 197);
+        margin-left: -10px;  
+        border-radius: 30px;  
+        /* background-color: #f2f7fa; */
+        background-color: #FCF1F7;
+        /* background-color: #e8f3fd; */
+        margin-top: 20px;
+    }    
+
+    .details .left{
+        border-radius: 30px 0px 0px 30px;
+        width: 390px;
+        height: 197px;
+        margin-left: 0px;
+        background-color: #eff0fe;
+       
+    }
+    .left h3{
+        font-size: 29px;
+        margin-left: 30px;
+        padding-top: 80px;
+        color:#080865;
+    }
+
+    .right ul{
+        font-size: 22px;
+        margin-left: 460px;
+        margin-top: -177px;
+        color:#080865;
+    }
+
+    .right ul li{
+        margin-bottom: 10px;
+    }
+
+    .right img{
+        height: 160px;
+        width: 160px;
+        border-radius: 170px;
+        margin-left: 1170px;
+        margin-top: -197px;
+    }
+</style>
+
+
+<div class="doctor">
+    <h1 id="h1"></h1><br>
+</div> 
+<div class="doctor-container">
+
+    <div class="doctor-details">
+      <h2>Dr. Bhavesh Kathiriya</h2><br>
+      <ul class="details-list">
+        <li><span>Degree:</span>MBBS, MD</li>
+        <li><span>Specialization:</span>Neuro-Psychiatry</li>
+        <li><span>Experience:</span> 15 years</li>
+        <li><span>Nature:</span> Compassionate and friendly if you love chess</li>
+        <li><span>Languages:</span> English, Hindi, Gujarati</li>
+        <li><span>Awards:</span> Psychiatrist of the year, 2017</li>
+        <li><span>Email:</span> <a href="hubofpsychiatry9999@gmail.com">hubofpsychiatry9999@gmail.com</a></li>
+      </ul>
+    </div>
+
+    <div class="doctor-image">
+      <img src="{% static 'home/real-doctor-1.jpg' %}" alt="Doctor Image">
+    </div>
+
+  </div><br><br>
+
+<!-- to talk your heart out -->
+<div class="money-heading">
+    <h1>To talk your heart out, regarding your mental health state connect with our expert..</h1>
+</div>
+<div class="money">
+    <div class="money-image">
+        <img src="{%static 'home/hello4.jpg'%}" alt="image">
+    </div>
+        <div class="money-text">
+            <h3>&#8377; 5999 for 2 months interaction with doctor.</h3>
+            <h4 style="font-weight: bold;">Inclusive of:</h4>
+            <h5> -virtual meets</h5>
+            <h5> -in-person meetings</h5>
+            <h6>(Consultation fees included)</h6>
+            <a href="{%url 'premium'%}" class="money-button">
+                <button>GET 2 months for &#8377;5999</button>
+            </a>
+        </div>
+</div>
+
+<!-- more details about the plan -->
+<div class="details">
+    <div class="left">
+        <h3>About the plan:</h3>
+    </div>
+    <div class="right">
+        <ul>
+            <li>Flexibale slots</li>
+            <li>Comfortable environment</li>
+            <li>Security of your personal life</li>
+            <li>Entire 1 hour of duration</li>
+        </ul>
+        <img src="{%static 'home/money.png'%}">
+    </div>
+</div>
+
+<!-- we-only-work-with-best -->
+<div class="we-only-work-with-best">
+    <h2 id="h2">We only work with the best</h2><br>
+
+        <div class="we-only-work-with-best-cards">
+            <div class="we-only-work-with-best-card" id="we-only-work-with-best-card1">
+                <img src="{%static 'home/licenced.png' %}" alt="first">
+                <h4>Licenced Practitioner</h4>
+                <h5><center>We verify the licenses and<br> background of all providers on our platform</center></h5>
+            </div>
+            
+            <div class="we-only-work-with-best-card" id="we-only-work-with-best-card2">
+                <img src="{%static 'home/expert-their-field.png' %}" alt="sec">
+                <h4 style="margin-left: 57px;">Best in his field</h4>
+                <h5><center>You work with expert who have<br> prior experience & track record in brain health</center></h5>
+            </div>
+            
+            <div class="we-only-work-with-best-card" id="we-only-work-with-best-card3">
+                <img src="{%static 'home/expert-last-img.png' %}" alt="third">
+                <h4 style="margin-left: 62px;">Goal-based care</h4>
+                <h5><center>There is no one-size fits all <br>at MindDoc.Our expert build a plan around your health goals</center></h5>
+            </div>
+        </div>
+            
+    </div><br><br><br>
+</div> 
+
+
+
+
+
+
+
 {% endblock %}

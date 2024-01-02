@@ -55,7 +55,7 @@
 <!--  </div>-->
 
 <!--</nav>-->
-<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
 <style>    
     *{
         margin: 0;
@@ -68,7 +68,7 @@
         text-decoration: none;
     }
     .nav-logo {
-                width: 120px; 
+                width: 190px; 
                 height: auto;
                 left: 0px;
                 right:10px;
@@ -77,13 +77,21 @@
                 font-size:200%;
                 color: chocolate;
                 font-family:Georgia, 'Times New Roman', Times, serif;
-                top:-6%;
-                left:0;
+                top:-7%;
+                left:10;
+                margin-left: 70px;
+                margin-top: 20px;
+                transition: 0.5s;
+                cursor: pointer;
             }
             
     .nav-logo:hover
             {
-                background-color: white;
+                width: 190px; 
+                height: auto;
+                background-color: #D6EEFF;
+                color:#5a60a3;
+                border-radius: 90px;
             }
     
     nav{
@@ -101,19 +109,21 @@
         margin-left: 70px;
     }
 
-    nav ul li{
+    nav li{
         list-style: none;
         display: inline-block;
         padding: 10px 30px 0px;
         margin: 10px;
         font-size: 18px;
         font-weight: 500;
-        color: black;
+        color: #5a60a3;
         cursor: pointer;
         position: relative;
         z-index: 2;
         transition: color 0.5s;
     }
+
+    
 
     nav ul li::after{
         content: '';
@@ -127,10 +137,9 @@
         transform: translate(-50%, -50%);
         z-index: -1;
         opacity: 0;
-        color: black;
     }
 
-     nav ul li:hover{
+     nav ul a:hover{
         color: black;
     } 
 
@@ -174,11 +183,11 @@
 </style>
 {% load static %}
 
-<header>
+
     <nav>
         <ul>
-            <li class="nav-logo">MindDoc</li>
-            <li><a href="{% url 'home' %}">Home</a></li>
+            <a href="{% url 'home' %}" class="nav-logo">MindDoc</a>
+            <li ><a href="{% url 'home' %}">Home</a></li>
             <li class="dropdown"><a href="#mentalstate">Explore +</a>
                 <ul>
                     <li><a href="{% url 'mental_state' %}">Mental State</a></li>
@@ -196,7 +205,7 @@
             </li>
         </ul>
     </nav>
-</header>
+
 
 
 

@@ -2,6 +2,7 @@
 
 {% block content %}
 {% load static %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Elsie">
 <style>
     
         *{
@@ -27,12 +28,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url("{% static 'home/mainbackground.png' %}");
+            background-image: url("{% static 'home/mainbackground1.jpg' %}");
             background-position: center;
             background-repeat: no-repeat;
-            background-size: cover;
-            animation: moveupBackground 1.6s linear backwards; /* Adjust the animation duration and timing function as needed */
+            background-size: 470px 540px;
+            animation: moveupBackground 2.5s linear; /* Adjust the animation duration and timing function as needed */
             z-index: 0;
+            margin-left: 60px;
+            margin-top: 29px;
         }
 
         @keyframes moveupBackground {
@@ -64,21 +67,90 @@
             margin-bottom:10px;
             color: chocolate;
             font-size: 55px;
-            animation-delay: 0.5s;
+            animation-delay:0.1s;
+            font-family: "Elsie", sans-serif;
+            font-weight: bold;
         }
 
         #text h3{
             font-size: 20px;
             color: rgb(118, 117, 117);
             text-wrap: nowrap;
-            animation-delay: 1s;
+            animation-delay: 1.5s;
         } 
+        #youdonthavetostruggle h3{
+            margin-left: -250px;
+            color: rgb(0, 0, 0);
+            margin-top: 100px;
+            font-size: 22px;
+        }
+
+        #youdonthavetostruggle a{
+            margin-left: -250px;
+            margin-top: 190px;
+            font-size: 13px;
+            text-decoration: underline; 
+            color:grey;
+        }
+
+        .audioimage img{
+            height: 80px;
+            width: 200px;
+            margin-left: -270px;
+            margin-top: 100px;
+        }
+
+        .chatwithconsultant img{
+            height: 110px;
+            width: 110px;
+            margin-left: -250px;
+            margin-top: -1050px;
+        }
+
+        .grief{
+            margin-left: 950px;
+            margin-top: -200px;
+        }
+
+        .grief h3{
+            font-size: 27px;
+            text-wrap: nowrap;
+        }
+
+        .grief h3 b{
+            font-family: "Elsie", sans-serif;
+        }
+
+        .grief h5{
+            font-size: 14px;
+            text-wrap: nowrap;
+            display: block;
+            margin: 13px;
+            line-height: 24px;
+        }
+
+        .hope img{
+            height: 110px;
+            width: 110px;
+            margin-left: 950px;
+            margin-top: -790px;
+        }
+
+        .hope h5{
+            margin-left: 1050px;
+            margin-top: -450px;
+            font-size: 10px;
+            text-wrap: nowrap;
+            line-height: 15px;
+            font-weight: 100;
+        }
 
         .anim{
             opacity: 0;
             transform: translateY(30px);
             animation: moveup 0.5s linear forwards;
         }
+
 
         @keyframes moveup{
             100%{
@@ -287,7 +359,7 @@
         /* Style for the image container */
         .image-container {
             flex: 1;
-            background: url("{%static 'home/back2.jpg' %}") center/cover; /*Set your image URL as background*/
+            background: url("{%static 'home/mainbackground.png' %}") center/cover; /*Set your image URL as background*/
             height: 100%; /* Set the height of the image container */
             border-radius: 15px 0px 0px 15px;
             overflow: hidden;
@@ -447,11 +519,31 @@
             <br><br>
             <h1 class="anim">Mental Health Matters.</h1>
             <h3 class="anim">Navigating anxiety issues, depression, phobias, or brain concerns can be overwhelming.</h3>
-            <h3 style="text-decoration:underline; animation-delay: 1.5s;" class="anim">We got you.</h3> 
+            <h3 style="text-decoration:underline; animation-delay: 1.5s;" class="anim">We got you.</h3>   
         </div>
+        
         <div class="background-image"></div>
+        <div class="youdonthavetostruggle" id="youdonthavetostruggle">
+               <h3 style="animation-delay: 1.9s;" class="anim">you dont <b>have</b> to<br><b>struggle</b> in<br>silence.</h3>
+               <a style="animation-delay: 1.9s;" class="anim" href="{%url 'experts' %}">LEARN MORE</a>
+        </div>
+        <div class="audioimage anim">
+            <img style="animation: moveupBackground 1.8s linear backwards;" src="{%static 'home/audio.png'%}">
+        </div>
+        <div class="chatwithconsultant anim">
+            <img style="animation: moveupBackground 1.8s linear backwards;" src="{%static 'home/CHAT WITH CONSULTANT3.jpg'%}">
+        </div>
+        <div class="grief">
+            <h3 style="animation-delay: 1.0s;"  class="anim"><b>Grief</b><small> / gri:f /</small></h3>
+            <h5 style="animation-delay: 1.5s;"  class="anim">Each day we learn of the<br>griefs and tributations<br>which affect our<br>constituents or ourselves.</h5>
+        </div>
+        <div class="hope anim">
+            <img style="animation: moveupBackground 1.8s linear backwards;" src="{%static 'home/hope.jpg'%}">
+            <h5 style="animation-delay: 1.5s;"class="anim">Prioritize joy,<br> embrace change,<br> nurture resilience daily.</h5>
+        </div>
+        
     </div>
-
+    
 <div class="aboutus">
     <h1 id="h1">About Minddoc</h1>
     <h4 id="h4">Our safe space provides you a non judgemental, holistic wellness experience.</h4>

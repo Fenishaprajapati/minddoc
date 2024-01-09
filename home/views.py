@@ -12,14 +12,32 @@ def home(request):
 def mental_state(request):
     return render(request, 'home/mental_state.html')
 
-def depression_issues(request):
-    return render(request, 'home/depression_issues.html')
+def generalized_anxiety_disorder(request):
+    return render(request, 'home/generalized_anxiety_disorder.html')
 
-def anxiety_issues(request):
-    return render(request, 'home/anxiety_issues.html')
+def social_anxiety_disorder(request):
+    return render(request, 'home/social_anxiety_disorder.html')
 
-def common_diseases(request):
-    return render(request, 'home/common_diseases.html')
+def separation_anxiety_disorder(request):
+    return render(request, 'home/separation_anxiety_disorder.html')
+
+def psychotic_depression(request):
+    return render(request, 'home/psychotic_depression,html')
+
+def major_depressive_depression(request):
+    return render(request, 'home/major_depressive_depression,html')
+
+def situational_depression(request):
+    return render(request, 'home/situational_depression,html')
+
+def post_traumatic_stress_disorder(request):
+    return render(request, 'home/post_traumatic_stress_disorder,html')
+
+def obsessive_compulsive_disorder(request):
+    return render(request, 'home/obsessive_compulsive_disorder,html')
+
+def dissociative_identity_disorder(request):
+    return render(request, 'home/dissociative_identity_disorder,html')
 
 def phobias(request):
     return render(request, 'home/phobias.html')

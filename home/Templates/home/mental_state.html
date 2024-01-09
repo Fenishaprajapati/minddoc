@@ -94,17 +94,18 @@
 
 
 /* <!-- mental states we treat --> */ 
-    .mental-state-we-treat #mental-state-we-treat-text{
+    #mental-state-we-treat-text{
         padding-left:430px;
-        margin-top: 40px;
+        margin-top: 20px;
         color: #343470;
         font-size: 45px;
     }
 
-    .mental-state-we-treat h1{
+    h1{
         padding-top: 10px;
+        margin-bottom: 40px;
     }
-
+ /*
     .mental-state-we-treat-cards{
         display:flex;
         flex-direction: row;
@@ -145,8 +146,116 @@
         font-size: 19px;
         margin-left: 10px;
         text-decoration: underline;
+    } */
+    
+    .three-parts{
+        width: 1500px;
+        height: 450px;
+        border: 1px solid rgb(255, 255, 255);
+        margin-top: 10px;
+        margin-left: -110px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        margin-bottom: 100px;
     }
 
+    .three-parts .outer{
+        width: 320px;
+        height: 450px;
+        background-color:#1F405A;
+        border-radius: 20px;
+        cursor: pointer;  
+    }
+
+    .three-parts .inner{
+        width: 320px;
+        height: 450px;
+        background-color:#fafdea;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    .three-parts .outer img{
+        height: 200px;
+        width: 300px;
+        margin-left: 11px;
+        margin-top: 11px;
+        border-radius: 20px;
+    }
+
+    .three-parts .outer h4{
+        color: white;
+        font-size: 27px;
+        margin-top: 80px;
+        text-wrap: wrap;
+        text-align: center;
+        font-weight: bold;
+
+    }
+
+    .three-parts button{
+        background-color: #ffffff;
+        color: black;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 18px;
+        font-weight: bolder;
+        margin-top: -20px;
+    }
+    
+    .three-parts button:hover {
+            background-color: #dde8f7;
+    }
+
+    .inner img{
+        height: 200px;
+        width: 300px;
+        margin-left: 11px;
+        margin-top: 11px;
+        border-radius: 20px;
+    }
+
+    .three-parts .inner h4{
+        color:#343470;
+        font-size: 23px;
+        margin-top: 30px;
+        text-wrap: wrap;
+        text-align: left;
+        margin-left: 18px;
+        font-weight: 600;
+    }
+    
+    .three-parts .inner button{
+        background-color: #fafdea;
+        color: #343470;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 0px;
+        font-weight: bolder;
+        margin-top: 40px;
+        text-decoration: underline;
+        transition: 0.5s;
+    }
+
+    .three-parts .inner button:hover{
+        color: black;
+        font-weight: lighter;
+        font-size: larger;
+    }
+    
+    .three-parts .inner img{
+        height: 200px;
+        width: 300px;
+        margin-left: 9px;
+        margin-top: 11px;
+        border-radius: 20px;
+    }
 /* three reasons why modern lifestyles */
     .three-reasons #three-reasons-text{
         padding-left:130px;
@@ -289,32 +398,127 @@
         </div>
     </div><br><br><br><br><br>
 
-<!-- mental states we treat -->
-    <div class="mental-state-we-treat">
 
-        <h1 id="mental-state-we-treat-text">
-            Mental states we treat
-        </h1>
-
-        <div class="mental-state-we-treat-cards">
-            <div class="mental-state-we-treat-card" id="mental-state-we-treat-card1">
-                <h2>ANXIETY ISSUES</h2>
-                <a href="{% url 'anxiety_issues' %}"><h4>dig a little deeper..</h4></a>
-            </div>
-            
-            <div class="mental-state-we-treat-card" id="mental-state-we-treat-card2">
-                <h2>DEPRESSION ISSUES</h2>
-                <a href="{% url 'depression_issues' %}"><h4>dig a little deeper..</h4></a>
-            </div>
-            
-            <div class="mental-state-we-treat-card" id="mental-state-we-treat-card3">
-                <h2>COMMON DISEASES</h2>
-                <a href="{% url 'common_diseases' %}"><h4>dig a little deeper..</h4></a>
-            </div>
-        </div>
-            
-    </div><br><br><br><br><br>
+<h1 id="mental-state-we-treat-text">
+    Mental states we treat
+</h1>    
     
+        <div class="three-parts">
+            
+            <div class="outer">
+                <img src="{%static 'home/anxietymain.jpg' %}">
+                <h4>ANXIETY ISSUES</h4>
+            </div>
+
+            <a href="{%url 'generalized_anxiety_disorder'%}">  
+                <div class="inner" id="inner1">
+                    <img src="{%static 'home/10.jpg' %}">
+                    <h4>GAD- Generalized anxiety disorder</h4>
+                    <a href="{%url 'generalized_anxiety_disorder'%}">
+                        <button>Read blog</button>
+                    </a>
+                </div>
+            </a>  
+
+            <a href="{%url 'social_anxiety_disorder'%}">  
+                <div class="inner" id="inner2">
+                    <img src="{%static 'home/11.gif' %}">
+                    <h4>SAD- Social anxiety disorder </h4>
+                    <a href="{%url 'social_anxiety_disorder'%}">
+                        <button>Read blog</button>
+                    </a>
+                </div>
+            </a>
+
+            <a href="{%url 'separation_anxiety_disorder'%}">  
+                <div class="inner" id="inner3">
+                    <img src="{%static 'home/9.jpg' %}">
+                    <h4>Separation anxiety disorder</h4>
+                    <a href="{%url 'separation_anxiety_disorder'%}">
+                        <button>Read blog</button>
+                    </a>
+                </div>
+            </a>
+        </div>
+       
+        
+        <br><br>
+        <div class="three-parts">
+            <div class="outer">
+                <img src="{%static 'home/depressionmain.jpg' %}">
+                <h4>DEPRESSION<br> ISSUES</h4>
+            </div>
+            <a href="{%url 'psychotic_depression'%}">  
+                <div class="inner" id="inner1">
+                    <img src="{%static 'home/3.jpg' %}">
+                    <h4 style="position: absolute;">Psychotic depression</h4>
+                    <a href="{%url 'psychotic_depression'%}">
+                        <button style="margin-top: 135px;">Read blog</button>
+                    </a>
+                </div>
+            </a>  
+
+            <a href="{%url 'major_depressive_depression'%}">  
+                <div class="inner" id="inner2">
+                    <img src="{%static 'home/4.jpg' %}">
+                    <h4>Major depressive depression</h4>
+                    <a href="{%url 'major_depressive_depression'%}">
+                        <button>Read blog</button>
+                    </a>
+                </div>
+            </a>
+
+            <a href="{%url 'situational_depression'%}">  
+                <div class="inner" id="inner3">
+                    <img src="{%static 'home/5.jpg' %}">
+                    <h4 style="position: absolute;">Situational depression</h4>
+                    <a href="{%url 'situational_depression'%}">
+                        <button style="margin-top: 135px;">Read blog</button>
+                    </a>
+                </div>
+            </a>
+        </div>
+        
+        <br><br>
+
+        
+        <div class="three-parts">
+            <div class="outer">
+                <img src="{%static 'home/common disorders1.jpg' %}">
+                <h4>COMMON<br> DISORDERS</h4>
+            </div>
+
+            <a href="{%url 'post_traumatic_stress_disorder'%}">  
+                <div class="inner" id="inner1">
+                    <img src="{%static 'home/1.jpg' %}">
+                    <h4>PTSD-<br>Post traumatic stress disorder</h4>
+                    <a href="{%url 'post_traumatic_stress_disorder'%}">>
+                        <button>Read blog</button>
+                    </a>
+                </div>
+            </a>  
+
+            <a href="{%url 'obsessive_compulsive_disorder'%}">  
+                <div class="inner" id="inner2">
+                    <img src="{%static 'home/ocd.jpg' %}">
+                    <h4>OCD-<br>Obsessive compulsive disorder</h4>
+                    <a href="{%url 'obsessive_compulsive_disorder'%}">
+                        <button>Read blog</button>
+                    </a>
+                </div>
+            </a>
+
+            <a href="{%url 'dissociative_identity_disorder'%}">  
+                <div class="inner" id="inner3">
+                    <img src="{%static 'home/8.jpg' %}">
+                    <h4 style="position: absolute;">Dissociative identity <br>disorder</h4>
+                    <a href="{%url 'dissociative_identity_disorder'%}">
+                        <button style="margin-top: 160px;">Read blog</button>
+                    </a>
+                </div>
+            </a>
+        </div>
+        
 <!-- three reasons why modern lifestyles -->
     <div class="three-reasons">
 
@@ -403,7 +607,7 @@
     </div><br><br>
 
 <!-- frequently asked questions-->
-    <br><br><br><div class="frequent">
+    <div class="frequent">
 
             <h1 id="frequent-text">
                 Frequently asked questions..

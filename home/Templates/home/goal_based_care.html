@@ -1,23 +1,344 @@
 {% extends 'home/base.html' %}
-
 {% block content %}
 {% load static %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Elsie">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Montserrat, sans-serif;
+
+    }
+
+    .mainimage {
+        background-color: #FAF5F2;
+        height: 900px;
+        width: 1711px;
+        margin-left: -220px;
+        position: relative; 
+    }
+
+    .mainimage img {
+        height: 700px;
+        width: 1000px;
+        margin-left: 680px;
+        margin-top: 140px;
+    }
+
+    .textinit {
+        position: absolute; 
+        top: 30%;
+        left: 160px;
+        transform: translateY(-50%);
+    }
+
+    .textinit h1 {
+        color: #343470;
+        font-family: Elsie;
+        font-weight: 500;
+    }
+
+    .afterh1{
+        margin-top: 300px;
+    }
+
+    .afterh1 h3 {
+        color: chocolate;
+        margin-top: 20px; 
+        position: absolute;
+        top: 300px; 
+        left: 160px;
+        font-size: 20px;
+        text-indent: 40px;
+        letter-spacing: 3px;
+    }
+
+    .afterh1 h4{
+        color: chocolate;
+        margin-top: 20px; 
+        position: absolute;
+        top: 340px; 
+        left: 160px;
+        font-size: 20px;
+        text-indent: 40px;
+        letter-spacing: 3px;
+        line-height: 29px;
+    }
+
+    .afterh1 h6{
+        color: rgb(0, 0, 0);
+        margin-top: 50px; 
+        position: absolute;
+        top: 400px; 
+        left: 160px;
+        font-size: 20px;
+        text-indent: 40px;
+        letter-spacing: 3px;
+        line-height: 29px;
+    } 
+
+    .pictures{
+        height: 350px;
+        width: 1600px;
+        border: 1px solid #FAF5F2;
+        margin-top: -90px;
+        margin-left: -197px;
+    }
+
+    .pictures img{
+        margin-bottom: -430px;
+    }
+
+    .ourplans{
+        height: 200px;
+        width: 1691px;
+        background-color: #FAF5F2;
+        margin-left: -200px;
+        margin-top: -150px;
+    }
+    .ourplans h1{
+        color: #343470;
+        font-family: Elsie;
+        font-weight: 500;
+        font-size: 40px;
+        margin-top: 150px;
+        text-align: center;
+        padding-top: 60px;
+    }
+
+    .ourplans h6{
+        color: grey;
+        font-weight: 100;
+        font-size: 17px;
+        margin-top: 1px;
+        text-align: center;
+    }
+
+    .plan{
+        height: 410px;
+        width: 1688px;
+        border: 1px solid #FAF5F2;
+        margin-bottom: 0px;
+        margin-left: -197px;
+        background-color: #FAF5F2;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .plan1 img{
+        margin-left: 150px;
+        width: 450px; 
+        height: 298px; 
+        object-fit: cover;
+        object-position: 5% 5%; 
+    }
+    .plan1 h1{
+        font-size: 23px;
+        background-color: #32765B;
+        border-radius: 40px;
+        color: white;
+        height: 47px;
+        margin-top: 24px;
+        padding:10px;
+        margin-left: 5px;
+        padding-bottom: 10px;
+    }
+
+    .list{
+        color: #343470;
+        margin-top: 30px;
+        margin-left: 50px;
+    }
+
+    .list li{
+        padding-bottom: 25px;
+        font-weight: 400;
+        font-size: 18px;
+    }
+    
+    .plan2 img{
+        width: 450px; 
+        height: 298px; 
+        object-fit: cover;
+        object-position: 5% 5%;
+    }
+    
+    .h1{
+        display: flex;
+        flex-direction: row;
+        margin-left: 975px;
+        position: absolute;
+    }
+
+    .h1 h1{
+        font-size: 23px;
+        background-color: #32765B;
+        border-radius: 40px;
+        color: white;
+        height: 47px;
+        margin-top: 26px;
+        padding:10px;
+        margin-right: 10px;
+    }
+
+    
+
+    .list2 li{
+        padding-bottom: 25px;
+        font-weight: 400;
+        font-size: 18px;
+        position: relative;
+        margin-left: 60px;
+    }
+    
+    .buttoncontainer{
+        margin-top: -50px;
+        margin-bottom: -90px;
+        background-color: #FAF5F2;
+        height: 200px;
+        width: 1701px;
+        margin-left: -210px;
+    }
+    .bybutton {
+        padding: 10px 20px;
+        background-color: #ff66b2;
+        color: #fff;
+        border: none;
+        border-radius: 17px;
+        cursor: pointer;
+        font-size: 20px;
+        transition: background-color 0.3s;
+        margin-left: 350px;
+        height: 50px;
+        width: 1070px;
+        margin-top: 50px;
+    }
+
+    .bybutton:hover {
+        background-color: #e0518b;
+    }
+</style>
+
+<div class="mainimage">
+    <img src="{% static 'home/GOALBASEDMAINIMAGE.jpg' %}">
+    <div class="textinit">
+        <h1 id="typed-text"></h1>
+    </div>
+    <div class="afterh1">
+        <h3>- A day-to-day goal-based approach centers on setting small, achievable objectives each day.</h3>
+        <h4>- It's a daily adventure where setting goals becomes your mental health workout, and achieving<br> 
+            <span style="margin-left: 40px;">them is the victory dance that keeps your mind grooving to the rhythm of resilience. </span></h4>
+        <h6>"Mental health is not a destination, but a process. It's about how you drive, not where you're going." <br><span style="margin-left: 1000px; font-weight: bold; text-decoration: underline;">- Noam Shpancer</span></h6>
+    </div>
+</div>
 
 
 
+<div class="ourplans">
+    <h1>So here is our plan</h1>
+    <h6>This entire plan includes three levels, plan that will help you focus on yourself and grow mentally.</h6>
+</div>
+
+
+<!-- plans -->
+<div class="plan plan1">
+    <img src="{%static 'home/levelone.png'%}">
+    <h1>Level 1</h1>
+    <div class="list list1">
+        <ul>
+            <li>In this level, you'll get tasks for <b>7 days</b> straight.</li>
+            <li>Few basic tasks that fit in your daily life schedule.</li>
+            <li>One task per day.</li>
+            <li>Once you finish the task, you need to upload a picture of whatever task you have been provided.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="plan plan2">
+    <div class="list list2">
+        <ul>
+            <li>In this level, you'll get tasks for <b>14 days</b> straight.</li>
+            <li>Interesting and longer tasks that fit in your daily life schedule and your flourished mind.</li>
+            <li>Two task per day.</li>
+            <li>Once you finish the task, you need to upload a picture of whatever task you have been provided.</li>
+        </ul> 
+    </div>
+    <div class="h1">
+        <h1>Level 2</h1>
+        <img src="{%static 'home/leveltwo.png'%}">
+    </div>
+    
+</div>
+
+<div class="plan plan1">
+    <img src="{%static 'home/levelthree.png'%}">
+    <h1>Level 3</h1>
+    <div class="list list1">
+        <ul>
+            <li>In this level, you'll get tasks for <b>21 days</b> straight.</li>
+            <li>There will be totaly new types of tasks, new experience, new adventures</li>
+            <li>Two task per day.</li>
+            <li>Once you finish the task, you need to upload a picture of whatever task you have been provided.</li>
+            <li>You'll get the final report of your entire level from MindDoc.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="buttoncontainer">
+    <a href="{% url 'premium' %}">
+        <button class="bybutton">Enroll for your happiness</button>
+    </a>
+</div>
 
 
 
+<!-- typing animation of main title -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var text = "What is goal based approach?";
+        var speed = 70; // Adjust this value for faster typing
+        var eraseSpeed = 20; // Adjust this value for faster erasing
 
+        function typeWriter(text, i, callback) {
+            if (i < text.length) {
+                document.getElementById("typed-text").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(function () {
+                    typeWriter(text, i, callback);
+                }, speed);
+            } else {
+                setTimeout(function () {
+                    eraseText(text.length - 1, callback);
+                }, 1500);
+            }
+        }
 
+        function eraseText(i, callback) {
+            var currentText = document.getElementById("typed-text").innerHTML;
+            if (i >= 0) {
+                document.getElementById("typed-text").innerHTML = currentText.slice(0, i);
+                i--;
+                setTimeout(function () {
+                    eraseText(i, callback);
+                }, eraseSpeed);
+            } else {
+                setTimeout(function () {
+                    startTyping(callback);
+                }, 800);
+            }
+        }
 
+        function startTyping(callback) {
+            document.getElementById("typed-text").innerHTML = "";
+            typeWriter(text, 0, callback);
+        }
 
-
-
-
-
-
-
-
+        startTyping(function () {
+            // You can add additional logic here after the typing and erasing are complete
+        });
+    });
+</script>
 
 {% endblock %}

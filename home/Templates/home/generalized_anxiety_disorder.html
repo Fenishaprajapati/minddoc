@@ -1,0 +1,68 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Montserrat,sans-serif;
+    }
+    
+    .whole{
+        display: flex;
+        height: 830px;
+        width: 1710px;
+        margin-left: -210px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        border: 1px solid black;
+    }
+
+    .first{
+      border: 1px solid black;
+      width: 290px;
+    }
+
+    .middle{
+      border: 1px solid black;
+      width: 1130px;
+    }
+
+    .last{
+      border: 1px solid black;
+      width: 290px;
+    }
+    
+    
+</style>
+
+<div class="whole">
+    <div class="all first">
+
+    </div>
+
+    <div class="all middle">
+
+    </div>
+
+    <div class="all last">
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

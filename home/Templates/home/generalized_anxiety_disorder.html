@@ -2,6 +2,7 @@
 
 {% block content %}
 {% load static %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Elsie">
 
 <style>
     *{
@@ -18,38 +19,117 @@
         margin-left: -210px;
         flex-direction: row;
         flex-wrap: nowrap;
-        border: 1px solid black;
+        overflow: hidden;
     }
 
     .first{
-      border: 1px solid black;
       width: 290px;
+      overflow: hidden;
+      animation: slideInLeft 4s ease-out; 
+    }
+    .first img{
+      opacity: 90%;
+      position: fixed;
     }
 
     .middle{
-      border: 1px solid black;
       width: 1130px;
     }
 
     .last{
-      border: 1px solid black;
       width: 290px;
+      position: relative;
+      overflow: hidden;
+      animation: slideInRight 4s ease-out;
+    }
+    .last img{
+      opacity: 90%;
+      position: fixed;
+    }
+    @keyframes slideInLeft {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideInRight {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
     }
     
-    
+    .middle h2{
+      margin-top: 180px;
+      font-size: 25px;
+      text-align: center;
+      color: #343470;
+      font-family: Elsie;
+      font-weight: bold;
+      letter-spacing: 14px;
+    }
+
+    .middle h4{
+      margin-top: -10px;
+      font-size: 15px;
+      text-align: center;
+      color: rgb(99, 99, 99);
+      text-wrap: wrap;
+      padding: 20px 50px;
+    }
+
+    .middle h5{
+      margin-top: 50px;
+      font-size: 16px;
+      color: rgb(99, 99, 99);
+      text-wrap: wrap;
+    }
+    .middle h5 b{
+      font-size: 20px;
+    }
+    .middle li{
+      text-align: center;
+      list-style:none;
+      padding-bottom: 10px;
+      padding: 10px;
+    }
+
 </style>
 
 <div class="whole">
     <div class="all first">
-
+      <img src="{%static 'home/illustrationanxiety.jpg'%}">
     </div>
 
     <div class="all middle">
+      <h2>GENERALIZED ANXIETY DISORDER</h2>
+      <h4>GAD is like having a constant worry companion. People with GAD experience excessive, uncontrollable anxiety about everyday things. Imagine feeling on edge, expecting the worst, even when there's no apparent reason. Physical symptoms like muscle tension and restlessness often tag along.</h4>
+      <!-- <h5><center><b>Symptoms:</b></center>        
+        <ul>
+          <li>Persistent Worrying: Overthinking about various aspects of life.</li>
+          <li>Restlessness: Feeling on edge and unable to relax.</li>
+          <li>Muscle Tension: Physical manifestation of stress in the body.</li>
+          <li>Fatigue: Constant worrying can be mentally and physically exhausting.</li>
+          <li>Difficulty Concentrating: The mind is preoccupied with anxious thoughts.</li>
+          <li>Irritability: GAD can make individuals more sensitive to irritants.</li>
+          <li>Sleep Disturbances: Difficulty falling asleep or staying asleep.</li>
+          <li>Excessive Sweating: Physical manifestation of heightened anxiety.</li>
+        </ul>
+
+        Remedies:  -->
+
+
+      </h5>
 
     </div>
 
     <div class="all last">
-
+      <img src="{%static 'home/illustrationanxietyflip.jpg'%}">
     </div>
 
 </div>

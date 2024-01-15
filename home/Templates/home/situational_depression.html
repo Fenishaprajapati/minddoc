@@ -1,0 +1,377 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Elsie">
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Montserrat,sans-serif;
+    }
+    
+    .whole{
+        display: flex;
+        height: 830px;
+        width: 1700px;
+        margin-left: -210px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .first{
+      width: 300px;
+      animation: slideInRight 1s ease-out; 
+    }
+    .first img{
+      position: fixed;
+      margin-left: 45px;
+    }
+
+    
+
+    @keyframes slideInRight {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    .middle{
+      width: 1370px;
+    }
+
+    .middle h2{
+      margin-top: 200px;
+      font-size: 25px;
+      color: #343470;
+      font-family: Elsie;
+      font-weight: bold;
+      letter-spacing: 15px;
+      margin-left: 369px;
+    }
+
+    .middle h4{
+      margin-top: -9px;
+      font-size: 15px;
+      text-align: center;
+      color: rgb(99, 99, 99);
+      text-wrap: wrap;
+      padding: 20px 50px;
+      letter-spacing: 0.2px;
+      line-height: 19px;
+    }
+
+    .middle h5{
+      margin-top: 50px;
+      font-size: 16px;
+      color: rgb(99, 99, 99);
+      text-wrap: wrap;
+    }
+    .middle h5 b{
+      font-size: 20px;
+      color: #343470;
+    }
+    .middle li{
+      text-align: center;
+      list-style:none;
+      padding-bottom: 10px;
+      padding: 10px;
+    }
+
+    .remedies{
+      margin-top: 60px;
+    }
+    .diagnosis{
+      margin-top: 60px;
+    }
+    .funfacts{
+      margin-top: 60px;
+    }
+    .middle .funfacts b{
+      animation: blink 1s infinite;
+      color: deeppink;
+    }
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    .quote{
+      margin-top: 90px;
+      height: 70px;
+      width: 1015px;
+      margin-left: 190px;
+      border: 2px solid black;
+      border-radius: 30px;
+      position: relative;
+    }
+    .quote h4{
+      font-size: 21px;
+      margin-top: 0;
+      margin-left: 120px;
+      position: absolute;
+      top: 10px;
+      color: #343470;
+    }
+    .quote span{
+      font-size: 160px;
+      margin-left: 30px;
+      color: black;
+      position: absolute;
+      top: -29px;
+    }
+    .desc h4{
+      text-align: center;
+      font-size: 19px;
+      text-align: center;
+      color: #343470;
+      text-wrap: wrap;
+      padding: 90px;
+      line-height: 26px;
+      font-weight: bold;
+    }
+
+    .movie {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            width: 1200px;
+            height: 100px;
+            margin: 100px auto;
+            margin-left: 20px;
+        }
+
+        .movietext {
+            max-width: 60%;
+            color: #343470;
+        }
+
+        .movietext li {
+            font-size: 16px;
+            margin-left: 60px;
+            line-height: 10px;
+            text-align: left;
+            text-wrap: nowrap;
+        }
+        .movieimage img {
+            width: 300px;
+            height: 300px;
+            margin-left: 70px;
+        }
+
+        .song {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            width: 1200px;
+            height: 100px;
+            margin: 300px auto;
+            margin-left: 0px;
+
+        }
+
+        .songtext {
+            max-width: 60%;
+            color: #343470;
+        }
+
+        .songtext li {
+            font-size: 16px;
+            margin-left: 70px;
+            line-height: 10px;
+            text-align: left;
+            text-wrap: nowrap;
+        }
+        .songimage img {
+            width: 300px;
+            height: 290px;
+            margin-left: -10px;
+            position: absolute;
+            margin-top: -150px;
+        }  
+
+        #songonly li{
+            margin-left: 180px;
+            position: relative;
+        }
+        #bookonly li{
+            margin-left: 180px;
+            position: relative;
+        }
+        .relaxation{
+          margin-top: -100px;
+        }
+
+        .relaxation h4{
+          text-align: center;
+          font-size: 21px;
+          text-align: center;
+          color: #343470;
+          text-wrap: wrap;
+          padding: 10px;
+          line-height: 26px;
+          font-weight: bold;
+          text-decoration: overline underline;
+        }
+
+    
+
+</style>
+
+<div class="whole">
+    
+
+    <div class="all middle">
+      <h2>SITUATIONAL DEPRESSION</h2>
+      <h4>Situational depression, often triggered by external stressors or significant life changes, can cast a shadow on one's mental well-being. This form of depression <br>is linked to specific events or circumstances, making it distinct from other depressive disorders.</h4>
+      <h5>
+        <div class="symptoms">
+          <center><b>Symptoms:</b></center>          
+          <ul style="margin-top: 10px;">
+                <li>-Overwhelming Sadness: Intense feelings of sadness and despair in response to a specific situation.</li>
+                <li>-Loss of Interest: Diminished interest in activities that once brought joy and fulfillment.</li>
+                <li>-Appetite Changes: Disruptions in eating habits, leading to weight loss or gain. </li>
+                <li>-Sleep Disturbances: Insomnia or excessive sleeping as a response to heightened stress.</li>
+                <li>-Fatigue: A pervasive sense of tiredness and lack of energy.</li>
+                <li>-Difficulty Concentrating: Impaired focus and decision-making abilities.</li>
+          </ul>
+        </div>
+        <div class="remedies">
+          <center><b style="top: 60px;">Remedies:</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>-Mindfulness Practices: Engage in mindfulness meditation to stay present and manage stress.</li>
+            <li>-Expressive Writing: Journaling about emotions and challenges can provide a therapeutic outlet.</li>
+            <li>-Routine and Structure: Establishing a daily routine provides stability and a sense of purpose.</li>
+            <li>-Setting Realistic Goals: Break down tasks into manageable steps to reduce feelings of overwhelm.</li>
+            <li>-Social Support: Connect with friends, family, or support groups to share and alleviate the burden.</li>
+            <li>-Self-Care: Prioritize self-care activities, including exercise, proper nutrition, and sufficient rest.</li>
+            <li>-Problem-Solving Skills: Develop strategies to cope with the specific stressors contributing to situational depression.</li>
+          </ul>
+        </div>  
+
+        <div class="diagnosis">
+          <center><b>Diagnosis:</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>-  A mental health professional evaluates symptoms and the impact on daily functioning to situational depression.</li>
+          </ul>
+        </div>
+
+        <div class="funfacts">
+          <center><b>Inspiration from Resilience:</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>-While facing situational depression can be daunting, finding inspiration in moments of resilience is crucial.</li>
+            <li>-Recognizing the strength within oneself and drawing inspiration from positive quotes and affirmations can aid in the journey toward healing.</li>
+            <li>-Scientific studies indicate that exposure to natural sunlight and outdoor activities can positively impact mood, making nature a potential ally in overcoming situational depression.</li>
+          </ul>
+        </div>
+
+        <div class="quote">
+          <span>&#8220;</span>
+          <h4>It is during our darkest moments that we must focus to see the light - Aristotle</h4>
+        </div>
+
+        <div class="desc">
+          <h4>
+              According to study conducted by MIT, 90% of data transmitted to the human brain is visual. More then any other factor, visuals<br> affects human mind in the most efficient and profound way. <span style="text-decoration: underline;">Here are some reccomendation from the entertainment section...</span>
+          </h4>
+        </div>
+      </h5>
+
+      <div class="movie">
+        <div class="movieimage">
+              <img style="border-radius: 30px;" src="{%static 'home/sd (2).jpg'%}" alt="pic">
+          </div>
+          <div class="movietext">
+              <ul>
+                <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Movie we reccomend:</li>
+                <li>Movie: "Silver Linings Playbook" directed by David O. Russell.</li>
+                <li>-A heartfelt film exploring mental health challenges with humor and emotion.</li>
+                <li>-Bradley Cooper's character navigates familial issues and forms an unexpected bond.</li>
+                <li>-Themes include love, resilience, and finding hope in unexpected places.</li>
+                <li>-Acclaimed for its honest portrayal of mental health issues.</li>
+                <li>-Jennifer Lawrence won an Academy Award for her role.
+                </li>
+              </ul>
+          </div>
+      </div>
+
+      <div class="song">
+        <div class="songimage">
+            <img style="border-radius: 30px;" src="{%static 'home/sd (3).jpg'%}" alt="pic">
+        </div>
+        <div class="songtext" id="songonly">
+            <ul>
+              <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Music track we reccomend:</li>
+              <li>Song: "Three Little Birds" by Bob Marley.</li>
+              <li>-A reggae anthem with a soothing melody.</li>
+              <li>-Lyrics reassure listeners that "every little thing is gonna be alright."</li>
+              <li>-Bob Marley's timeless song transcends generations.</li>
+              <li>-Promotes a positive mindset and offers solace during difficult times.</li>
+              <li>-A go-to song for moments of stress or uncertainty.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- book -->
+    <div class="song">
+        <div class="songimage">
+            <img style="border-radius: 30px;" src="{%static 'home/sd (1).jpg'%}" alt="pic">
+        </div>
+      <div class="songtext" id="bookonly">
+          <ul>
+            <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Book we reccomend:</li>
+            <li>Book: "When Things Fall Apart" by Pema Chödrön.</li>
+            <li>-Written by Pema Chödrön, an American Tibetan Buddhist.</li>
+            <li>-Explores Buddhist perspectives on facing life's difficulties with openness.</li>
+            <li>-Offers practical insights applicable to various life situations.</li>
+            <li>-Widely praised for its clarity, compassion, and practical advice.</li>
+            <li>-A valuable guide for those navigating situational depression.</li>
+          </ul>
+      </div>
+  </div>
+  
+  <div class="relaxation">
+    <h4>Relaxation tips from MindDoc:</h4>
+    <ul>
+      <li>-Incorporate mindfulness practices such as deep breathing exercises into your routine.</li>
+      <li>-Connect with nature through walks or spending time outdoors to promote a sense of calm.</li>
+      <li>-Consider guided imagery or visualization techniques to envision positive outcomes.</li>
+      <li>Remember, seeking support from mental health professionals and loved ones is a proactive step toward overcoming situational depression. It's okay to ask for help and prioritize your mental well-being.</li>
+    </ul>
+  </div>
+
+</div>
+<div class="all first">
+      <img src="{%static 'home/depressionimage.jpg'%}">
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

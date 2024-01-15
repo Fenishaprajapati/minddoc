@@ -1,0 +1,361 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Elsie">
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Montserrat,sans-serif;
+    }
+    
+    .whole{
+        display: flex;
+        height: 830px;
+        width: 1700px;
+        margin-left: -210px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .first{
+      width: 290px;
+      animation: slideInLeft 1s ease-out; 
+    }
+    .first img{
+      opacity: 90%;
+      position: fixed;
+    }
+
+    
+
+    @keyframes slideInLeft {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    .middle{
+      width: 1370px;
+    }
+
+    .middle h2{
+      margin-top: 200px;
+      font-size: 25px;
+      color: #343470;
+      font-family: Elsie;
+      font-weight: bold;
+      letter-spacing: 14px;
+      margin-left: 375px;
+    }
+
+    .middle h4{
+      margin-top: -9px;
+      font-size: 15px;
+      text-align: center;
+      color: rgb(99, 99, 99);
+      text-wrap: wrap;
+      padding: 20px 50px;
+    }
+
+    .middle h5{
+      margin-top: 50px;
+      font-size: 16px;
+      color: rgb(99, 99, 99);
+      text-wrap: wrap;
+    }
+    .middle h5 b{
+      font-size: 20px;
+      color: #343470;
+    }
+    .middle li{
+      text-align: center;
+      list-style:none;
+      padding-bottom: 10px;
+      padding: 10px;
+    }
+
+    .remedies{
+      margin-top: 60px;
+    }
+    .diagnosis{
+      margin-top: 60px;
+    }
+    .funfacts{
+      margin-top: 60px;
+    }
+    .middle .funfacts b{
+      animation: blink 1s infinite;
+      color: deeppink;
+    }
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    .quote{
+      margin-top: 90px;
+      height: 70px;
+      width: 1015px;
+      margin-left: 190px;
+      border: 2px solid black;
+      border-radius: 30px;
+      position: relative;
+    }
+    .quote h4{
+      font-size: 17px;
+      margin-top: 0;
+      margin-left: 40px;
+      position: absolute;
+      top: 10px;
+      color: #343470;
+    }
+    .quote span{
+      font-size: 160px;
+      margin-left: 30px;
+      color: black;
+      position: absolute;
+      top: -29px;
+    }
+    .desc h4{
+      text-align: center;
+      font-size: 19px;
+      text-align: center;
+      color: #343470;
+      text-wrap: wrap;
+      padding: 90px;
+      line-height: 26px;
+      font-weight: bold;
+    }
+
+    .movie {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            width: 1200px;
+            height: 100px;
+            margin: 100px auto;
+        }
+
+        .movietext {
+            max-width: 60%;
+            color: #343470;
+        }
+
+        .movietext li {
+            font-size: 16px;
+            margin-left: -10px;
+            line-height: 10px;
+            text-align: left;
+            text-wrap: nowrap;
+        }
+        .movieimage img {
+            width: 300px;
+            height: 300px;
+            margin-left: 70px;
+        }
+
+        .song {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            width: 1200px;
+            height: 100px;
+            margin: 300px auto;
+        }
+
+        .songtext {
+            max-width: 60%;
+            color: #343470;
+        }
+
+        .songtext li {
+            font-size: 16px;
+            margin-left: -10px;
+            line-height: 10px;
+            text-align: left;
+            text-wrap: nowrap;
+        }
+        .songimage img {
+            width: 300px;
+            height: 290px;
+            margin-left: 70px;
+            
+        }     
+
+        .relaxation{
+          margin-top: -100px;
+        }
+
+        .relaxation h4{
+          text-align: center;
+          font-size: 21px;
+          text-align: center;
+          color: #343470;
+          text-wrap: wrap;
+          padding: 10px;
+          line-height: 26px;
+          font-weight: bold;
+          text-decoration: overline underline;
+        }
+
+    
+
+</style>
+
+<div class="whole">
+    <div class="all first">
+      <img src="{%static 'home/illustrationanxiety.jpg'%}">
+    </div>
+
+    <div class="all middle">
+      <h2>SOCIAL ANXIETY DISORDER</h2>
+      <h4>SAD is the fear of judgment, making social situations an emotional battleground. It's like having stage fright on a constant loop, fearing embarrassment or humiliation in social interactions.
+        </h4>
+      <h5>
+        <div class="symptoms">
+          <center><b>Symptoms:</b></center>          
+          <ul style="margin-top: 10px;">
+            <li>1.SAD turns social interactions into an emotional battlefield. Picture intense fear, trembling, and a persistent fear of judgment. </li>
+            <li>2.Intense Fear of Social Situations: Overwhelming anxiety in social settings.</li>
+            <li>3.Avoidance of Social Interactions: Steer clear of gatherings or events. 4.Physical Symptoms: Blushing, trembling, sweating in social situations.</li>
+            <li>5.Nausea or Upset Stomach: Anxiety can affect the digestive system. 6.Tremors: Involuntary trembling in social situations.</li>
+            <li>7.Self-Consciousness: Intense self-awareness in social interactions.</li>
+          </ul>
+        </div>
+        
+        <div class="remedies">
+          <center><b style="top: 60px;">Remedies:</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>-Our toolkit includes role-playing with friends, positive affirmations to combat negative thoughts, and the art of mindfulness in social settings.</li>
+            <li>-Gradual Exposure: Face social situations gradually to build tolerance. -Therapy: Cognitive-Behavioral Therapy (CBT) can help change negative thought patterns.</li>
+            <li>-Self-Compassion Exercises: Being kind to oneself and challenging self-critical thoughts. -Role-Playing: Practice social situations with a trusted friend.</li>
+            <li>-Positive Affirmations: Challenge negative thoughts with positive self-talk. -Mindfulness in Social Settings: Focus on the present moment.</li>
+          </ul>
+        </div>
+
+        <div class="diagnosis">
+          <center><b>Diagnosis:</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>-  A mental health professional evaluates social fears and their impact on daily life.
+            </li>
+          </ul>
+        </div>
+
+        <div class="funfacts">
+          <center><b>Here are few fun facts:</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>- Butterflies in your stomach aren't reserved for excitement; they can also flutter with anxiety.</li>
+            <li>- The fear of public speaking, a common social anxiety trigger, is called glossophobia.</li>
+            <li>- The fear of public speaking, known as glossophobia, is a common trigger for social anxiety. It turns out we're not alone in our public-speaking jitters!</li>  
+          </ul>
+        </div>
+        
+        <div class="quote">
+          <span>&#8220;</span>
+          <h4>You wouldn't worry so much about what others think of you if you realized how seldom they do. - Eleanor Roosevelt</h4>
+        </div>
+
+        <div class="desc">
+          <h4>
+              According to study conducted by MIT, 90% of data transmitted to the human brain is visual. More then any other factor, visuals<br> affects human mind in the most efficient and profound way. <span style="text-decoration: underline;">Here are some reccomendation from the entertainment section...</span>
+          </h4>
+        </div>
+      </h5>
+
+      <div class="movie">
+          <div class="movietext">
+              <ul>
+                <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Movie we reccomend:</li>
+                <li>-Embark on the inspiring journey of "The King's Speech," directed by Tom Hooper.</li>
+                <li>-The film portrays the challenges faced by King George VI in overcoming social anxiety.</li>
+                <li>-Engaging performances, especially by Colin Firth, make the movie a compelling watch.</li>
+                <li>-Witness the transformative power of perseverance and self-discovery in the face of adversity.</li>
+                <li>-A story that resonates with courage, offering inspiration for those navigating social challenges.</li>
+                  
+              </ul>
+          </div>
+          <div class="movieimage">
+              <img src="{%static 'home/Minimalist Film Poster - The Kings Speech.jpg'%}" alt="pic">
+          </div>
+      </div>
+
+      <div class="song">
+        <div class="songtext">
+            <ul>
+              <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Music track we reccomend:</li>
+              <li>-Boost your mood with the infectious positivity of "Happy" by Pharrell Williams.</li>
+              <li>-The upbeat tempo and uplifting lyrics create an instant sense of joy and energy.</li>
+              <li>-Use this song as a personal anthem to elevate your spirits and break through self-doubt.</li>
+              <li>-Incorporate it into your daily routine for a burst of optimism and motivation.</li>
+              <li>-Let the rhythm of "Happy" become a catalyst for embracing confidence and positivity.</li>
+                
+            </ul>
+        </div>
+        <div class="songimage">
+            <img src="{%static 'home/Happy by Pharrell Williams _ Indigo Chapters.jpg'%}" alt="pic">
+        </div>
+    </div>
+
+    <div class="song">
+      <div class="songtext">
+          <ul>
+            <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Book we reccomend:</li>
+            <li>-Explore Dale Carnegie's timeless guide, "How to Win Friends and Influence People."</li>
+            <li>-The book offers practical insights into building confidence and effective social interactions.</li>
+            <li>-Learn valuable communication skills that enhance your ability to connect with others.</li>
+            <li>-Carnegie's principles encourage self-improvement and foster positive relationships.</li>
+            <li>-An invaluable resource for those seeking to navigate social situations with grace and confidence.</li>
+              
+          </ul>
+      </div>
+      <div class="songimage">
+          <img src="{%static 'home/book-sad.jpg'%}" alt="pic">
+      </div>
+  </div>
+
+  <div class="relaxation">
+    <h4>Relaxation tips from MindDoc:</h4>
+    <ul>
+      <li>-Boost your confidence by practicing positive affirmations while listening to your favorite upbeat song.</li>
+      <li>-Choose affirmations that resonate with your strengths and aspirations.</li>
+      <li>-Repeat these affirmations daily, aligning them with the empowering rhythm of the song.</li>
+      <li>-Over time, this exercise can contribute to building a positive mindset and increasing self-assurance.</li>
+      <li>-Make it a part of your routine to cultivate a confident and resilient approach to social interactions.</li>
+    </ul>
+  </div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

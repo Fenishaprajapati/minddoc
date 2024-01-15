@@ -1,0 +1,356 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Elsie">
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Montserrat,sans-serif;
+    }
+    
+    .whole{
+        display: flex;
+        height: 830px;
+        width: 1700px;
+        margin-left: -210px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .first{
+      width: 300px;
+      animation: slideInRight 1s ease-out; 
+    }
+    .first img{
+      position: fixed;
+      margin-left: 45px;
+    }
+
+    
+
+    @keyframes slideInRight {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    .middle{
+      width: 1370px;
+    }
+
+    .middle h2{
+      margin-top: 200px;
+      font-size: 25px;
+      color: #343470;
+      font-family: Elsie;
+      font-weight: bold;
+      letter-spacing: 15px;
+      margin-left: 405px;
+    }
+
+    .middle h4{
+      margin-top: -9px;
+      font-size: 15px;
+      text-align: center;
+      color: rgb(99, 99, 99);
+      text-wrap: wrap;
+      padding: 20px 50px;
+      letter-spacing: 0.2px;
+      line-height: 19px;
+    }
+
+    .middle h5{
+      margin-top: 50px;
+      font-size: 16px;
+      color: rgb(99, 99, 99);
+      text-wrap: wrap;
+    }
+    .middle h5 b{
+      font-size: 20px;
+      color: #343470;
+    }
+    .middle li{
+      text-align: center;
+      list-style:none;
+      padding-bottom: 10px;
+      padding: 10px;
+    }
+
+    .remedies{
+      margin-top: 60px;
+    }
+    .diagnosis{
+      margin-top: 60px;
+    }
+    .funfacts{
+      margin-top: 60px;
+    }
+    .middle .funfacts b{
+      animation: blink 1s infinite;
+      color: deeppink;
+    }
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    .quote{
+      margin-top: 90px;
+      height: 70px;
+      width: 1015px;
+      margin-left: 190px;
+      border: 2px solid black;
+      border-radius: 30px;
+      position: relative;
+    }
+    .quote h4{
+      font-size: 21px;
+      margin-top: 0;
+      margin-left: 230px;
+      position: absolute;
+      top: 10px;
+      color: #343470;
+      text-align: center;
+    }
+    .quote span{
+      font-size: 160px;
+      margin-left: 30px;
+      color: black;
+      position: absolute;
+      top: -29px;
+    }
+    .desc h4{
+      text-align: center;
+      font-size: 19px;
+      text-align: center;
+      color: #343470;
+      text-wrap: wrap;
+      padding: 90px;
+      line-height: 26px;
+      font-weight: bold;
+    }
+
+    .movie {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            width: 1200px;
+            height: 100px;
+            margin: 100px auto;
+        }
+
+        .movietext {
+            max-width: 60%;
+            color: #343470;
+        }
+
+        .movietext li {
+            font-size: 16px;
+            margin-left: 60px;
+            line-height: 10px;
+            text-align: left;
+            text-wrap: nowrap;
+        }
+        .movieimage img {
+            width: 300px;
+            height: 300px;
+            margin-left: 70px;
+        }
+
+        .song {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            width: 1200px;
+            height: 100px;
+            margin: 300px auto;
+        }
+
+        .songtext {
+            max-width: 60%;
+            color: #343470;
+        }
+
+        .songtext li {
+            font-size: 16px;
+            margin-left: 70px;
+            line-height: 10px;
+            text-align: left;
+            text-wrap: nowrap;
+        }
+        .songimage img {
+            width: 300px;
+            height: 290px;
+            margin-left: 70px;
+            
+        }  
+
+        .relaxation{
+          margin-top: -100px;
+        }
+
+        .relaxation h4{
+          text-align: center;
+          font-size: 21px;
+          text-align: center;
+          color: #343470;
+          text-wrap: wrap;
+          padding: 10px;
+          line-height: 26px;
+          font-weight: bold;
+          text-decoration: overline underline;
+        }
+
+    
+
+</style>
+
+<div class="whole">
+    
+
+    <div class="all middle">
+      <h2>PSYCHOTIC DEPRESSION</h2>
+      <h4>Psychotic depression is a challenging mental health condition that combines the features of major depressive disorder with psychotic symptoms. Individuals grappling with psychotic depression often experience a blend of severe depressive symptoms and psychosis, such as delusions or hallucinations.</h4>
+      <h5>
+        <div class="symptoms">
+          <center><b>Symptoms:</b></center>          
+          <ul style="margin-top: 10px;">
+            <li>Profound Sadness: Overwhelming and persistent feelings of sadness, emptiness, and hopelessness.</li>
+            <li>-Psychotic Features: Delusions or hallucinations that may be depressive in nature.</li>
+            <li>-Disturbed Sleep Patterns: Insomnia or hypersomnia can exacerbate the overall distress. -Changes in Appetite: Significant weight loss or gain due to altered eating habits.</li>
+            <li>-Fatigue: A pervasive lack of energy, even for routine activities. -Feelings of Guilt: Excessive guilt or feelings of worthlessness.</li>
+            <li>-Difficulty Concentrating: Impaired focus and decision-making abilities.</li>
+          </ul>
+        </div>
+        
+        <div class="remedies">
+          <center><b style="top: 60px;">Remedies:</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>-Social Support: Engage with friends, family, or support groups to foster a strong social network.</li>
+            <li>-Self-Care: Prioritize self-care activities, including adequate sleep, balanced nutrition, and regular exercise.</li>
+            <li>-Mindfulness and Relaxation: Incorporate mindfulness and relaxation techniques to manage stress.</li>
+            <li>-Routine: Establish a daily routine to provide structure and stability.</li>
+          </ul>
+        </div>
+
+        <div class="diagnosis">
+          <center><b>Diagnosis:</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>-  A mental health professional evaluates symptoms and the impact on daily functioning to diagnosePsychotic depression.</li>
+          </ul>
+        </div>
+
+        <div class="funfacts">
+          <center><b>Inspiration from Laughter:</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>- While combating psychotic depression is undoubtedly a serious endeavor, finding moments of joy and laughter is crucial.</li>
+            <li>- Laughter not only releases endorphins but also serves as a powerful stress-buster, Laughter is a scientifically proven stress-reliever, releasing feel-good endorphins.</li>
+            <li>- Finding humor in daily life can contribute positively to one's mental well-being.</li>
+            <li>- Laughter not only releases endorphins but also serves as a powerful stress-buster.</li>
+          </ul>
+        </div>
+        
+        <div class="quote">
+          <span>&#8220;</span>
+          <h4>Laughter is a sunbeam of the soul - Thomas Mann</h4>
+        </div>
+
+        <div class="desc">
+          <h4>
+              According to study conducted by MIT, 90% of data transmitted to the human brain is visual. More then any other factor, visuals<br> affects human mind in the most efficient and profound way. <span style="text-decoration: underline;">Here are some reccomendation from the entertainment section...</span>
+          </h4>
+        </div>
+      </h5>
+
+      <div class="movie">
+        <div class="movieimage">
+              <img style="border-radius: 30px;" src="{%static 'home/A beautiful mind art poster.jpg'%}" alt="pic">
+          </div>
+          <div class="movietext">
+              <ul>
+                <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Movie we reccomend:</li>
+                <li>Movie: "A Beautiful Mind" directed by Ron Howard.</li>
+                <li>-Chronicles the life of John Nash, a brilliant mathematician dealing with schizophrenia.</li>
+                <li>-Sensitive portrayal of mental health challenges.</li>
+                <li>-Emphasizes resilience, hope, and the importance of support.</li>
+              </ul>
+          </div>
+      </div>
+
+      <div class="song">
+        <div class="songimage">
+            <img style="border-radius: 30px;" src="{%static 'home/latest.jpg'%}" alt="pic">
+        </div>
+        <div class="songtext">
+            <ul>
+              <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Music track we reccomend:</li>
+              <li>Song: "Weightless" by Marconi Union.</li>
+              <li>-Scientifically proven to reduce anxiety.</li>
+              <li>-Ambient composition with a gentle ebb and flow.</li>
+              <li>-Provides a sense of calm and serves as a supportive companion during moments of stress.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- book -->
+    <div class="song">
+        <div class="songimage">
+            <img style="border-radius: 30px;" src="{%static 'home/The Noonday Demon by Andrew Solomon - Audiobook _ Scribd.jpg'%}" alt="pic">
+        </div>
+      <div class="songtext book">
+          <ul>
+            <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Book we reccomend:</li>
+            <li>Book: "The Noonday Demon: An Atlas of Depression" by Andrew Solomon.</li>
+            <li>-Comprehensive exploration of depression, including its various forms.</li>
+            <li>-Combines personal narratives, scientific research, and cultural insights.</li>
+            <li>-Offers a compassionate and informative perspective on mental health struggles.</li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="relaxation">
+    <h4>Relaxation tips from MindDoc:</h4>
+    <ul>
+      <li>-Incorporate deep breathing exercises synchronized with your favorite uplifting song.</li>
+      <li>-Find a quiet space, close your eyes, and inhale deeply, counting to four, then exhale slowly.</li>
+      <li>-Allow the rhythm of the music to guide your breath, promoting relaxation and stress reduction.</li>
+    </ul>
+  </div>
+
+</div>
+<div class="all first">
+      <img src="{%static 'home/depressionimage.jpg'%}">
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

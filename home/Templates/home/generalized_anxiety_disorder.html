@@ -15,37 +15,23 @@
     .whole{
         display: flex;
         height: 830px;
-        width: 1710px;
+        width: 1700px;
         margin-left: -210px;
         flex-direction: row;
         flex-wrap: nowrap;
-        overflow: hidden;
     }
 
     .first{
       width: 290px;
-      overflow: hidden;
-      animation: slideInLeft 4s ease-out; 
+      animation: slideInLeft 1s ease-out; 
     }
     .first img{
       opacity: 90%;
       position: fixed;
     }
 
-    .middle{
-      width: 1130px;
-    }
+    
 
-    .last{
-      width: 290px;
-      position: relative;
-      overflow: hidden;
-      animation: slideInRight 4s ease-out;
-    }
-    .last img{
-      opacity: 90%;
-      position: fixed;
-    }
     @keyframes slideInLeft {
         0% {
             transform: translateX(-100%);
@@ -55,27 +41,22 @@
         }
     }
 
-    @keyframes slideInRight {
-        0% {
-            transform: translateX(100%);
-        }
-        100% {
-            transform: translateX(0);
-        }
+    .middle{
+      width: 1370px;
     }
-    
+
     .middle h2{
-      margin-top: 180px;
+      margin-top: 200px;
       font-size: 25px;
-      text-align: center;
       color: #343470;
       font-family: Elsie;
       font-weight: bold;
       letter-spacing: 14px;
+      margin-left: 300px;
     }
 
     .middle h4{
-      margin-top: -10px;
+      margin-top: -9px;
       font-size: 15px;
       text-align: center;
       color: rgb(99, 99, 99);
@@ -91,6 +72,7 @@
     }
     .middle h5 b{
       font-size: 20px;
+      color: #343470;
     }
     .middle li{
       text-align: center;
@@ -98,6 +80,144 @@
       padding-bottom: 10px;
       padding: 10px;
     }
+
+    .remedies{
+      margin-top: 60px;
+    }
+    .diagnosis{
+      margin-top: 60px;
+    }
+    .funfacts{
+      margin-top: 60px;
+    }
+    .middle .funfacts b{
+      animation: blink 1s infinite;
+      color: deeppink;
+    }
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    .quote{
+      margin-top: 90px;
+      height: 70px;
+      width: 1015px;
+      margin-left: 190px;
+      border: 2px solid black;
+      border-radius: 30px;
+      position: relative;
+    }
+    .quote h4{
+      font-size: 20px;
+      margin-top: 0;
+      margin-left: 40px;
+      position: absolute;
+      top: 10px;
+      color: #343470;
+    }
+    .quote span{
+      font-size: 160px;
+      margin-left: 30px;
+      color: black;
+      position: absolute;
+      top: -29px;
+    }
+    .desc h4{
+      text-align: center;
+      font-size: 19px;
+      text-align: center;
+      color: #343470;
+      text-wrap: wrap;
+      padding: 90px;
+      line-height: 26px;
+      font-weight: bold;
+    }
+
+    .movie {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            width: 1200px;
+            height: 100px;
+            margin: 100px auto;
+        }
+
+        .movietext {
+            max-width: 60%;
+            color: #343470;
+        }
+
+        .movietext li {
+            font-size: 16px;
+            margin-left: -10px;
+            line-height: 10px;
+            text-align: left;
+            text-wrap: nowrap;
+        }
+        .movieimage img {
+            width: 300px;
+            height: 300px;
+            margin-left: 70px;
+        }
+
+        .song {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            width: 1200px;
+            height: 100px;
+            margin: 300px auto;
+        }
+
+        .songtext {
+            max-width: 60%;
+            color: #343470;
+        }
+
+        .songtext li {
+            font-size: 16px;
+            margin-left: -10px;
+            line-height: 10px;
+            text-align: left;
+            text-wrap: nowrap;
+        }
+        .songimage img {
+            width: 300px;
+            height: 290px;
+            margin-left: 70px;
+            
+        }     
+
+        .relaxation{
+          margin-top: -100px;
+        }
+
+        .relaxation h4{
+          text-align: center;
+          font-size: 21px;
+          text-align: center;
+          color: #343470;
+          text-wrap: wrap;
+          padding: 10px;
+          line-height: 26px;
+          font-weight: bold;
+          text-decoration: overline underline;
+        }
+
+    
 
 </style>
 
@@ -108,29 +228,121 @@
 
     <div class="all middle">
       <h2>GENERALIZED ANXIETY DISORDER</h2>
-      <h4>GAD is like having a constant worry companion. People with GAD experience excessive, uncontrollable anxiety about everyday things. Imagine feeling on edge, expecting the worst, even when there's no apparent reason. Physical symptoms like muscle tension and restlessness often tag along.</h4>
-      <!-- <h5><center><b>Symptoms:</b></center>        
-        <ul>
-          <li>Persistent Worrying: Overthinking about various aspects of life.</li>
-          <li>Restlessness: Feeling on edge and unable to relax.</li>
-          <li>Muscle Tension: Physical manifestation of stress in the body.</li>
-          <li>Fatigue: Constant worrying can be mentally and physically exhausting.</li>
-          <li>Difficulty Concentrating: The mind is preoccupied with anxious thoughts.</li>
-          <li>Irritability: GAD can make individuals more sensitive to irritants.</li>
-          <li>Sleep Disturbances: Difficulty falling asleep or staying asleep.</li>
-          <li>Excessive Sweating: Physical manifestation of heightened anxiety.</li>
-        </ul>
+      <h4>GAD is like having a constant worry companion. People with GAD experience excessive, uncontrollable anxiety about everyday things.<br> Imagine feeling on edge, expecting the worst, even when there's no apparent reason. Physical symptoms like muscle tension and restlessness often tag along.</h4>
+      <h5>
+        <div class="symptoms">
+          <center><b>Symptoms:</b></center>          
+          <ul style="margin-top: 10px;">
+            <li>1.Persistent Worrying: Overthinking about various aspects of life. 2.Restlessness: Feeling on edge and unable to relax.</li>
+            <li>3.Muscle Tension: Physical manifestation of stress in the body. 4.Fatigue: Constant worrying can be mentally and physically exhausting.</li>
+            <li>5.Difficulty Concentrating: The mind is preoccupied with anxious thoughts. 6.Irritability: GAD can make individuals more sensitive to irritants.</li>
+            <li>7.Sleep Disturbances: Difficulty falling asleep or staying asleep. 8.Excessive Sweating: Physical manifestation of heightened anxiety.</li>
+          </ul>
+        </div>
+        
+        <div class="remedies">
+          <center><b style="top: 60px;">Remedies:</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>-Embrace mindfulness, practice relaxation techniques, exercise regularly, and challenge irrational thoughts.</li>
+            <li>-Mindfulness and Meditation: Techniques to stay present and manage anxious thoughts. -Regular Exercise: Physical activity helps in reducing stress and anxiety.</li>
+            <li>-Challenge Irrational Thoughts: Question the validity of anxious beliefs. -Therapy: Cognitive-Behavioral Therapy (CBT) is particularly effective.</li>
+            <li>-Journaling: Writing down thoughts can help identify patterns and triggers. -Breathing Exercises: Deep, slow breathing to calm the nervous system.</li>
+            <li>-Create a Worry Period: Designate a specific time for worrying to contain anxiety.</li>
+          </ul>
+        </div>
 
-        Remedies:  -->
+        <div class="diagnosis">
+          <center><b>Diagnosis:</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>- A mental health professional assesses symptoms and may use specific criteria outlined in the Diagnostic and Statistical Manual of Mental Disorders (DSM-5).</li>
+            <li>- Did you know that laughter is a fantastic stress-buster? It not only releases feel-good endorphins but also decreases stress hormones.</li>
+          </ul>
+        </div>
 
+        <div class="funfacts">
+          <center><b>Here are few fun facts:</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>- Laughter is a fantastic stress-buster. It not only releases feel-good endorphins but also decreases stress hormones</li>
+            <li>- world's largest stress ball weighs 4,323 pounds! It was created in the United Kingdom.</li>
+            <li>- Did you know the world's largest stress ball weighs a whopping 4,323 pounds? That's one way to squeeze out stress!</li>  
+          </ul>
+        </div>
+        
+        <div class="quote">
+          <span>&#8220;</span>
+          <h4>Worrying is like a rocking chair. It gives you something to do but gets you nowhere. - Glenn Turner</h4>
+        </div>
 
+        <div class="desc">
+          <h4>
+              According to study conducted by MIT, 90% of data transmitted to the human brain is visual. More then any other factor, visuals<br> affects human mind in the most efficient and profound way. <span style="text-decoration: underline;">Here are some reccomendation from the entertainment section...</span>
+          </h4>
+        </div>
       </h5>
 
+      <div class="movie">
+          <div class="movietext">
+              <ul>
+                <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Movie we reccomend:</li>
+                <li>-Delve into the whimsical world of this comedic masterpiece directed by Wes Anderson.</li>
+                <li>-The film takes you on an entertaining journey with quirky characters and visually stunning scenes.</li>
+                <li>-Its clever storytelling and humor provide a delightful distraction from daily worries.</li>
+                <li>-The vibrant colors and charming narrative contribute to creating a light-hearted atmosphere.</li>
+                <li>-A perfect choice to lift your spirits and infuse a dose of joy into your day.</li>
+                  
+              </ul>
+          </div>
+          <div class="movieimage">
+              <img src="{%static 'home/The Grand Budapest Hotel (1).jpg'%}" alt="pic">
+          </div>
+      </div>
+
+      <div class="song">
+        <div class="songtext">
+            <ul>
+              <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Music track we reccomend:</li>
+              <li>-Immerse yourself in the ambient sounds of "Weightless," a composition designed to induce relaxation.</li>
+              <li>-Scientifically proven to reduce anxiety, it creates a calming environment for the mind.</li>
+              <li>-The gentle ebb and flow of the music contribute to a sense of tranquility and mental ease.</li>
+              <li>-Close your eyes, breathe deeply, and let the soothing melodies guide you to a more peaceful state.</li>
+              <li>-Incorporate it into your daily routine for moments of serene reflection.</li>
+                
+            </ul>
+        </div>
+        <div class="songimage">
+            <img src="{%static 'home/latest.jpg'%}" alt="pic">
+        </div>
     </div>
 
-    <div class="all last">
-      <img src="{%static 'home/illustrationanxietyflip.jpg'%}">
-    </div>
+    <div class="song">
+      <div class="songtext">
+          <ul>
+            <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Book we reccomend:</li>
+            <li>-Explore the Danish philosophy of hygge, a concept centered around creating coziness and well-being.</li>
+            <li>-Meik Wiking's charming book offers practical tips on incorporating hygge into your life.</li>
+            <li>-From warm blankets to candlelit evenings, discover simple pleasures that promote relaxation.</li>
+            <li>-The book encourages a mindful and comfortable lifestyle, fostering a sense of calm.</li>
+            <li>-An inviting read that may inspire you to embrace hygge as a pathway to a calmer, happier existence.</li>
+              
+          </ul>
+      </div>
+      <div class="songimage">
+          <img src="{%static 'home/My Hygge Home_ How to Make Home Your Happy Place.jpg'%}" alt="pic">
+      </div>
+  </div>
+
+  <div class="relaxation">
+    <h4>Relaxation tips from MindDoc:</h4>
+    <ul>
+      <li>-Incorporate deep breathing exercises into your routine, synchronized with your favorite feel-good song.</li>
+      <li>-Find a comfortable space, close your eyes, and inhale deeply, counting to four, then exhale slowly.</li>
+      <li>-Let the rhythm of the music guide your breath, promoting relaxation and stress reduction.</li>
+      <li>-This simple yet effective relaxation technique can be practiced daily for mental rejuvenation.</li>
+      <li>-Combine it with your chosen uplifting song for a harmonious blend of music and mindful breathing.</li>
+    </ul>
+  </div>
+
+</div>
 
 </div>
 

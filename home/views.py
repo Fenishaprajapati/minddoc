@@ -22,22 +22,22 @@ def separation_anxiety_disorder(request):
     return render(request, 'home/separation_anxiety_disorder.html')
 
 def psychotic_depression(request):
-    return render(request, 'home/psychotic_depression,html')
+    return render(request, 'home/psychotic_depression.html')
 
 def major_depressive_depression(request):
-    return render(request, 'home/major_depressive_depression,html')
+    return render(request, 'home/major_depressive_depression.html')
 
 def situational_depression(request):
-    return render(request, 'home/situational_depression,html')
+    return render(request, 'home/situational_depression.html')
 
 def post_traumatic_stress_disorder(request):
-    return render(request, 'home/post_traumatic_stress_disorder,html')
+    return render(request, 'home/post_traumatic_stress_disorder.html')
 
 def obsessive_compulsive_disorder(request):
-    return render(request, 'home/obsessive_compulsive_disorder,html')
+    return render(request, 'home/obsessive_compulsive_disorder.html')
 
 def dissociative_identity_disorder(request):
-    return render(request, 'home/dissociative_identity_disorder,html')
+    return render(request, 'home/dissociative_identity_disorder.html')
 
 def phobias(request):
     return render(request, 'home/phobias.html')

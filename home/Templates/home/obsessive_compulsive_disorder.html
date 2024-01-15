@@ -1,0 +1,359 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Elsie">
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Montserrat,sans-serif;
+    }
+    
+    .whole{
+        display: flex;
+        height: 830px;
+        width: 1700px;
+        margin-left: -210px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .first{
+      width: 290px;
+      animation: slideInLeft 1s ease-out; 
+    }
+    .first img{
+      opacity: 90%;
+      position: fixed;
+    }
+
+    
+
+    @keyframes slideInLeft {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    .middle{
+      width: 1370px;
+    }
+
+    .middle h2{
+      margin-top: 200px;
+      font-size: 25px;
+      color: #343470;
+      font-family: Elsie;
+      font-weight: bold;
+      letter-spacing: 14px;
+      margin-left: 300px;
+    }
+
+    .middle h4{
+      margin-top: -9px;
+      font-size: 15px;
+      text-align: center;
+      color: rgb(99, 99, 99);
+      text-wrap: wrap;
+      padding: 20px 50px;
+    }
+
+    .middle h5{
+      margin-top: 50px;
+      font-size: 16px;
+      color: rgb(99, 99, 99);
+      text-wrap: wrap;
+    }
+    .middle h5 b{
+      font-size: 20px;
+      color: #343470;
+    }
+    .middle li{
+      text-align: center;
+      list-style:none;
+      padding-bottom: 10px;
+      padding: 10px;
+    }
+
+    .remedies{
+      margin-top: 60px;
+    }
+    .diagnosis{
+      margin-top: 60px;
+    }
+    .funfacts{
+      margin-top: 60px;
+    }
+    .middle .funfacts b{
+      animation: blink 1s infinite;
+      color: deeppink;
+    }
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    .quote{
+      margin-top: 90px;
+      height: 70px;
+      width: 1015px;
+      margin-left: 190px;
+      border: 2px solid black;
+      border-radius: 30px;
+      position: relative;
+    }
+    .quote h4{
+      font-size: 20px;
+      margin-top: 0;
+      margin-left: 140px;
+      position: absolute;
+      top: 10px;
+      color: #343470;
+    }
+    .quote span{
+      font-size: 160px;
+      margin-left: 30px;
+      color: black;
+      position: absolute;
+      top: -29px;
+    }
+    .desc h4{
+      text-align: center;
+      font-size: 19px;
+      text-align: center;
+      color: #343470;
+      text-wrap: wrap;
+      padding: 90px;
+      line-height: 26px;
+      font-weight: bold;
+    }
+
+    .movie {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            width: 1200px;
+            height: 100px;
+            margin: 100px auto;
+        }
+
+        .movietext {
+            max-width: 60%;
+            color: #343470;
+        }
+
+        .movietext li {
+            font-size: 16px;
+            margin-left: -10px;
+            line-height: 10px;
+            text-align: left;
+            text-wrap: nowrap;
+        }
+        .movieimage img {
+            width: 300px;
+            height: 300px;
+            margin-left: 70px;
+        }
+
+        .song {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            width: 1200px;
+            height: 100px;
+            margin: 300px auto;
+        }
+
+        .songtext {
+            max-width: 60%;
+            color: #343470;
+        }
+
+        .songtext li {
+            font-size: 16px;
+            margin-left: -10px;
+            line-height: 10px;
+            text-align: left;
+            text-wrap: nowrap;
+        }
+        .songimage img {
+            width: 300px;
+            height: 290px;
+            margin-left: 70px;
+            
+        }     
+
+        .relaxation{
+          margin-top: -100px;
+        }
+
+        .relaxation h4{
+          text-align: center;
+          font-size: 21px;
+          text-align: center;
+          color: #343470;
+          text-wrap: wrap;
+          padding: 10px;
+          line-height: 26px;
+          font-weight: bold;
+          text-decoration: overline underline;
+        }
+
+    
+
+</style>
+
+<div class="whole">
+    <div class="all first">
+      <img src="{%static 'home/ocd (1).jpg'%}">
+    </div>
+
+    <div class="all middle">
+      <h2>OBSESSIVE COMPLUSIVE DISORDER</h2>
+      <h4>Obsessive-Compulsive Disorder (OCD): Unraveling the Complexities of Intrusive Thoughts and Ritual. It is a mental health condition characterized by persistent, unwanted thoughts (obsessions) and repetitive behaviors or mental acts (compulsions). These rituals are performed to alleviate the anxiety associated with the obsessions but provide only temporary relief.
+        </h4>
+      <h5>
+        <div class="symptoms">
+          <center><b>Symptoms:</b></center>          
+          <ul style="margin-top: 10px;">
+            <li>-Intrusive Thoughts: Persistent, distressing, and unwanted thoughts or images.</li>
+            <li>-Compulsive Behaviors: Repetitive actions or mental rituals performed to reduce anxiety.</li>
+            <li>-Fear of Losing Control: Anxiety about harming oneself or others due to uncontrollable actions.</li>
+            <li>-Excessive Cleaning or Washing: Compulsions related to cleanliness or contamination fears.</li>
+            <li>-Checking Rituals: Repeatedly verifying things to ensure they are safe or in proper order.
+            </li>
+          </ul>
+        </div>
+
+        <div class="remedies">
+          <center><b style="top: 60px;">Remedies:</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>-Mindfulness Practices: Techniques to stay present and manage intrusive thoughts without judgment.</li>
+            <li>-Building Tolerance: Gradual exposure to feared situations to increase tolerance and reduce anxiety.</li>
+            <li>-Support Groups: Connecting with others experiencing similar challenges for understanding and encouragement.</li>
+            <li>-Therapeutic Journaling: Documenting thoughts and feelings to gain insights and recognize patterns.</li>
+            <li>-Creative Outlets: Engaging in artistic pursuits as a form of self-expression and distraction.</li>
+            <li>-Mindfulness and Relaxation Techniques: Practices to manage anxiety and reduce the impact of obsessive thoughts.</li>
+          </ul>
+        </div>
+
+        <div class="diagnosis">
+          <center><b>Diagnosis:</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>- Did you know that laughter is a fantastic stress-buster? It not only releases feel-good endorphins but also decreases stress hormones.</li>
+          </ul>
+        </div>
+
+        <div class="funfacts">
+          <center><b>Inspiration from Resilience:</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>- Recognizing the power of perception and finding resilience within oneself are crucial aspects of the journey towards managing and overcoming OCD.</li>
+            <li>- OCD affects people of all ages, and its severity can vary from mild to disabling.</li>
+            <li>- Michelangelo, the renowned artist, and sculptor is believed to have exhibited traits consistent with OCD, including obsessive cleaning and a fear of contamination.</li>  
+          </ul>
+        </div>
+        
+        <div class="quote">
+          <span>&#8220;</span>
+          <h4>It's not what you look at that matters; it's what you see - Henry David Thoreau</h4>
+        </div>
+
+        <div class="desc">
+          <h4>
+              According to study conducted by MIT, 90% of data transmitted to the human brain is visual. More then any other factor, visuals<br> affects human mind in the most efficient and profound way. <span style="text-decoration: underline;">Here are some reccomendation from the entertainment section...</span>
+          </h4>
+        </div>
+      </h5>
+
+      <div class="movie">
+          <div class="movietext">
+              <ul>
+                <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Movie we reccomend:</li>
+                <li>Movie: Immerse yourself in the thought-provoking narrative of "The Aviator."</li>
+                <li>-Explores the life of Howard Hughes, who faced challenges related to OCD.</li>
+                <li>-Offers a nuanced portrayal of the impact of obsessive thoughts on daily life.</li>
+                <li>-Directed by Martin Scorsese, the film delves into the complexities of mental health.</li>
+                <li>-The movie received multiple Academy Award nominations.</li>
+              </ul>
+          </div>
+          <div class="movieimage">
+              <img src="{%static 'home/ocdbook(2).jpg'%}" alt="pic">
+          </div>
+      </div>
+      
+      <div class="song">
+        <div class="songtext">
+            <ul>
+              <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Music track we reccomend:</li>
+              <li>Song: Find solace in the calming and introspective melodies of "Breathe (2 AM)" by Anna Nalick.</li>
+              <li>-A soothing song that resonates with themes of introspection and self-acceptance.</li>
+              <li>-Encourages listeners to take a moment to breathe amid life's challenges.</li>
+              <li>-The poignant lyrics convey a sense of understanding and empathy.</li>
+              <li>-The track gained popularity for its inclusion in various media, reflecting its universal appeal.</li>  
+            </ul>
+        </div>
+        <div class="songimage">
+            <img src="{%static 'home/ocdbook(1).jpg'%}" alt="pic">
+        </div>
+    </div>
+ 
+    <div class="song">
+      <div class="songtext">
+          <ul>
+            <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Book we reccomend:</li>
+            <li>Book: Delve into "The Man Who Couldn't Stop" by David Adam.</li>
+              <li>-A personal and insightful exploration of living with OCD.</li>
+              <li>-Authored by a journalist who shares his own experiences with the disorder.</li>
+              <li>-Provides a balanced mix of science, history, and personal narrative.</li>
+              <li>-Offers a comprehensive understanding of OCD's impact on daily life.</li>  
+          </ul>
+      </div>
+      <div class="songimage">
+          <img src="{%static 'home/ocdbook.webp'%}" alt="pic">
+      </div>
+  </div>
+
+  <div class="relaxation">
+    <h4>Relaxation tips from MindDoc:</h4>
+    <ul>
+      <li>-Incorporate deep-breathing exercises into your routine to manage stress.</li>
+      <li>-Explore progressive muscle relaxation techniques to release tension.</li>
+      <li>-Engage in activities that bring joy and divert attention from obsessive thoughts.</li>
+      <li>-Establish a consistent sleep routine to promote overall well-being.</li>
+    </ul>
+  </div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

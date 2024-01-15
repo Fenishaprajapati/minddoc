@@ -1,0 +1,362 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Elsie">
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Montserrat,sans-serif;
+    }
+    
+    .whole{
+        display: flex;
+        height: 830px;
+        width: 1700px;
+        margin-left: -210px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .first{
+      width: 300px;
+      animation: slideInRight 1s ease-out; 
+    }
+    .first img{
+      position: fixed;
+      margin-left: 45px;
+    }
+
+    
+
+    @keyframes slideInRight {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    .middle{
+      width: 1370px;
+    }
+
+    .middle h2{
+      margin-top: 200px;
+      font-size: 25px;
+      color: #343470;
+      font-family: Elsie;
+      font-weight: bold;
+      letter-spacing: 15px;
+      margin-left: 305px;
+    }
+
+    .middle h4{
+      margin-top: -9px;
+      font-size: 15px;
+      text-align: center;
+      color: rgb(99, 99, 99);
+      text-wrap: wrap;
+      padding: 20px 50px;
+      letter-spacing: 0.2px;
+      line-height: 19px;
+    }
+
+    .middle h5{
+      margin-top: 50px;
+      font-size: 16px;
+      color: rgb(99, 99, 99);
+      text-wrap: wrap;
+    }
+    .middle h5 b{
+      font-size: 20px;
+      color: #343470;
+    }
+    .middle li{
+      text-align: center;
+      list-style:none;
+      padding-bottom: 10px;
+      padding: 10px;
+    }
+
+    .remedies{
+      margin-top: 60px;
+    }
+    .diagnosis{
+      margin-top: 60px;
+    }
+    .funfacts{
+      margin-top: 60px;
+    }
+    .middle .funfacts b{
+      animation: blink 1s infinite;
+      color: deeppink;
+    }
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    .quote{
+      margin-top: 90px;
+      height: 70px;
+      width: 1015px;
+      margin-left: 190px;
+      border: 2px solid black;
+      border-radius: 30px;
+      position: relative;
+    }
+    .quote h4{
+      font-size: 21px;
+      margin-top: 0;
+      margin-left: 200px;
+      position: absolute;
+      top: 10px;
+      color: #343470;
+    }
+    .quote span{
+      font-size: 160px;
+      margin-left: 30px;
+      color: black;
+      position: absolute;
+      top: -29px;
+    }
+    .desc h4{
+      text-align: center;
+      font-size: 19px;
+      text-align: center;
+      color: #343470;
+      text-wrap: wrap;
+      padding: 90px;
+      line-height: 26px;
+      font-weight: bold;
+    }
+
+    .movie {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            width: 1200px;
+            height: 100px;
+            margin: 100px auto;
+            margin-left: 20px;
+        }
+
+        .movietext {
+            max-width: 60%;
+            color: #343470;
+        }
+
+        .movietext li {
+            font-size: 16px;
+            margin-left: 60px;
+            line-height: 10px;
+            text-align: left;
+            text-wrap: nowrap;
+        }
+        .movieimage img {
+            width: 300px;
+            height: 300px;
+            margin-left: 70px;
+        }
+
+        .song {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            width: 1200px;
+            height: 100px;
+            margin: 300px auto;
+            margin-left: 20px;
+
+        }
+
+        .songtext {
+            max-width: 60%;
+            color: #343470;
+        }
+
+        .songtext li {
+            font-size: 16px;
+            margin-left: 70px;
+            line-height: 10px;
+            text-align: left;
+            text-wrap: nowrap;
+        }
+        .songimage img {
+            width: 300px;
+            height: 290px;
+            margin-left: 70px;
+            
+        }  
+
+        .relaxation{
+          margin-top: -100px;
+        }
+
+        .relaxation h4{
+          text-align: center;
+          font-size: 21px;
+          text-align: center;
+          color: #343470;
+          text-wrap: wrap;
+          padding: 10px;
+          line-height: 26px;
+          font-weight: bold;
+          text-decoration: overline underline;
+        }
+
+    
+
+</style>
+
+<div class="whole">
+    
+
+    <div class="all middle">
+      <h2>MAJOR DEPRESSIVE DEPRESSION</h2>
+      <h4>MDD is a pervasive mental health condition characterized by persistent feelings of sadness, hopelessness, and a lack of interest or pleasure in daily activities. <br>It significantly impacts a person's thoughts, emotions, and overall quality of life.</h4>
+      <h5>
+        <div class="symptoms">
+          <center><b>Symptoms:</b></center>          
+          <ul style="margin-top: 10px;">
+                <li>-Persistent Sadness: Overwhelming and prolonged feelings of sadness and despair.</li>
+                <li>-Loss of Interest: Diminished interest or pleasure in once-enjoyable activities.</li>
+                <li>-Changes in Appetite: Significant weight loss or gain due to altered eating habits. -Sleep Disturbances: Insomnia or hypersomnia, affecting the quantity and quality of sleep.</li>
+                <li>-Fatigue: A pervasive lack of energy, even for routine activities. -Fatigue: Profound tiredness and lack of energy, even after minimal exertion.</li>
+                <li>-Difficulty Concentrating: Impaired focus, decision-making, and memory. -Feelings of Guilt: Unwarranted guilt or feelings of worthlessness.</li>
+                <li>Physical Aches and Pains: Persistent physical symptoms with no apparent medical cause.</li>
+          </ul>
+        </div>
+        <div class="remedies">
+          <center><b style="top: 60px;">Remedies:</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>-Mindfulness Practices: Incorporate mindfulness and meditation to stay present and manage negative thoughts.</li>
+            <li>-Social Support: Cultivate a strong support system through friends, family, or support groups.</li>
+            <li>-Routine and Structure: Establishing a daily routine provides stability and a sense of purpose.</li>
+            <li>- Self-Care: Prioritize self-care activities, including adequate sleep, nutrition, and exercise.</li>
+            <li>Therapy: Cognitive-behavioral therapy (CBT) and other therapeutic approaches help address negative thought patterns.</li>
+          </ul>
+        </div>        
+        <div class="diagnosis">
+          <center><b>Diagnosis:</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>-  A mental health professional evaluates symptoms and the impact on daily functioning to diagnose Major depressive depression.</li>
+          </ul>
+        </div>
+
+        <div class="funfacts">
+          <center><b>Inspiration from Resilience:</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>-While major depressive disorder can be a challenging journey, finding inspiration in moments of resilience and growth is essential.</li>
+            <li>-Recognizing the potential for personal transformation amid struggles is a powerful aspect of the healing process.</li>
+            <li>-Creative outlets, such as art, music, or writing, can serve as therapeutic tools for individuals coping with major depressive disorder.</li>
+          </ul>
+        </div>
+        <div class="quote">
+          <span>&#8220;</span>
+          <h4>The wound is the place where the light enters you - Rumi</h4>
+        </div>
+
+        <div class="desc">
+          <h4>
+              According to study conducted by MIT, 90% of data transmitted to the human brain is visual. More then any other factor, visuals<br> affects human mind in the most efficient and profound way. <span style="text-decoration: underline;">Here are some reccomendation from the entertainment section...</span>
+          </h4>
+        </div>
+      </h5>
+
+      <div class="movie">
+        <div class="movieimage">
+              <img style="border-radius: 30px;" src="{%static 'home/songmdd (4).jpg'%}" alt="pic">
+          </div>
+          <div class="movietext">
+              <ul>
+                <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Movie we reccomend:</li>
+                <li>Movie: "Eternal Sunshine of the Spotless Mind."</li>
+                <li>-Explores the complexities of relationships and the human psyche.</li>
+                <li>-Offers a thought-provoking perspective on resilience and self-discovery.</li>
+                <li>-Delves into the theme of memory and the impact of past experiences.</li>
+                <li>-Features Jim Carrey and Kate Winslet in powerful and nuanced performances.</li>
+                <li>-Directed by Michel Gondry, known for his visually inventive storytelling.</li>
+              </ul>
+          </div>
+      </div>
+
+      <div class="song">
+        <div class="songimage">
+            <img style="border-radius: 30px;" src="{%static 'home/songmdd (2).jpg'%}" alt="pic">
+        </div>
+        <div class="songtext">
+            <ul>
+              <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Music track we reccomend:</li>
+              <li>Song: "Hallelujah" by Leonard Cohen.</li>
+              <li>-A timeless song with soulful lyrics encapsulating the emotional journey of depression.</li>
+              <li>-Written and performed by Leonard Cohen, known for its poetic and poignant composition.</li>
+              <li>-Covered by various artists, demonstrating the universal resonance of its themes.</li>
+              <li>-Evokes a sense of empathy and connection for those experiencing mental health challenges.</li>
+              <li>-Provides a cathartic and contemplative musical experience.</li>
+            </ul>
+        </div>
+    </div>
+   
+    <!-- book -->
+    <div class="song">
+        <div class="songimage">
+            <img style="border-radius: 30px;" src="{%static 'home/songmdd (5).jpg'%}" alt="pic">
+        </div>
+      <div class="songtext book">
+          <ul>
+            <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Book we reccomend:</li>
+            <li>Book: "The Bell Jar" by Sylvia Plath.</li>
+            <li>-A classic novel offering a poignant exploration of despair and the pursuit of meaning.</li>
+            <li>-Authored by Sylvia Plath, providing an introspective view of mental health struggles.</li>
+            <li>-Semi-autobiographical, reflecting Plath's own experiences with depression.</li>
+            <li>-Artfully delves into the challenges of societal expectations and personal identity.</li>
+            <li>-A literary work that continues to resonate with readers for its raw honesty.</li>
+          </ul>
+      </div>
+  </div>
+   
+  <div class="relaxation">
+    <h4>Relaxation tips from MindDoc:</h4>
+    <ul>
+      <li>-Engage in deep-breathing exercises to calm the nervous system.</li>
+      <li>-Explore creative expressions, such as journaling or art, as therapeutic outlets.</li>
+      <li>-Surround yourself with calming scents, sounds, or visuals to create a soothing environment.</li>
+    </ul>
+  </div>
+  
+</div>
+<div class="all first">
+      <img src="{%static 'home/depressionimage.jpg'%}">
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

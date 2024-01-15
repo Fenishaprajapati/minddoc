@@ -1,0 +1,354 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Elsie">
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Montserrat,sans-serif;
+    }
+    
+    .whole{
+        display: flex;
+        height: 830px;
+        width: 1700px;
+        margin-left: -210px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .first{
+      width: 290px;
+      animation: slideInLeft 1s ease-out; 
+    }
+    .first img{
+      opacity: 90%;
+      position: fixed;
+    }
+
+    
+
+    @keyframes slideInLeft {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    .middle{
+      width: 1370px;
+    }
+
+    .middle h2{
+      margin-top: 200px;
+      font-size: 25px;
+      color: #343470;
+      font-family: Elsie;
+      font-weight: bold;
+      letter-spacing: 14px;
+      margin-left: 285px;
+    }
+
+    .middle h4{
+      margin-top: -9px;
+      font-size: 15px;
+      text-align: center;
+      color: rgb(99, 99, 99);
+      text-wrap: wrap;
+      padding: 20px 50px;
+    }
+
+    .middle h5{
+      margin-top: 50px;
+      font-size: 16px;
+      color: rgb(99, 99, 99);
+      text-wrap: wrap;
+    }
+    .middle h5 b{
+      font-size: 20px;
+      color: #343470;
+    }
+    .middle li{
+      text-align: center;
+      list-style:none;
+      padding-bottom: 10px;
+      padding: 10px;
+    }
+
+    .remedies{
+      margin-top: 60px;
+    }
+    .diagnosis{
+      margin-top: 60px;
+    }
+    .funfacts{
+      margin-top: 60px;
+    }
+    .middle .funfacts b{
+      animation: blink 1s infinite;
+      color: deeppink;
+    }
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    .quote{
+      margin-top: 90px;
+      height: 70px;
+      width: 1015px;
+      margin-left: 190px;
+      border: 2px solid black;
+      border-radius: 30px;
+      position: relative;
+    }
+    .quote h4{
+      font-size: 25px;
+      margin-top: 0;
+      margin-left: 185px;
+      position: absolute;
+      top: 10px;
+      color: #343470;
+    }
+    .quote span{
+      font-size: 160px;
+      margin-left: 30px;
+      color: black;
+      position: absolute;
+      top: -29px;
+    }
+    .desc h4{
+      text-align: center;
+      font-size: 19px;
+      text-align: center;
+      color: #343470;
+      text-wrap: wrap;
+      padding: 90px;
+      line-height: 26px;
+      font-weight: bold;
+    }
+
+    .movie {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            width: 1200px;
+            height: 100px;
+            margin: 100px auto;
+        }
+
+        .movietext {
+            max-width: 60%;
+            color: #343470;
+        }
+
+        .movietext li {
+            font-size: 16px;
+            margin-left: -10px;
+            line-height: 10px;
+            text-align: left;
+            text-wrap: nowrap;
+        }
+        .movieimage img {
+            width: 300px;
+            height: 300px;
+            margin-left: 70px;
+        }
+
+        .song {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            width: 1200px;
+            height: 100px;
+            margin: 300px auto;
+        }
+
+        .songtext {
+            max-width: 60%;
+            color: #343470;
+        }
+
+        .songtext li {
+            font-size: 16px;
+            margin-left: -10px;
+            line-height: 10px;
+            text-align: left;
+            text-wrap: nowrap;
+        }
+        .songimage img {
+            width: 300px;
+            height: 290px;
+            margin-left: 70px;
+            
+        }     
+
+        .relaxation{
+          margin-top: -100px;
+        }
+
+        .relaxation h4{
+          text-align: center;
+          font-size: 21px;
+          text-align: center;
+          color: #343470;
+          text-wrap: wrap;
+          padding: 10px;
+          line-height: 26px;
+          font-weight: bold;
+          text-decoration: overline underline;
+        }
+
+    
+
+</style>
+
+<div class="whole">
+    <div class="all first">
+      <img src="{%static 'home/forcommondisorder.jpg'%}">
+    </div>
+
+    <div class="all middle">
+      <h2>DISSOCIATIVE IDENTITY DISORDER</h2>
+      <h4>Unveiling the Intricate Realities of Multiple Identities.Dissociative Identity Disorder, formerly known as Multiple Personality Disorder, is a complex mental health condition characterized by the presence of two or more distinct personality states, each with its own pattern of perceiving and interacting with the world. Individuals with DID may experience gaps in memory and a lack of connection between their different identities.</h4>
+      <h5>
+        <div class="symptoms">
+          <center><b>Symptoms:</b></center>          
+          <ul style="margin-top: 10px;">
+            <li>-Presence of Multiple Identities: Two or more distinct personality states or identity fragments.</li>
+            <li>-Amnesia: Gaps in memory, lapses in recall of everyday events, personal information, or traumatic incidents.</li>
+            <li>-Identity-Triggered Behaviors: Unique behaviors, preferences, and responses associated with specific identities.</li>
+            <li>-Depersonalization: Feeling detached from oneself or observing one's actions as if in a third-person perspective.</li>
+            <li>-Co-consciousness: The simultaneous awareness of two or more distinct personality states.</li>
+          </ul>
+        </div>
+
+        <div class="remedies">
+          <center><b style="top: 60px;">Remedies:</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>-Communication and Cooperation: Encouraging open communication and cooperation between different identities.</li>
+            <li>-Journaling: Keeping a shared journal among identities to enhance self-awareness and communication.</li>
+            <li>-Mindfulness Practices: Techniques to stay present and manage overwhelming emotions.</li>
+            <li>-Building a Support System: Establishing a strong support network to provide understanding and assistance.</li>
+            <li>-Art and Creative Expression: Using art as a therapeutic outlet for self-expression and exploration.</li>
+            <li>-Dialectical Behavior Therapy (DBT): Focusing on building skills for emotional regulation and interpersonal effectiveness.</li>
+          </ul>
+        </div>
+
+        <div class="diagnosis">
+          <center><b>Diagnosis:</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>- Did you know that laughter is a fantastic stress-buster? It not only releases feel-good endorphins but also decreases stress hormones.</li>
+          </ul>
+        </div>
+
+        <div class="funfacts">
+          <center><b>Inspiration from Resilience:</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>- Recognizing the resilience within individuals with DID and acknowledging the potential for growth amid challenges are essential aspects of the healing journey.</li>
+            <li>- DID is believed to develop as a coping mechanism for severe childhood trauma, serving as a way for the mind to compartmentalize distressing experiences.</li>
+          </ul>
+        </div>
+        
+        <div class="quote">
+          <span>&#8220;</span>
+          <h4>Out of difficulties grow miracles - Jean de La Bruyère</h4>
+        </div>
+
+        <div class="desc">
+          <h4>
+              According to study conducted by MIT, 90% of data transmitted to the human brain is visual. More then any other factor, visuals<br> affects human mind in the most efficient and profound way. <span style="text-decoration: underline;">Here are some reccomendation from the entertainment section...</span>
+          </h4>
+        </div>
+      </h5>
+
+      <div class="movie">
+          <div class="movietext">
+              <ul>
+                <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Movie we reccomend:</li>
+                <li>Movie: Immerse yourself in the compelling narrative of "Split."</li>
+                <li>-Explores the fictional portrayal of DID through the lens of a psychological thriller.</li>
+                <li>-Directed by M. Night Shyamalan, the film delves into the complexities of identity.</li>
+                <li>-James McAvoy's exceptional performance captures the nuances of multiple personalities.</li>
+                <li>-The movie sparked conversations about mental health representation in media.</li>
+              </ul>
+          </div>
+          <div class="movieimage">
+              <img src="{%static 'home/lastdisorder (2).jpg'%}" alt="pic">
+          </div>
+      </div>
+
+      <div class="song">
+        <div class="songtext">
+            <ul>
+              <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Music track we reccomend:</li>
+              <li> Song: Find solace in the emotive melodies of "Not Alone" by LINKIN PARK.</li>
+              <li>-A song that resonates with themes of isolation, struggle, and resilience.</li>
+              <li>-The LINKIN PARK is known for their emotionally charged rock music.</li>
+              <li>-"Not Alone" encapsulates the feeling of overcoming adversity with determination.</li>
+            </ul>
+        </div>
+        <div class="songimage">
+            <img src="{%static 'home/lastdisorder.jpg'%}" alt="pic">
+        </div>
+    </div>
+
+    <div class="song">
+      <div class="songtext">
+          <ul>
+            <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Book we reccomend:</li>
+              <li>Book: Delve into "Sybil" by Flora Rheta Schreiber.</li>
+              <li>-A classic exploration of DID based on the true story of Shirley Ardell Mason.</li>
+              <li>-Chronicles the life of a woman with 16 distinct personalities.</li>
+              <li>-Offers insights into the challenges and triumphs of living with DID.</li>
+              <li>-A seminal work that influenced public awareness of the disorder.</li>  
+          </ul>
+      </div>
+      <div class="songimage">
+          <img src="{%static 'home/lastdisorder (1).jpg'%}" alt="pic">
+      </div>
+  </div>
+
+  <div class="relaxation">
+    <h4>Relaxation tips from MindDoc:</h4>
+    <ul>
+      <li>-Incorporate grounding exercises, such as focused breathing, to stay connected to the present moment.</li>
+      <li>-Create a safe space that encourages relaxation and provides a sense of security.</li>
+      <li>-Explore sensory activities, like listening to calming music or engaging in tactile experiences.</li>
+      <li>- Develop a consistent daily routine to enhance stability and predictability.</li>
+    </ul>
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

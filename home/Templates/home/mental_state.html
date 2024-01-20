@@ -167,6 +167,7 @@
         background-color:#1F405A;
         border-radius: 20px;
         cursor: pointer;  
+        z-index: 1;
     }
 
     .three-parts .inner{
@@ -175,6 +176,7 @@
         background-color:#fafdea;
         border-radius: 20px;
         cursor: pointer;
+        transition: 1s;
     }
 
     .three-parts .outer img{
@@ -256,6 +258,12 @@
         margin-top: 11px;
         border-radius: 20px;
     }
+
+    /* bouncing effect on hover */
+    .inner:hover {
+        transform: scale(1.10);
+    }
+    
 /* three reasons why modern lifestyles */
     .three-reasons #three-reasons-text{
         padding-left:130px;
@@ -411,7 +419,7 @@
             </div>
 
             <a href="{%url 'generalized_anxiety_disorder'%}">  
-                <div class="inner" id="inner1">
+                <div class="inner one" id="inner1">
                     <img src="{%static 'home/10.jpg' %}">
                     <h4>GAD- Generalized anxiety disorder</h4>
                     <a href="{%url 'generalized_anxiety_disorder'%}">
@@ -421,7 +429,7 @@
             </a>  
 
             <a href="{%url 'social_anxiety_disorder'%}">  
-                <div class="inner" id="inner2">
+                <div class="inner two" id="inner2">
                     <img src="{%static 'home/11.gif' %}">
                     <h4>SAD- Social anxiety disorder </h4>
                     <a href="{%url 'social_anxiety_disorder'%}">
@@ -431,7 +439,7 @@
             </a>
 
             <a href="{%url 'separation_anxiety_disorder'%}">  
-                <div class="inner" id="inner3">
+                <div class="inner three" id="inner3">
                     <img src="{%static 'home/9.jpg' %}">
                     <h4>Separation anxiety disorder</h4>
                     <a href="{%url 'separation_anxiety_disorder'%}">
@@ -449,7 +457,7 @@
                 <h4>DEPRESSION<br> ISSUES</h4>
             </div>
             <a href="{%url 'psychotic_depression'%}">  
-                <div class="inner" id="inner1">
+                <div class="inner one" id="inner1">
                     <img src="{%static 'home/3.jpg' %}">
                     <h4 style="position: absolute;">Psychotic depression</h4>
                     <a href="{%url 'psychotic_depression'%}">
@@ -459,7 +467,7 @@
             </a>  
 
             <a href="{%url 'major_depressive_depression'%}">  
-                <div class="inner" id="inner2">
+                <div class="inner two" id="inner2">
                     <img src="{%static 'home/4.jpg' %}">
                     <h4>Major depressive depression</h4>
                     <a href="{%url 'major_depressive_depression'%}">
@@ -469,7 +477,7 @@
             </a>
 
             <a href="{%url 'situational_depression'%}">  
-                <div class="inner" id="inner3">
+                <div class="inner three" id="inner3">
                     <img src="{%static 'home/5.jpg' %}">
                     <h4 style="position: absolute;">Situational depression</h4>
                     <a href="{%url 'situational_depression'%}">
@@ -489,7 +497,7 @@
             </div>
 
             <a href="{%url 'post_traumatic_stress_disorder'%}">  
-                <div class="inner" id="inner1">
+                <div class="inner one" id="inner1">
                     <img src="{%static 'home/1.jpg' %}">
                     <h4>PTSD-<br>Post traumatic stress disorder</h4>
                     <a href="{%url 'post_traumatic_stress_disorder'%}">
@@ -499,7 +507,7 @@
             </a>  
 
             <a href="{%url 'obsessive_compulsive_disorder'%}">  
-                <div class="inner" id="inner2">
+                <div class="inner two" id="inner2">
                     <img src="{%static 'home/ocd.jpg' %}">
                     <h4>OCD-<br>Obsessive compulsive disorder</h4>
                     <a href="{%url 'obsessive_compulsive_disorder'%}">
@@ -509,7 +517,7 @@
             </a>
 
             <a href="{%url 'dissociative_identity_disorder'%}">  
-                <div class="inner" id="inner3">
+                <div class="inner three" id="inner3">
                     <img src="{%static 'home/8.jpg' %}">
                     <h4 style="position: absolute;">Dissociative identity <br>disorder</h4>
                     <a href="{%url 'dissociative_identity_disorder'%}">
@@ -518,7 +526,14 @@
                 </div>
             </a>
         </div>
-        
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                document.getElementById('inner1').classList.add('loaded');
+                document.getElementById('inner2').classList.add('loaded');
+                document.getElementById('inner3').classList.add('loaded');
+            });
+        </script>
+                
 <!-- three reasons why modern lifestyles -->
     <div class="three-reasons">
 
@@ -698,6 +713,6 @@
 
 
 
-
+{% include 'home/footer.html' %}
 
 {% endblock %}

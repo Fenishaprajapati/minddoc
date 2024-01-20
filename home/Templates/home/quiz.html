@@ -1,0 +1,204 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<!-- quiz.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Quiz</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Montserrat,sans-serif;
+            text-align: center;
+        }
+        body{
+            background-image: url("{%static 'home/premium (7).jpg'%}");
+            background-repeat: no-repeat;
+            background-size: 100% 100%; 
+        }
+        section{
+            text-align: center;
+            margin: 200px 50px;
+            background-color: rgb(255, 255, 255);
+            opacity: 80%;
+            width: max-content;
+            margin-left: 240px;
+            border-radius: 30px;
+        }
+        h2 {
+            color: chocolate;
+            font-size: 40px;
+            margin: -10px auto;
+            font-weight: bold;
+            letter-spacing: 12px;
+            padding-top: 30px;
+            padding-bottom: -30px;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: deeppink;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 40px 310px;
+        }
+        button:hover {
+            background-color: #343470;
+
+        }
+        section label{
+            margin-top: 40px;
+            text-align-last: left;
+            color: #343470;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        
+        section ul{
+            text-align-last: left;
+            color: #343470;
+            font-size: 18px;
+        }
+
+        form{
+            padding: 40px 40px;
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h2 style="font-family:'Times New Roman', Times, serif;">Mental Health Quiz</h2>
+        <form method="post" action="{% url 'quiz_results' %}">
+            {% csrf_token %}
+            <label for="feeling_overwhelmed">1. How often do you feel overwhelmed by daily tasks?</label>
+            <ul>
+                <input type="radio" name="feeling_overwhelmed" value="Rarely"> Rarely<br>
+                <input type="radio" name="feeling_overwhelmed" value="Sometimes"> Sometimes<br>
+                <input type="radio" name="feeling_overwhelmed" value="Frequently"> Frequently<br>
+            </ul>
+            
+            <label for="being_judged">2. In social situations, do you often worry about being judged by others?</label>
+            <ul>
+                <input type="radio" name="being_judged" value="Rarely"> Rarely<br>
+                <input type="radio" name="being_judged" value="Sometimes"> Sometimes<br>
+                <input type="radio" name="being_judged" value="Frequently"> Frequently<br>
+            </ul>
+
+            <label for="sleep_patterns">3. How would you describe your sleep patterns?</label>
+            <ul>
+                <input type="radio" name="sleep_patterns" value="generally_good"> Generally good<br>
+                <input type="radio" name="sleep_patterns" value="Irregular"> Irregular<br>
+                <input type="radio" name="sleep_patterns" value="Poor"> Poor<br>
+            </ul>
+
+            <label for="confront_challenges">4. When facing a challenge, do you tend to avoid it or confront it head-on?</label>
+            <ul>
+                <input type="radio" name="confront_challenges" value="Avoid"> Avoid<br>
+                <input type="radio" name="confront_challenges" value="Confront"> Confront<br>
+                <input type="radio" name="confront_challenges" value="Depends_on_situation"> Depends on the situation<br>
+            </ul>
+
+            <!-- Question 5 -->
+            <label for="comfortable_enclosed_spaces">5. How comfortable are you in enclosed spaces like elevators or small rooms?</label>
+            <ul>
+                <input type="radio" name="comfortable_enclosed_spaces" value="Comfortable"> Comfortable<br>
+                <input type="radio" name="comfortable_enclosed_spaces" value="Uncomfortable"> Uncomfortable<br>
+                <input type="radio" name="comfortable_enclosed_spaces" value="Extremely_uncomfortable"> Extremely uncomfortable<br>
+            </ul>
+
+            <!-- Question 6 -->
+            <label for="public_speaking_anxiety">6. How do you feel about public speaking or presenting in front of a group?</label>
+            <ul>
+                <input type="radio" name="public_speaking_anxiety" value="Comfortable"> Comfortable<br>
+                <input type="radio" name="public_speaking_anxiety" value="Nervous"> Nervous<br>
+                <input type="radio" name="public_speaking_anxiety" value="Extremely_nervous"> Extremely nervous<br>
+            </ul>
+
+            <!-- Question 7 -->
+            <label for="anxiety_in_crowded_places">7. In crowded places, do you feel anxious or find it challenging to stay calm?</label>
+            <ul>
+                <input type="radio" name="anxiety_in_crowded_places" value="Rarely"> Rarely<br>
+                <input type="radio" name="anxiety_in_crowded_places" value="Sometimes"> Sometimes<br>
+                <input type="radio" name="anxiety_in_crowded_places" value="Frequently"> Frequently<br>
+            </ul>
+
+            <!-- Question 8 -->
+            <label for="fear_of_missing_out">8. Do you often worry about missing out on social events or gatherings?</label>
+            <ul>
+                <input type="radio" name="fear_of_missing_out" value="Rarely"> Rarely<br>
+                <input type="radio" name="fear_of_missing_out" value="Sometimes"> Sometimes<br>
+                <input type="radio" name="fear_of_missing_out" value="Frequently"> Frequently<br>
+            </ul>
+
+            <!-- Question 9 -->
+            <label for="panic_or_fear">9. How often do you experience sudden, intense feelings of panic or fear?</label>
+            <ul>
+                <input type="radio" name="panic_or_fear" value="Rarely"> Rarely<br>
+                <input type="radio" name="panic_or_fear" value="Sometimes"> Sometimes<br>
+                <input type="radio" name="panic_or_fear" value="Frequently"> Frequently<br>
+            </ul>
+
+            <!-- Question 10 -->
+            <label for="are_you_generally_satisfied_with_your_work_life_balanced">10. Are you generally satisfied with your work-life balance?</label>
+            <ul>
+                <input type="radio" name="are_you_generally_satisfied_with_your_work_life_balanced" value="Satisfied"> Satisfied<br>
+                <input type="radio" name="are_you_generally_satisfied_with_your_work_life_balanced" value="Somewhat_satisfied"> Somewhat satisfied<br>
+                <input type="radio" name="are_you_generally_satisfied_with_your_work_life_balanced" value="Unsatisfied"> Unsatisfied<br>
+            </ul>
+
+            <!-- Question 11 -->
+            <label for="difficulty_concentrating">11. How often do you find it difficult to concentrate on tasks at hand?</label>
+            <ul>
+                <input type="radio" name="difficulty_concentrating" value="Rarely"> Rarely<br>
+                <input type="radio" name="difficulty_concentrating" value="Sometimes"> Sometimes<br>
+                <input type="radio" name="difficulty_concentrating" value="Frequently"> Frequently<br>
+            </ul>
+
+            <!-- Question 12 -->
+            <label for="overthinking_decisions">12. When faced with a decision, do you tend to overthink the options?</label>
+            <ul>
+                <input type="radio" name="overthinking_decisions" value="Rarely"> Rarely<br>
+                <input type="radio" name="overthinking_decisions" value="Sometimes"> Sometimes<br>
+                <input type="radio" name="overthinking_decisions" value="Frequently"> Frequently<br>
+            </ul>
+            <br><button type="submit">Submit</button>
+        </form>
+    </section>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+{% comment %} {% include 'home/footer_vlog.html' %} {% endcomment %}
+{% endblock %}

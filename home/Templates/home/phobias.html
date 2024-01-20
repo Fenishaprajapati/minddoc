@@ -1,4 +1,4 @@
-`{% extends 'home/base.html' %}
+{% extends 'home/base.html' %}
 
 {% block content %}
 {% load static %}
@@ -308,30 +308,30 @@
             <a href="{%url 'objects' %}">
                 <button>Know more!</button>
             </a>
-        </div>
+        </div></a>
         <div class="inner" id="inner1">
             <img src="{%static 'home/NOSOCOMEPHOBIA.jpg' %}">
             <h4>Do you find hospitals scary?</h4>
-            <a href="">
+            <a href="{%url 'noscomephobia' %}">
                 <button>Read blog</button>
             </a>
         </div>  
         <div class="inner" id="inner2">
             <img src="{%static 'home/hemophobia.jpg' %}">
             <h4>HEMOPHOBIA- fear of blood</h4>
-            <a href="">
+            <a href="{%url 'hemophobia' %}">
                 <button>Read blog</button>
             </a>
         </div>
         <div class="inner" id="inner3">
             <img src="{%static 'home/photophobia.jpg' %}">
             <h4>Does extreme light freakes you out?</h4>
-            <a href="">
+            <a href="{%url 'photophobia' %}">
                 <button>Read blog</button>
             </a>
         </div>
 </div>
-</a>
+
 
 <br><br>
 <div class="all-of-them">
@@ -346,29 +346,29 @@
         <a href="{%url 'subjects' %}">
             <button>Know more!</button>
         </a>
-    </div>
+    </div></a>
     <div class="inner" id="inner1">
         <img src="{%static 'home/anthrophobia.jpg' %}">
         <h4>Fear of heavy crowd or people</h4>
-        <a href="">
+        <a href="{%url 'anthrophobia'%}">
             <button>Read blog</button>
         </a>
     </div>  
     <div class="inner" id="inner2">
         <img src="{%static 'home/zoophobia3.jpg' %}">
         <h4>Does being around animals creeps you out?</h4>
-        <a href="">
+        <a href="{%url 'zoophobia'%}">
             <button>Read blog</button>
         </a>
     </div>
     <div class="inner" id="inner3">
         <img src="{%static 'home/clowns.jpg' %}">
         <h4 style="margin-top: 50px;">Fear of clowns</h4>
-        <a href="">
+        <a href="{%url 'coulrophobia'%}">
             <button>Read blog</button>
         </a>
     </div>
-</div></a>
+</div>
 
 <br><br>
 <div class="all-of-them">
@@ -383,29 +383,29 @@
         <a href="{%url 'situations' %}">
             <button>Know more!</button>
         </a>
-    </div>
+    </div></a>
     <div class="inner" id="inner1">
         <img src="{%static 'home/acrophobia.jpg' %}">
         <h4>Are you scared of heights?</h4>
-        <a href="">
+        <a href="{%url 'acrophobia' %}">
             <button>Read blog</button>
         </a>
     </div>  
     <div class="inner" id="inner2">
         <img src="{%static 'home/claustrophobia.jpg' %}">
         <h4>Do you feel conjusted in packed places?</h4>
-        <a href="">
+        <a href="{%url 'claustrophobia' %}">
             <button>Read blog</button>
         </a>
     </div>
     <div class="inner" id="inner3">
         <img src="{%static 'home/Aquaphobia.jpg' %}">
         <h4>Do you feel peculiar by looking at waterbodies?</h4>
-        <a href="">
+        <a href="{%url 'aquaphobia' %}">
             <button>Read blog</button>
         </a>
     </div>
-</div></a>
+</div>
 
 <div class="lastone">
         <div class="lasttext">
@@ -422,5 +422,6 @@
         </div>
 </div>
 
+{% include 'home/footer_another.html' %}
 
 {% endblock %}

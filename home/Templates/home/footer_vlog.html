@@ -1,0 +1,140 @@
+
+<style>
+
+  
+  .footer{
+    width: 130.3%;
+    height:449px;
+    background: #1c3142;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    gap: 15 rem;
+    list-style: none;
+    color:whitesmoke;
+    position: relative;
+    margin-left: -196.5px;
+    margin-right: 10px;
+    margin-top:2520px;
+    margin-bottom: 0%;
+  }
+
+  section {
+    padding: 80px 20% 195px;
+    
+  }
+    .footer-logo{
+        width: 50px; 
+        height: auto;
+        left: 0px;
+        right:10px;
+        position: relative;
+        font-weight:bolder;
+        font-style:inherit;
+        font-size:200%; 
+        font-family:Georgia, 'Times New Roman', Times, serif;
+    }
+    .footer-logo a{
+      color: chocolate;
+    }
+
+  .footer-content{
+    margin-right: 100px;
+    margin-left: -10%;
+  }
+
+  .footer-content a{
+    text-decoration: none;
+    color: white;
+    transition: all .40s ease;
+  }
+
+  .footer-content a:hover{
+    transform: translateY(-5px) translateX(-7px);
+    color: chocolate;
+  }
+
+  .footer-email{
+        width: 300px;
+        height: 29px;
+        border-radius: 10px;
+        border-color: chocolate;
+  }
+  .footer-content h2  {
+        margin-bottom: 1.5rem;
+        font-size: 27px;
+        font-weight: 500;
+  }
+
+  .footer-content li{
+        margin-bottom: 7px;
+  }
+
+  .footer-content p{
+    color: white;
+    font-size: 18px;
+    line-height: 30px;
+    margin: 30px 0;
+    margin-bottom: 10px;
+    margin-left: 7px;
+  }
+
+  .icons{
+    display: inline-block;
+    font-size: 22px;
+  }
+
+  .footer-button{
+    height: 35px;
+    background-color: chocolate;
+    border-radius: 90px;
+    width: 50px;
+    border-color: chocolate;
+  }
+
+  .footer-button i{
+    font-size: 22px;
+  }
+  
+  #footer-content-2{
+    margin-right: 60px;
+  }
+  #footer-content-3{
+    margin-left: 50%;
+    margin-right: 0; 
+  }
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <br><br>
+      <section class="footer">
+        <div class="footer-content" id="footer-content-1">
+          <h1 class="footer-logo"><a href="{% url 'home' %}" style="color: chocolate; font-family: Georgia, 'Times New Roman', Times, serif;">MindDoc</a></h1>
+          <p>Pop your e-mail here to get our newsletter on 
+              Mental health.</p>
+          <input class="footer-email" type="email" name="footer-email" style="border-color: chocolate;">
+          <button class="footer-button"><i class='bx bx-chevron-right bx-flip-vertical' ></i></button>
+        </div>
+  
+        <div class="footer-content" id="footer-content-2">
+          <h2><b>Contact us</b></h2>
+          <h6><a href="minddoc.sdp@gmail.com">minddoc.sdp@gmail.com</a></h6>
+          <h6>+91-70696-15399</h6>
+          <div class="icons">
+            <a href="#"><i class='bx bxl-instagram' ></i></a>
+            <a href="#"><i class='bx bxl-facebook-circle' ></i></a>
+            <a href="#"><i class='bx bxl-twitter' ></i></a>
+          </div>
+        </div>
+  
+        <div class="footer-content" id="footer-content-3">
+            <h2><b>On our site</b></h2>     
+            <li><a href="{%url 'home'%}">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Explore Phobias</a></li>
+            <li><a href="{% url 'mental_state' %}">Explore Mental states</a></li>
+            <li><a href="{% url 'experts' %}">Expert</a></li>
+            <li><a href="#">People@MindDoc</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Guide</a></li>
+        </div>
+    </section>

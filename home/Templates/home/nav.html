@@ -1,61 +1,3 @@
-<!--<style>-->
-<!--    /* Style the login button */-->
-<!--        .login-button a {-->
-<!--            text-decoration: none;-->
-<!--            background-color: #007BFF;-->
-<!--            color: #fff;-->
-<!--            padding: 10px 20px;-->
-<!--            border-radius: 5px;-->
-<!--            transition: background-color 0.3s ease;-->
-<!--        }-->
-
-<!--        .login-button a:hover {-->
-<!--            background-color: #0056b3;-->
-<!--        }-->
-<!--</style>-->
-
-<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">-->
-
-<!--  <div class="container-fluid">-->
-<!--    <a class="navbar-brand" href="{% url 'home' %}">Minddoc</a>-->
-
-<!--    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
-<!--      <span class="navbar-toggler-icon"></span>-->
-<!--    </button>-->
-
-<!--    <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
-<!--      <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
-
-<!--        <li class="nav-item">-->
-<!--          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>-->
-<!--        </li>-->
-
-<!--       {% if user.is_authenticated %} # if user is logged in-->
-<!--          <li class="nav-item">-->
-<!--            <a class="nav-link" href="{% url 'logout' %}">Logout</a>-->
-<!--          </li>-->
-
-<!--          <li class="nav-item">-->
-<!--            <a class="nav-link" href="{% url 'add_record' %}">Add record</a>-->
-<!--          </li>-->
-
-<!--        {% else %}-->
-<!--          <li class="nav-item">-->
-<!--            <a class="nav-link" href="{% url 'login' %}">Login</a>-->
-<!--          </li>-->
-
-<!--          <li class="nav-item">-->
-<!--            <a class="nav-link" href="{% url 'register' %}">Register</a>-->
-<!--          </li>-->
-<!--       {% endif %}-->
-
-<!--      </ul>-->
-<!--    </div>-->
-
-<!--  </div>-->
-
-<!--</nav>-->
-
 <style>    
     *{
         margin: 0;
@@ -80,7 +22,7 @@
                 top:-7%;
                 left:10;
                 margin-left: 70px;
-                margin-top: 20px;
+                margin-top: 30px;
                 transition: 0.5s;
                 cursor: pointer;
             }
@@ -121,6 +63,7 @@
         position: relative;
         z-index: 2;
         transition: color 0.5s;
+        justify-content: space-between;
     }
 
     
@@ -180,12 +123,29 @@
         nav ul .dropdown ul li:hover {
             background-color: transparent;
         }
+
+        @media screen and (max-width: 768px) {
+        /* Styles for smaller screens */
+        .navbar {
+            flex-direction: column;
+        }
+
+        .navbar li {
+            width: 100%;
+            text-align: center;
+            margin: 5px 0;
+        }
+    }
+    nav .mainul{
+        margin-top: 10px;
+        margin-left: 150px;
+    }
 </style>
 {% load static %}
 
 
     <nav>
-        <ul>
+        <ul class="mainul">
             <a href="{% url 'home' %}" class="nav-logo">MindDoc</a>
             <li ><a href="{% url 'home' %}">Home</a></li>
             <li class="dropdown"><a href="#mentalstate">Explore +</a>
@@ -194,21 +154,46 @@
                     <li><a href="{% url 'phobias' %}">Phobias</a></li>
                 </ul>
             </li>
-            <li><a href="{% url 'experts' %}">Experts</a></li>
-            <li><a href="{% url 'goal_based_care' %}">Goal based care</a></li>
-            <li class="dropdown"><a href="#mentalstate">Resources +</a>
-                <ul>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#quiz">Quiz</a></li>
-                    <li><a href="#guides">Guides</a></li>
-                </ul>
-            </li>
+
+            {% if user.is_authenticated %} 
+                <li>
+                    <a href="{% url 'experts' %}" style="color:chocolate">Experts</a>
+                </li>
+                <li>
+                    <a href="{% url 'goal_based_care' %}" style="color:chocolate">Goal based care</a>
+                </li>
+                <li class="dropdown"><a href="#mentalstate">Resources +</a>
+                    <ul>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="{% url 'quiz' %}">Quiz</a></li>
+                        <li><a href="#guides">Guides</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{% url 'logout' %}">Logout</a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{% url 'experts' %}">Experts</a>
+                </li>
+                <li>
+                    <a href="{% url 'goal_based_care' %}">Goal based care</a>
+                </li>
+                <li class="dropdown"><a href="#mentalstate">Resources +</a>
+                    <ul>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="{% url 'quiz' %}">Quiz</a></li>
+                        <li><a href="#guides">Guides</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{% url 'login' %}">Premium member?</a>
+                </li>
+            {% endif %}
+            
+
         </ul>
     </nav>
-
-
-
-
 
 
 

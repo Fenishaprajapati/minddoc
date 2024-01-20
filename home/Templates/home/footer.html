@@ -1,116 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+  }
 
-    .footer-logo{
-        width: 50px; 
-        height: auto;
-        left: 0px;
-        right:10px;
-        position: relative;
-        font-weight:bolder;
-        font-style:inherit;
-        font-size:200%;
-        color: chocolate;
-        font-family:Georgia, 'Times New Roman', Times, serif;
-    }
-  .footer{
-    width: 111.8%;
-    height:449px;
+  .footer-logo {
+    width: 50px;
+    height: auto;
+    font-weight: bolder;
+    font-size: 200%;
+    color: chocolate;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+  .footer {
+    width: 100%;
     background: #1c3142;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
-    gap: 15 rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     list-style: none;
-    color:whitesmoke;
-    position: relative;
-    margin-left: -200px;
-    margin-right: 50px;
-    bottom: 0%;
+    color: whitesmoke;
+    padding: 40px 20px;
+    box-sizing: border-box;
   }
 
-  section {
-    padding: 80px 20% 195px;
-    bottom: 0%;
+  .footer-content {
+    flex: 1 1 300px;
+    margin: 0 20px;
+    box-sizing: border-box;
+    margin-left: 150px;
   }
 
-  .footer-content{
-    margin-right: 100px;
-    margin-left: 20%;
-  }
-
-
-
-  .footer-content a{
+  .footer-content a {
     text-decoration: none;
     color: white;
     transition: all .40s ease;
   }
 
-  .footer-content a:hover{
+  .footer-content a:hover {
     transform: translateY(-5px) translateX(-7px);
     color: chocolate;
   }
 
-  .footer-email{
-        width: 300px;
-        height: 29px;
-        border-radius: 10px;
-        border-color: #e0518b;
-  }
-  .footer-content h2  {
-        margin-bottom: 1.5rem;
-        font-size: 27px;
-        font-weight: 500;
+  .footer-email {
+    width: 100%;
+    max-width: 300px;
+    height: 29px;
+    border-radius: 10px;
+    border-color: chocolate;
+    box-sizing: border-box;
   }
 
-  .footer-content li{
-        margin-bottom: 7px;
+  .footer-content h2 {
+    margin-bottom: 1.5rem;
+    font-size: 27px;
+    font-weight: 500;
   }
 
-  .footer-content p{
+  .footer-content li {
+    margin-bottom: 7px;
+  }
+
+  .footer-content p {
     color: white;
     font-size: 18px;
     line-height: 30px;
-    margin: 30px 0;
-    margin-bottom: 10px;
-    margin-left: 7px;
+    margin: 10px 0;
   }
 
-  .icons{
-    display: inline-block;
+  .icons {
+    display: flex;
     font-size: 22px;
   }
 
-  .footer-button{
+  .footer-button {
     height: 35px;
     background-color: chocolate;
     border-radius: 90px;
     width: 50px;
+    border-color: chocolate;
   }
 
-  .footer-button i{
+  .footer-button i {
     font-size: 22px;
-  }
-  
-  #footer-content-2{
-    margin-right: 60px;
-  }
-  #footer-content-3{
-    margin-left: 50%;
-    margin-right: 0; 
   }
   </style>
   <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-</head>
-<body>
+
   <br><br>
       <section class="footer">
         <div class="footer-content" id="footer-content-1">
-          <h1 class="footer-logo">MindDoc</h1>
+          <h1 class="footer-logo"><a href="{% url 'home' %}" style="color: chocolate; font-family: Georgia, 'Times New Roman', Times, serif;">MindDoc</a></h1>
           <p>Pop your e-mail here to get our newsletter on 
               Mental health.</p>
           <input class="footer-email" type="email" name="footer-email">
@@ -130,15 +111,14 @@
   
         <div class="footer-content" id="footer-content-3">
             <h2><b>On our site</b></h2>     
-            <li><a href="#">Home</a></li>
+            <li><a href="{%url 'home'%}">Home</a></li>
             <li><a href="#">About us</a></li>
             <li><a href="#">Explore Phobias</a></li>
-            <li><a href="#">Explore Mental states</a></li>
-            <li><a href="#">Expert</a></li>
+            <li><a href="{% url 'mental_state' %}">Explore Mental states</a></li>
+            <li><a href="{% url 'experts' %}">Expert</a></li>
             <li><a href="#">People@MindDoc</a></li>
             <li><a href="#">Blog</a></li>
             <li><a href="#">Guide</a></li>
         </div>
     </section>
-</body>
-</html>
+

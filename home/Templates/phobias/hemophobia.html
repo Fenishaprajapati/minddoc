@@ -1,0 +1,379 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Elsie">
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Montserrat,sans-serif;
+    }
+    
+    .whole{
+        display: flex;
+        height: 830px;
+        width: 1700px;
+        margin-left: -210px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        position: relative;
+        margin-top: 100px;
+    }
+
+    .mainpic img{
+        margin-top: 70px;
+        margin-left: 290px;
+        margin-bottom: -170px;
+        border-radius: 30px;
+        height: 400px;
+        width: 750px;
+        animation: slideInLeft 2s backwards ease-in-out;
+        position: absolute;
+    }
+
+    @keyframes slideInLeft {
+        0% {
+            transform: translateY(-100%);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    .middle{
+    margin-top: 300px;
+    align-items: center;
+    }
+
+    .middle h2{
+      margin-top: 200px;
+      font-size: 25px;
+      color: #343470;
+      font-family: Elsie;
+      font-weight: bold;
+      letter-spacing: 15px;
+      animation: slideInLeft 3.5s backwards ease-in-out;
+      margin-left: 715px;
+    }
+    .whole #span{
+        font-family: Montserrat,sans-serif;
+        letter-spacing: normal;
+        font-size: 16px;
+        margin-left: 748px;  
+        color: grey;
+        font-weight: normal;
+    }
+
+   
+    .middle h4{
+      margin-top: -9px;
+      font-size: 15px;
+      text-align: center;
+      color: rgb(99, 99, 99);
+      text-wrap: wrap;
+      padding: 40px 50px;
+    }
+
+    .middle h5{
+      margin-top: 50px;
+      font-size: 16px;
+      color: rgb(99, 99, 99);
+      text-wrap: wrap;
+    }
+    .middle h5 b{
+      font-size: 20px;
+      color: #343470;
+    }
+    .middle li{
+      text-align: center;
+      list-style:none;
+      padding-bottom: 10px;
+      padding: 10px;
+    }
+
+    .remedies{
+      margin-top: 60px;
+    }
+    .diagnosis{
+      margin-top: 60px;
+    }
+    .funfacts{
+      margin-top: 60px;
+    }
+    .middle .funfacts b{
+      animation: blink 1s infinite;
+      color: deeppink;
+    }
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    .quote{
+      margin-top: 90px;
+      height: 70px;
+      width: 1015px;
+      margin-left: 330px;
+      border: 2px solid black;
+      border-radius: 30px;
+      position: relative;
+    }
+    .quote h4{
+      font-size: 23px;
+      margin-top: -10px;
+      margin-left: 60px;
+      position: absolute;
+      top: 7px;
+      color: #343470;
+    }
+    .quote span{
+      font-size: 160px;
+      margin-left: 30px;
+      color: black;
+      position: absolute;
+      top: -29px;
+    }
+    .desc h4{
+      text-align: center;
+      font-size: 19px;
+      text-align: center;
+      color: #343470;
+      text-wrap: wrap;
+      padding: 90px;
+      line-height: 26px;
+      font-weight: bold;
+    }
+
+    .movie {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            width: 1200px;
+            height: 100px;
+            margin: 100px auto;
+        }
+
+        .movietext {
+            max-width: 60%;
+            color: #343470;
+        }
+
+        .movietext li {
+            font-size: 16px;
+            margin-left: -10px;
+            line-height: 10px;
+            text-align: left;
+            text-wrap: nowrap;
+        }
+        .movieimage img {
+            width: 300px;
+            height: 300px;
+            margin-left: 70px;
+        }
+
+        .song {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            width: 1200px;
+            height: 100px;
+            margin: 300px auto;
+        }
+
+        .songtext {
+            max-width: 60%;
+            color: #343470;
+        }
+
+        .songtext li {
+            font-size: 16px;
+            margin-left: -10px;
+            line-height: 10px;
+            text-align: left;
+            text-wrap: nowrap;
+        }
+        .songimage img {
+            width: 300px;
+            height: 290px;
+            margin-left: 70px;
+            
+        }     
+
+        .relaxation{
+          margin-top: -100px;
+        }
+
+        .relaxation h4{
+          text-align: center;
+          font-size: 21px;
+          text-align: center;
+          color: #343470;
+          text-wrap: wrap;
+          padding: 10px;
+          line-height: 26px;
+          font-weight: bold;
+          text-decoration: overline underline;
+        }
+
+    
+
+</style>
+<div class="mainpic">
+    <img src="{%static 'home/hemophobia.jpg'%}">
+</div>
+<div class="whole">
+    <div class="all middle">
+      <h2>HEMOPHOBIA</h2>
+      <span id="span">(Navigating the Fear of Blood)</span>
+      <h4>Hemophobia, an intricate and intense fear, encapsulates the irrational anxiety and aversion individuals experience when confronted with the sight of blood. This specific phobia can manifest in various ways, from heightened stress and anxiety to physical symptoms and avoidance behaviors.
+      </h4>
+      <h5>
+        <div class="symptoms">
+          <center><b>Symptoms:</b></center>          
+          <ul style="margin-top: 10px;">
+            <li>-Intense Anxiety: Overwhelming fear and anxiety triggered by the sight of blood.</li>
+            <li>-Physical Symptoms: Increased heart rate, sweating, dizziness, or fainting in response to blood-related stimuli.</li>
+            <li>-Avoidance Behaviors: Actively avoiding situations involving blood, medical procedures, or discussions about injuries.</li>
+            <li>-Panic Attacks: Sudden and intense episodes of fear, often leading to a strong desire to escape the situation.</li>
+          </ul>
+        </div>
+        
+        <div class="remedies">
+          <center><b style="top: 60px;">Treatment and Coping Strategies</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>-Cognitive-Behavioral Therapy (CBT): A therapeutic approach to challenge and transform negative thought patterns associated with the fear of blood.</li>
+            <li>-Exposure Therapy: Gradual exposure to blood-related stimuli in a controlled and supportive environment, fostering desensitization.</li>
+            <li>-Relaxation Techniques: Learning and practicing relaxation methods to manage anxiety and physical symptoms.
+            </li>
+            <li>Mindfulness and Meditation: Techniques to stay present and reduce anxious thoughts, promoting a sense of calm amidst fears.</li>
+          </ul>
+        </div>
+        
+        <div class="diagnosis">
+          <center><b>Noticeable Food Habits</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>-Individuals with hemophobia may experience changes in eating patterns, potentially avoiding meals before or after situations where they might encounter blood.
+            </li>
+          </ul>
+        </div>
+
+        <div class="tidbit">
+          <center><b>Humorous Tidbit</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>-Why did the blood bank employee break up with their partner? They wanted a relationship with better circulation!
+            </li>
+          </ul>
+        </div>
+
+        <div class="funfacts">
+          <center><b>Inspiration from Resilience
+          </b></center> 
+          <ul style="margin-top: 10px;">
+            <li>- Recognizing the strength within oneself and taking gradual steps towards facing the fear of blood are essential aspects of overcoming hemophobia.
+            </li>
+            <li>- Hemophobia can be rooted in various factors, including traumatic experiences, witnessing injuries, or a predisposition to anxiety disorders.
+            </li> 
+          </ul>
+        </div>
+        
+        <div class="quote">
+          <span>&#8220;</span>
+          <h4>Strength does not come from the body. It comes from the will - Unknown
+          </h4>
+        </div>
+
+        <div class="desc">
+          <h4>
+              According to study conducted by MIT, 90% of data transmitted to the human brain is visual. More then any other factor, visuals<br> affects human mind in the most efficient and profound way. <span style="text-decoration: underline;">Here are some reccomendation from the entertainment section...</span>
+          </h4>
+        </div>
+      </h5>
+
+      <div class="movie">
+          <div class="movietext">
+              <ul>
+                <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Movie we reccomend:</li>
+                <li>Movie: Immerse yourself in the psychological thriller "The Others."</li>
+                <li>-Directed by Alejandro Amenábar, the film weaves a gripping narrative with elements of suspense.</li>
+                <li>-Explores themes of perception, fear, and the unknown.</li>
+                <li>-Nicole Kidman's stellar performance adds depth to the storyline.</li>
+                <li>-The movie received critical acclaim for its atmospheric tension.</li>
+              </ul>
+          </div>
+          <div class="movieimage">
+              <img style="border-radius: 30px;" src="{%static 'home/hemophobia (3).jpg'%}" alt="pic">
+          </div>
+        </div>
+      
+      <div class="song">
+        <div class="songtext">
+            <ul>
+              <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Music track we reccomend:</li>
+              <li>Song: Find solace in the calming sounds of "Aquarela do Brasil" by Ary Barroso.</li>
+              <li>-A lively and uplifting composition that can provide a positive auditory experience.</li>
+              <li>-The cheerful melody can serve as a distraction from anxious thoughts.</li>
+              <li>-Known for its cultural significance and versatility.</li>
+            </ul>
+        </div>
+        <div class="songimage">
+            <img style="border-radius: 30px;" src="{%static 'home/hemophobia (2).jpg'%}" alt="pic">
+        </div>
+    </div>
+    
+    <div class="song">
+      <div class="songtext">
+          <ul>
+            <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Book we reccomend:</li>
+            <li>Book: Delve into the mystery of "The Thirteenth Tale" by Diane Setterfield.</li>
+            <li>-A captivating novel that unfolds secrets and hidden truths.</li>
+            <li>-Explores themes of identity, family, and confronting fears.</li>
+            <li>-Setterfield's storytelling keeps readers engrossed from beginning to end.</li>
+            <li>-The book received positive reviews for its atmospheric storytelling.</li>
+              
+          </ul>
+      </div>
+      <div class="songimage">
+          <img style="border-radius: 30px;" src="{%static 'home/hemophobia (1).jpg'%}" alt="pic">
+      </div>
+  </div>
+
+  <div class="relaxation">
+    <h4>Relaxation tips from MindDoc:</h4>
+    <ul>
+      <li>-Practice deep-breathing exercises to manage anxiety.</li>
+      <li>-Engage in activities that bring joy and divert attention from anxious thoughts.</li>
+      <li>- Gradually expose oneself to hospital-related stimuli in a controlled manner.</li>
+      <li>-Consider incorporating foods rich in iron into the diet for overall well-being.</li>
+    </ul>
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+{% include 'home/footer_vlog.html' %}
+{% endblock %}

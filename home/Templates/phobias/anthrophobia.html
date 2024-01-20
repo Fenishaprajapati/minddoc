@@ -1,0 +1,372 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Elsie">
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Montserrat,sans-serif;
+    }
+    
+    .whole{
+        display: flex;
+        height: 830px;
+        width: 1700px;
+        margin-left: -210px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        position: relative;
+        margin-top: 100px;
+    }
+
+    .mainpic img{
+        margin-top: 70px;
+        margin-left: 290px;
+        margin-bottom: -170px;
+        border-radius: 30px;
+        height: 400px;
+        width: 750px;
+        animation: slideInLeft 2s backwards ease-in-out;
+        position: absolute;
+    }
+
+    @keyframes slideInLeft {
+        0% {
+            transform: translateY(-100%);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    .middle{
+    margin-top: 300px;
+    align-items: center;
+    }
+    .middle h2{
+      margin-top: 200px;
+      font-size: 25px;
+      color: #343470;
+      font-family: Elsie;
+      font-weight: bold;
+      letter-spacing: 15px;
+      animation: slideInLeft 3.5s backwards ease-in-out;
+      margin-left: 715px;
+      
+    }
+    .whole #span{
+        font-family: Montserrat,sans-serif;
+        letter-spacing: normal;
+        font-size: 16px;
+        margin-left: 748px;  
+        color: grey;
+        font-weight: normal;
+    }
+
+   
+    .middle h4{
+      margin-top: -9px;
+      font-size: 15px;
+      text-align: center;
+      color: rgb(99, 99, 99);
+      text-wrap: wrap;
+      padding: 40px 50px;
+    }
+
+    .middle h5{
+      margin-top: 50px;
+      font-size: 16px;
+      color: rgb(99, 99, 99);
+      text-wrap: wrap;
+    }
+    .middle h5 b{
+      font-size: 20px;
+      color: #343470;
+    }
+    .middle li{
+      text-align: center;
+      list-style:none;
+      padding-bottom: 10px;
+      padding: 10px;
+    }
+
+    .remedies{
+      margin-top: 60px;
+    }
+    .diagnosis{
+      margin-top: 60px;
+    }
+    .funfacts{
+      margin-top: 60px;
+    }
+    .middle .funfacts b{
+      animation: blink 1s infinite;
+      color: deeppink;
+    }
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    .quote{
+      margin-top: 90px;
+      height: 70px;
+      width: 1015px;
+      margin-left: 330px;
+      border: 2px solid black;
+      border-radius: 30px;
+      position: relative;
+    }
+    .quote h4{
+      font-size: 27px;
+      margin-top: 0;
+      margin-left: 40px;
+      position: absolute;
+      top: 2px;
+      color: #343470;
+    }
+    .quote span{
+      font-size: 160px;
+      margin-left: 30px;
+      color: black;
+      position: absolute;
+      top: -29px;
+    }
+    .desc h4{
+      text-align: center;
+      font-size: 19px;
+      text-align: center;
+      color: #343470;
+      text-wrap: wrap;
+      padding: 90px;
+      line-height: 26px;
+      font-weight: bold;
+    }
+
+    .movie {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            width: 1200px;
+            height: 100px;
+            margin: 100px auto;
+        }
+
+        .movietext {
+            max-width: 60%;
+            color: #343470;
+        }
+
+        .movietext li {
+            font-size: 16px;
+            margin-left: -10px;
+            line-height: 10px;
+            text-align: left;
+            text-wrap: nowrap;
+        }
+        .movieimage img {
+            width: 300px;
+            height: 300px;
+            margin-left: 70px;
+        }
+
+        .song {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            width: 1200px;
+            height: 100px;
+            margin: 300px auto;
+        }
+
+        .songtext {
+            max-width: 60%;
+            color: #343470;
+        }
+
+        .songtext li {
+            font-size: 16px;
+            margin-left: -10px;
+            line-height: 10px;
+            text-align: left;
+            text-wrap: nowrap;
+        }
+        .songimage img {
+            width: 300px;
+            height: 290px;
+            margin-left: 70px;
+            
+        }     
+
+        .relaxation{
+          margin-top: -100px;
+        }
+
+        .relaxation h4{
+          text-align: center;
+          font-size: 21px;
+          text-align: center;
+          color: #343470;
+          text-wrap: wrap;
+          padding: 10px;
+          line-height: 26px;
+          font-weight: bold;
+          text-decoration: overline underline;
+        }
+
+    
+
+</style>
+<div class="mainpic">
+    <img src="{%static 'home/anthrophobia.jpg'%}">
+</div>
+<div class="whole">
+    <div class="all middle">
+      <h2>ANTHROPHOBIA</h2>
+      <span id="span">(Navigating the Fear of Group od People)</span>
+      <h4>Anthrophobia, a nuanced and intense fear, delves into the irrational anxiety and aversion individuals experience in social situations or when encountering people. This specific phobia can manifest in various relatable ways, from heightened stress and discomfort to physical symptoms and avoidance behaviors.</h4>
+      <h5>
+        <div class="symptoms">
+          <center><b>Symptoms:</b></center>          
+          <ul style="margin-top: 10px;">
+            <li>-Social Dread: Overwhelming fear and anxiety in social situations, leading to avoidance.</li>
+            <li>-Physical Symptoms: Increased heart rate, sweating, trembling, or stomach discomfort when in the presence of others.</li>
+            <li>-Fear of Judgment: Persistent worry about negative evaluation or criticism from others.</li>
+            <li>-Isolation: A strong desire to withdraw from social interactions, potentially leading to feelings of loneliness.</li>
+          </ul>
+        </div>
+        <div class="remedies">
+          <center><b style="top: 60px;">Treatment and Coping Strategies</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>-Cognitive-Behavioral Therapy (CBT): Addresses negative thought patterns related to social fears, fostering positive beliefs.</li>
+            <li>-Exposure Therapy: Gradual exposure to social situations, allowing individuals to confront and manage their anxieties.</li>
+            <li>-Relaxation Techniques: Learning and practicing relaxation methods to manage anxiety and physical symptoms related to bright light.</li>
+            <li>Mindfulness and Meditation: Techniques to stay present and reduce anxious thoughts, promoting a sense of calm amidst fears.</li>
+          </ul>
+        </div>
+        <div class="diagnosis">
+          <center><b>Noticeable Habits</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>-Individuals with anthrophobia may experience changes in eating patterns, potentially avoiding social events involving meals due to heightened anxiety.
+            </li>
+          </ul>
+        </div>
+
+        <div class="tidbit">
+          <center><b>Humorous Tidbit</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>-Why don't scientists trust atoms? Because they make up everything, just like people at social gatherings!
+            </li>
+          </ul>
+        </div>
+
+        <div class="funfacts">
+          <center><b>Inspiration from Resilience
+          </b></center> 
+          <ul style="margin-top: 10px;">
+            <li>-Recognizing one's worth and taking gradual steps towards facing the fear of social interactions are essential aspects of overcoming anthrophobia.</li>
+            <li>-Anthrophobia can be linked to past negative social experiences, low self-esteem, or a predisposition to anxiety disorders.</li>
+          </ul>
+        </div>
+        
+        <div class="quote">
+          <span>&#8220;</span>
+          <h4>In the middle of difficulty lies opportunity - Albert Einstein
+          </h4>
+        </div>
+
+        <div class="desc">
+          <h4>
+              According to study conducted by MIT, 90% of data transmitted to the human brain is visual. More then any other factor, visuals<br> affects human mind in the most efficient and profound way. <span style="text-decoration: underline;">Here are some reccomendation from the entertainment section...</span>
+          </h4>
+        </div>
+      </h5>
+
+      <div class="movie">
+          <div class="movietext">
+              <ul>
+                <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Movie we reccomend:</li>
+                <li>Movie: Immerse yourself in the captivating world of "Little Miss Sunshine."</li>
+                <li>-A heartwarming film that explores the dynamics of a quirky family on a road trip.</li>
+                <li>-Touches on themes of acceptance, individuality, and finding connection in unexpected places.</li>
+                <li>-The movie received critical acclaim for its endearing characters and relatable storyline.</li>
+                <li>-A delightful watch that offers a fresh perspective on social expectations.</li>
+                
+              </ul>
+          </div>
+          <div class="movieimage">
+              <img style="border-radius: 30px;" src="{%static 'home/anthrophobia (3).jpg'%}" alt="pic">
+          </div>
+        </div>
+      
+      <div class="song">
+        <div class="songtext">
+            <ul>
+              <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Music track we reccomend:</li>
+              <li>Song: Find solace in the reflective tones of "Sound of Silence" by Simon & Garfunkel.</li>
+              <li>-A classic song that captures the nuances of solitude and introspection.</li>
+              <li>-The haunting melody and evocative lyrics offer a space for contemplation.</li>
+              <li>-Known for its timeless appeal, the song provides a soothing auditory experience.</li>
+              <li>-A comforting choice for moments of introspection.</li>
+            </ul>
+        </div>
+        <div class="songimage">
+            <img style="border-radius: 30px;" src="{%static 'home/anthrophobia (1).jpg'%}" alt="pic">
+        </div>
+    </div>
+    
+    <div class="song">
+      <div class="songtext">
+          <ul>
+            <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Book we reccomend:</li>
+            <li>Book: Dive into the introspective novel "Eleanor Oliphant Is Completely Fine" by Gail Honeyman.</li>
+            <li>-Follows the life of a socially awkward woman navigating the challenges of human connection.</li>
+            <li>-Explores themes of loneliness, kindness, and the transformative power of human relationships.</li>
+            <li>-Honeyman's writing skillfully combines humor with poignant moments.</li>
+            <li>-A compelling read that resonates with the complexities of social interaction.</li>
+              
+          </ul>
+      </div>
+      <div class="songimage">
+          <img style="border-radius: 30px;" src="{%static 'home/anthrophobia (2).jpg'%}" alt="pic">
+      </div>
+  </div>
+
+  <div class="relaxation">
+    <h4>Relaxation tips from MindDoc:</h4>
+    <ul>
+      <li>-Practice deep-breathing exercises to manage anxiety before entering social situations.</li>
+      <li>-Set small, achievable social goals to gradually build confidence.</li>
+      <li>-Engage in activities that bring joy and divert attention from anxious thoughts related to social interactions.</li>
+      <li>-Consider seeking support from understanding friends or joining social groups with shared interests.</li>
+    </ul>
+  </div>
+  
+</div>
+
+</div>
+
+
+
+
+
+
+{% include 'home/footer_vlog.html' %}
+{% endblock %}

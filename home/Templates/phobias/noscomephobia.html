@@ -1,0 +1,382 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Elsie">
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Montserrat,sans-serif;
+    }
+    
+    .whole{
+        display: flex;
+        height: 830px;
+        width: 1700px;
+        margin-left: -210px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        position: relative;
+        margin-top: 100px;
+    }
+
+    .mainpic img{
+        margin-top: 70px;
+        margin-left: 290px;
+        margin-bottom: -170px;
+        border-radius: 30px;
+        height: 400px;
+        width: 750px;
+        animation: slideInLeft 2s backwards ease-in-out;
+        position: absolute;
+    }
+
+    @keyframes slideInLeft {
+        0% {
+            transform: translateY(-100%);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+.middle{
+  margin-top: 300px;
+  align-items: center;
+}
+    .middle h2{
+      margin-top: 200px;
+      font-size: 25px;
+      color: #343470;
+      font-family: Elsie;
+      font-weight: bold;
+      letter-spacing: 15px;
+      animation: slideInLeft 3.5s backwards ease-in-out;
+      margin-left: 670px;
+    }
+    .whole #span{
+        font-family: Montserrat,sans-serif;
+        letter-spacing: normal;
+        font-size: 16px;
+        margin-left: 748px;  
+        color: grey;
+        font-weight: normal;
+    }
+
+   
+    .middle h4{
+      margin-top: -9px;
+      font-size: 15px;
+      text-align: center;
+      color: rgb(99, 99, 99);
+      text-wrap: wrap;
+      padding: 40px 50px;
+    }
+
+    .middle h5{
+      margin-top: 50px;
+      font-size: 16px;
+      color: rgb(99, 99, 99);
+      text-wrap: wrap;
+    }
+    .middle h5 b{
+      font-size: 20px;
+      color: #343470;
+    }
+    .middle li{
+      text-align: center;
+      list-style:none;
+      padding-bottom: 10px;
+      padding: 10px;
+    }
+
+    .remedies{
+      margin-top: 60px;
+    }
+    .diagnosis{
+      margin-top: 60px;
+    }
+    .funfacts{
+      margin-top: 60px;
+    }
+    .middle .funfacts b{
+      animation: blink 1s infinite;
+      color: deeppink;
+    }
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    .quote{
+      margin-top: 90px;
+      height: 70px;
+      width: 1015px;
+      margin-left: 330px;
+      border: 2px solid black;
+      border-radius: 30px;
+      position: relative;
+    }
+    .quote h4{
+      font-size: 16px;
+      margin-top: 0;
+      margin-left: 40px;
+      position: absolute;
+      top: 7px;
+      color: #343470;
+    }
+    .quote span{
+      font-size: 160px;
+      margin-left: 30px;
+      color: black;
+      position: absolute;
+      top: -29px;
+    }
+    .desc h4{
+      text-align: center;
+      font-size: 19px;
+      text-align: center;
+      color: #343470;
+      text-wrap: wrap;
+      padding: 90px;
+      line-height: 26px;
+      font-weight: bold;
+    }
+
+    .movie {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            width: 1200px;
+            height: 100px;
+            margin: 100px auto;
+        }
+
+        .movietext {
+            max-width: 60%;
+            color: #343470;
+        }
+
+        .movietext li {
+            font-size: 16px;
+            margin-left: -10px;
+            line-height: 10px;
+            text-align: left;
+            text-wrap: nowrap;
+        }
+        .movieimage img {
+            width: 300px;
+            height: 300px;
+            margin-left: 70px;
+        }
+
+        .song {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            width: 1200px;
+            height: 100px;
+            margin: 300px auto;
+        }
+
+        .songtext {
+            max-width: 60%;
+            color: #343470;
+        }
+
+        .songtext li {
+            font-size: 16px;
+            margin-left: -10px;
+            line-height: 10px;
+            text-align: left;
+            text-wrap: nowrap;
+        }
+        .songimage img {
+            width: 300px;
+            height: 290px;
+            margin-left: 70px;
+            
+        }     
+
+        .relaxation{
+          margin-top: -100px;
+        }
+
+        .relaxation h4{
+          text-align: center;
+          font-size: 21px;
+          text-align: center;
+          color: #343470;
+          text-wrap: wrap;
+          padding: 10px;
+          line-height: 26px;
+          font-weight: bold;
+          text-decoration: overline underline;
+        }
+
+    
+
+</style>
+<div class="mainpic">
+    <img src="{%static 'home/NOSOCOMEPHOBIA.jpg'%}">
+</div>
+<div class="whole">
+    <div class="all middle">
+      <h2>NOSCOMOPHOBIA</h2>
+      <span id="span">(Navigating the Fear of Hospitals)</span>
+      <h4>An intricate fear deeply rooted in the fear of hospitals, goes beyond a mere discomfort. It is an intense and irrational anxiety that individuals experience when confronted with the prospect of visiting or being in a hospital environment. This specific phobia can manifest in various ways, from heightened stress and avoidance behaviors to physical symptoms and panic attacks.
+      </h4>
+      <h5>
+        <div class="symptoms">
+          <center><b>Symptoms:</b></center>          
+          <ul style="margin-top: 10px;">
+            <li>-Intense Anxiety: Overwhelming fear and anxiety associated with the idea of hospitals.</li>
+            <li>-Avoidance Behaviors: Actively avoiding hospital visits or any situations related to medical settings.</li>
+            <li>-Physical Symptoms: Increased heart rate, sweating, trembling, or nausea when confronted with hospital-related stimuli.</li>
+            <li>-Panic Attacks: Sudden and intense episodes of fear, often leading to a strong desire to escape the situation.</li>
+          </ul>
+        </div>
+
+        <div class="remedies">
+          <center><b style="top: 60px;">Treatment and Coping Strategies</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>-Cognitive-Behavioral Therapy (CBT): This therapeutic approach delves into negative thought patterns related to the fear of hospitals, challenging and transforming them.</li>
+            <li>-Exposure Therapy: Gradual exposure to hospital-related stimuli in a controlled and supportive environment, fostering desensitization.</li>
+            <li>-Relaxation Techniques: Learning and practicing relaxation methods to manage anxiety, providing tools for self-regulation.
+            </li>
+            <li>Mindfulness and Meditation: Techniques to stay present and reduce anxious thoughts, promoting a sense of calm amidst fears.</li>
+          </ul>
+        </div>
+        
+        <div class="diagnosis">
+          <center><b>Noticeable Habits</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>-Individuals with nosocomephobia may experience changes in eating patterns, potentially avoiding meals before or after a hospital visit due to heightened anxiety.
+            </li>
+          </ul>
+        </div>
+
+        <div class="tidbit">
+          <center><b>Humorous Tidbit</b></center> 
+          <ul style="margin-top: 10px;">
+            <li>-Did you hear about the hospital that started a band? They have great "bedside notes"!
+            </li>
+          </ul>
+        </div>
+
+        <div class="funfacts">
+          <center><b>Inspiration from Resilience
+          </b></center> 
+          <ul style="margin-top: 10px;">
+            <li>- Recognizing the courage within oneself and taking gradual steps towards facing the fear of hospitals are essential aspects of overcoming nosocomephobia.
+            </li>
+            <li>- Nosocomephobia can be rooted in negative experiences or trauma associated with hospitals, medical procedures, or illness.
+            </li>
+            <li>- The longest recorded case of separation anxiety lasted 53 years! Imagine feeling connected to someone even after decades of physical distance.</li>  
+          </ul>
+        </div>
+        
+        <div class="quote">
+          <span>&#8220;</span>
+          <h4>Courage doesn't always roar. Sometimes courage is the quiet voice at the end of the day saying, 'I will try again tomorrow - Mary Anne Radmacher
+          </h4>
+        </div>
+
+        <div class="desc">
+          <h4>
+              According to study conducted by MIT, 90% of data transmitted to the human brain is visual. More then any other factor, visuals<br> affects human mind in the most efficient and profound way. <span style="text-decoration: underline;">Here are some reccomendation from the entertainment section...</span>
+          </h4>
+        </div>
+      </h5>
+
+      <div class="movie">
+          <div class="movietext">
+              <ul>
+                <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Movie we reccomend:</li>
+                <li>Movie: Immerse yourself in the psychological depths of "Shutter Island."</li>
+                <li>-Directed by Martin Scorsese, the film involves a character investigating a hospital-like institution.</li>
+                <li>-Explores the complexities of perception, reality, and psychological challenges.</li>
+                <li>-Leonardo DiCaprio's compelling performance adds layers to the narrative.</li>
+                <li>-The movie received critical acclaim for its thought-provoking storyline.</li>
+              </ul>
+          </div>
+          <div class="movieimage">
+              <img style="border-radius: 30px;" src="{%static 'home/noscomephobiamedia (3).jpg'%}" alt="pic">
+          </div>
+        </div>
+      
+      <div class="song">
+        <div class="songtext">
+            <ul>
+              <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Music track we reccomend:</li>
+              <li>Song: Find solace in the reflective tones of "Clair de Lune" by Claude Debussy.</li>
+              <li>-Known for its beautiful piano composition, this classical piece has a calming and melodic quality that can provide a serene auditory experience. </li>
+              <li>-Ideal for creating a calming atmosphere during moments of distress.</li>
+              <li>-The ambient sounds and gentle melodies contribute to a soothing ambiance.</li>
+              <li>- Many people find it conducive to creating a tranquil atmosphere and promoting relaxation.</li>
+                
+            </ul>
+        </div>
+        <div class="songimage">
+            <img style="border-radius: 30px;" src="{%static 'home/noscomephobiamedia (2).jpg'%}" alt="pic">
+        </div>
+    </div>
+    
+    <div class="song">
+      <div class="songtext">
+          <ul>
+            <li style="font-size: larger; font-weight: bold; color: deeppink; margin-bottom: 15px;">The Book we reccomend:</li>
+            <li>Book: Dive into the suspense of "The Silent Patient" by Alex Michaelides.</li>
+            <li>-Revolves around a woman's silence following a shocking act within a psychiatric facility.</li>
+            <li>-Explores psychological complexities and challenges perceptions of mental health institutions.</li>
+            <li>-A gripping novel that keeps readers on the edge of their seats.</li>
+            <li>-It became a bestseller, captivating audiences with its psychological twists.</li>
+              
+          </ul>
+      </div>
+      <div class="songimage">
+          <img style="border-radius: 30px;" src="{%static 'home/noscomephobiamedia (1).jpg'%}" alt="pic">
+      </div>
+  </div>
+
+  <div class="relaxation">
+    <h4>Relaxation tips from MindDoc:</h4>
+    <ul>
+      <li>-Practice deep-breathing exercises to manage anxiety.</li>
+      <li>-Use visualization techniques to create a mental safe space.</li>
+      <li>- Gradually expose oneself to hospital-related stimuli in a controlled manner.</li>
+      <li>-Consider incorporating soothing teas or comforting foods as part of a relaxation routine.</li>
+    </ul>
+  </div>
+  
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+{% include 'home/footer_vlog.html' %}
+{% endblock %}

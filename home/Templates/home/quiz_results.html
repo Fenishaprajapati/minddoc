@@ -1,0 +1,66 @@
+{% extends 'home/base.html' %}
+{% block content %}
+{% load static %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<style>
+    .result{
+        height: 370px;
+        width: 650px;
+        background-color: rgb(251, 238, 228);
+        margin: 150px auto;
+        color: #343470;
+        border-radius: 30px;
+    }
+    .result h1{
+        font-size: 25px;
+        text-align: center;
+        padding: 30px 10px;
+        font-weight: bold;
+    } 
+
+    .result p{
+        padding-top: -10px;
+        text-align: center;
+        font-size: 20px;
+        margin-left: -280px;
+    }
+
+    .result .f{
+        display: flex;
+        flex-direction: row;
+    }
+    .result h4{
+        font-size: 16px;
+        text-align: center;
+        padding: 20px 10px;
+        font-weight: medium;
+        padding-top: 80px;
+    } 
+    .result img{
+        width: 170px;
+        height: 170px;
+        margin-top: 30px;
+        margin-left: 30px;
+        border-radius: 160px;
+    }
+
+</style>
+<div class="result">
+    <h1>YOUR POSSIBLE MENTAL HEALTH CONDITION</h1>
+    <p>{{ mental_health_condition }}</p>
+    <div class="f">
+        <img src="{%static 'home/licenced.png'%}">
+        <h4>
+            Dont get too stressed, this is just a prediction based on your answer. There is possibility that this result could be false as well.
+            For accurate cosultancy you can visit our <a href="{% url 'experts' %}" style="text-decoration: underline;">Doctor.</a> 
+        </h4> 
+    </div>
+     
+</div>
+      
+{% endblock %}

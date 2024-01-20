@@ -1,0 +1,140 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Montserrat,sans-serif;
+        
+    }
+    body{
+        background-image: url("{% static 'home/premium (6).jpg' %}"); 
+        background-size: 100% 100vh; 
+        background-repeat: no-repeat;
+    }
+    .maincards{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content:center;
+        height: 400px;
+        width: 1300px;
+        margin:auto auto;
+        margin-top: 260px;        
+    }
+    .all{
+        height: 399px;
+        width: 1033px;
+        transition: 0.5s;
+        z-index: 1;
+        cursor: pointer;
+    }
+    
+    .three{
+        background-color: #EFF8FF;
+        opacity: 70%;
+    }
+    @keyframes third {
+        0% {
+            transform: translateX(-200%) ;
+        }
+        100% {
+            transform: translateX(0) translateY(0);
+        }
+    }
+
+    .three.loaded {
+        animation: third 2s ease-in-out;
+    }
+    /* bouncing effect on hover */
+    .all:hover {
+        transform: scale(1.10);
+    }
+    .all h4{
+        color: #343470;
+        font-size: 25px;
+        padding: 50px 43px;
+        text-wrap: nowrap;
+        font-weight: 600;
+        margin-left: 250px;
+    }
+    .three h4{
+        padding: 50px 60px;
+    }
+    .all ul{
+        margin-left: -50px;
+    }
+    .all li{
+        color: #343470;
+        list-style-type: none;
+        text-align-last: center;
+    }
+    
+    .cute-button {
+        padding: 12px 40px;
+        background-color: #0b0b4b;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+        margin-left: 430px;
+        margin-top: 30px;
+    }
+
+    .cute-button:hover {
+        background-color: #212147;
+    }
+    .three ul{
+        margin-top: -20px;
+    }
+    
+</style>
+
+<div class="maincards">
+    <div class="all three" id="three">
+        <h4>BECOME A PREMIUM MEMBER<br><center style="margin-left: -280px; font-size: 15px;">(Goal based care + Consult a doctor)</center></h4>
+        <ul>
+            <li>Combining features of both segments</li>
+            <li>Includes 77 daily tasks</li>
+            <li>Includes meets with therapist</li>
+            <li><center>Register now!</center></li>
+        </ul>
+        <a href="{% url 'register' %}" >
+            <button class="cute-button">Buy for &#8377;5999</button>
+        </a>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('two').classList.add('loaded');
+        document.getElementById('three').classList.add('loaded');
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% include 'home/footer_vlog.html' %} {% endcomment %}
+{% endblock %}

@@ -1,0 +1,133 @@
+<!--<style>-->
+<!--    /* Style the login button */-->
+<!--        .login-button a {-->
+<!--            text-decoration: none;-->
+<!--            background-color: #007BFF;-->
+<!--            color: #fff;-->
+<!--            padding: 10px 20px;-->
+<!--            border-radius: 5px;-->
+<!--            transition: background-color 0.3s ease;-->
+<!--        }-->
+
+<!--        .login-button a:hover {-->
+<!--            background-color: #0056b3;-->
+<!--        }-->
+<!--</style>-->
+
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">-->
+
+<!--  <div class="container-fluid">-->
+<!--    <a class="navbar-brand" href="{% url 'home' %}">Minddoc</a>-->
+
+<!--    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--      <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+
+<!--    <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--      <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
+
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>-->
+<!--        </li>-->
+
+<!--       {% if user.is_authenticated %} # if user is logged in-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="{% url 'logout' %}">Logout</a>-->
+<!--          </li>-->
+
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="{% url 'add_record' %}">Add record</a>-->
+<!--          </li>-->
+
+<!--        {% else %}-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="{% url 'login' %}">Login</a>-->
+<!--          </li>-->
+
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="{% url 'register' %}">Register</a>-->
+<!--          </li>-->
+<!--       {% endif %}-->
+
+<!--      </ul>-->
+<!--    </div>-->
+
+<!--  </div>-->
+
+<!--</nav>-->
+
+
+{% comment %} from django.shortcuts import render
+from .forms import QuizForm
+from .models import SymptomAnalysis, UserResponse
+
+def analyze_responses(user_response):
+    # Placeholder logic for analysis
+    # Modify this based on your specific criteria
+
+    # Analyze mental state questions
+    mental_state_score = 0
+    mental_state_responses = []
+
+    mental_state_score += 1 if user_response.feeling_overwhelmed == 'Frequently' else 0
+    mental_state_responses.append("You often feel overwhelmed by daily tasks.")
+
+    mental_state_score += 1 if user_response.worry_about_judgment == 'Frequently' else 0
+    mental_state_responses.append("You frequently worry about being judged in social situations.")
+
+    mental_state_score += 1 if user_response.sleep_patterns == 'Poor' else 0
+    mental_state_responses.append("Your sleep patterns are reported as poor.")
+
+    mental_state_score += 1 if user_response.confront_challenges == 'Avoid' else 0
+    mental_state_responses.append("You tend to avoid confronting challenges directly.")
+
+    mental_state_score += 1 if user_response.comfortable_enclosed_spaces == 'Extremely uncomfortable' else 0
+    mental_state_responses.append("You feel extremely uncomfortable in enclosed spaces.")
+
+    mental_state_score += 1 if user_response.public_speaking_anxiety == 'Extremely nervous' else 0
+    mental_state_responses.append("You experience extreme nervousness during public speaking or presentations.")
+
+    mental_state_score += 1 if user_response.anxiety_in_crowded_places == 'Frequently' else 0
+    mental_state_responses.append("You often experience anxiety in crowded places.")
+
+    mental_state_score += 1 if user_response.fear_of_missing_out == 'Frequently' else 0
+    mental_state_responses.append("You frequently worry about missing out on social events or gatherings.")
+
+    # Combine mental state and phobia scores for a more comprehensive analysis
+    total_score = mental_state_score
+
+    sympathy_responses=[]
+    # Define criteria for analysis
+    if total_score >= 6:
+        phobia_name = "Might be Generalized Anxiety Disorder"
+        sympathy_responses.append("It's advisable to consult with a mental health professional for a more accurate assessment and support.")
+    elif total_score >= 3:
+        phobia_name = "Possible Social Anxiety"
+        sympathy_responses.append("Consider speaking with a mental health professional to discuss your concerns and explore coping strategies.")
+    elif total_score ==2:
+        phobia_name = "Maybe Separation Anxiety"
+        sympathy_responses.append("Your responses suggest that you may currently be experiencing specific separation anxiety. However, it's important to address any concerns with a mental health professional.")
+
+    # Ensure that 'phobia_symptoms' is included in the dictionary
+    analyzed_result = {'phobia_name': phobia_name, 'sympathy_responses': sympathy_responses}
+    return analyzed_result
+
+def quiz_view(request):
+    if request.method == 'POST':
+        form = QuizForm(request.POST)
+        if form.is_valid():
+            user_response = form.save()
+
+            # Analyze responses and store in SymptomAnalysis model
+            analyzed_result = analyze_responses(user_response)
+            SymptomAnalysis.objects.create(
+                user_response=user_response,
+                phobia_name=analyzed_result['phobia_name'],
+                sympathy_responses=analyzed_result['sympathy_responses']
+            )
+
+            return render(request, 'home/final_report.html', {'result': analyzed_result})
+    else:
+        form = QuizForm()
+
+    return render(request, 'home/quiz.html', {'form': form}) {% endcomment %}

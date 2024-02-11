@@ -75,15 +75,19 @@ urlpatterns = [
     path('agoraphobia/', views.agoraphobia, name="agoraphobia"),                   
     path('taphophobia/', views.taphophobia, name="taphophobia"),                   
     path('rhabdophobia/', views.rhabdophobia, name="rhabdophobia"),                   
-    path('fomo/', views.fomo, name="fomo"),                                   
+    path('fomo/', views.fomo, name="fomo"),        
+                               
     path('experts/', views.experts, name="experts"),
+
     path('experts_premium/', views.experts_premium, name="experts_premium"),
+    path('experts_premium2/', views.experts_premium2, name="experts_premium2"),
 
     path("manage_appointments/", views.manage_appointments, name="manage_appointments"),
+    path("manage_appointments2/", views.manage_appointments2, name="manage_appointments2"),
 
     path('premium/', views.premium, name="premium"),
     path('goal_based_care/', views.goal_based_care, name="goal_based_care"),
-    path('premium_goal_based_care/', views.premium_goal_based_care, name="premium_goal_based_care"),
+    path('goal_based_care_premium/', views.goal_based_care_premium, name="goal_based_care_premium"),
     path('quiz/', views.quiz, name="quiz"),
     path('results/', views.quiz_results, name='quiz_results'),
     path('forgotpassword/', views.forgotpassword, name='forgotpassword'),

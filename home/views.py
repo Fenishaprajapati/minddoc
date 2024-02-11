@@ -37,6 +37,9 @@ def home(request):
         
     return render(request, 'home/index.html', {'records': records})
 
+def goal_based_care_premium(request):
+    pass
+
 def experts_premium(request):
     if request.method == 'POST':
         fname = request.POST.get("fname")
@@ -66,15 +69,19 @@ def manage_appointments(request):
 
     if request.method == 'POST':
         date = request.POST.get("date")
+        time = request.POST.get("time")  # Retrieve time from the form data
         appointment_id = request.POST.get("appointment_id")
         appointment = Appointments.objects.get(id=appointment_id)
         appointment.accepted = True
         appointment.accepted_date = datetime.datetime.now()
+        # Combine date and time strings into a single datetime object
+        appointment.accepted_datetime = datetime.datetime.strptime(f"{date} {time}", "%Y-%m-%d %H:%M")
         appointment.save()
 
         data = {
             "fname": appointment.first_name,
             "date": date,
+            'time':time,
         }
 
         message = get_template('experts/email.html').render(data)
@@ -92,13 +99,72 @@ def manage_appointments(request):
 
     return render(request, "experts/manage_appointment.html", {'appointments_p':appointments_p})
 
+def experts_premium2(request):
+    if request.method == 'POST':
+        fname = request.POST.get("fname")
+        lname = request.POST.get("lname")
+        email = request.POST.get("email")
+        mobile = request.POST.get("mob")
+        message = request.POST.get("request")
+        appointment = Appointments.objects.create(
+            first_name=fname,
+            last_name=lname,
+            email=email,
+            phone=mobile,
+            request=message,
+        )
+        appointment.save()
+        messages.add_message(request, messages.SUCCESS, f"Thanks {fname} for making an appointment, we will email you ASAP!")
+        return HttpResponseRedirect(request.path)
+    
+    return render(request, 'experts/experts_premium2.html')
+
+@staff_member_required 
+def manage_appointments2(request):
+    appointments = Appointments.objects.all().order_by('sent_date')
+    paginator = Paginator(appointments, 3)  # Change the second argument to the number of items per page you want
+    page_number = request.GET.get('page')
+    appointments_p = paginator.get_page(page_number)
+
+    if request.method == 'POST':
+        date = request.POST.get("date")
+        time = request.POST.get("time")  # Retrieve time from the form data
+        appointment_id = request.POST.get("appointment_id")
+        appointment = Appointments.objects.get(id=appointment_id)
+        appointment.accepted = True
+        appointment.accepted_date = datetime.datetime.now()
+        # Combine date and time strings into a single datetime object
+        appointment.accepted_datetime = datetime.datetime.strptime(f"{date} {time}", "%Y-%m-%d %H:%M")
+        appointment.save()
+
+        data = {
+            "fname": appointment.first_name,
+            "date": date,
+            'time':time,
+        }
+
+        message = get_template('experts/email2.html').render(data)
+        email = EmailMessage(
+            "About your appointment",
+            message,
+            settings.EMAIL_HOST_USER,
+            [appointment.email],
+        )
+        email.content_subtype = "html"
+        email.send()
+
+        messages.add_message(request, messages.SUCCESS, f"You accepted the appointment of {appointment.first_name}")
+        return HttpResponseRedirect(request.path)
+
+    return render(request, "experts/manage_appointment2.html", {'appointments_p':appointments_p})
+
 def events(request, year=datetime.datetime.now().year, month=datetime.datetime.now().strftime('%B')):
     month=month.capitalize()
     month_number=list(calendar.month_name).index(month)
     month_number=int(month_number)
     cal= HTMLCalendar().formatmonth(year, month_number)
 
-    now=datetime.now()
+    now=datetime.datetime.now()
     current_year=now.year
     #query the events model for dates
     event_list=Event.objects.filter(
@@ -510,11 +576,7 @@ def register_user(request):
     return render(request, 'home/register.html', {'form': form})
 
 
-def premium_goal_based_care(request):
-    return render(request, 'home/premium_goal_based_care.html')
 
-def premium_experts(request):
-    return render(request, 'home/premium_experts.html')
 # def customer_record(request, pk):
 #     # if request.user.is_authenticated:
 #     #     # to see records

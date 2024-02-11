@@ -1,3 +1,4 @@
+
 {% extends 'home/base.html' %}
 
 {% block content %}
@@ -68,12 +69,12 @@
         <div class="row d-flex justify-content-center">
             <div class="col-xl-10 col-lg-9 col-md-11 col-9 text-center">
                 <h3 style="margin-top: 190px; color: darkblue; text-wrap: nowrap;">
-                    Book an Appointment for F2F Meeting
+                    Book an Appointment for Virtual Meeting
                 </h3>
                 <p style="margin-top: 10px; margin-bottom: -50px; color: darkblue; text-wrap: nowrap; letter-spacing: 2px;" class="blue-text">Use the following form to contact us and request an appointment..</p>
                 <div class="card">
                     
-                    <form class="form-card" method="POST" action="{%url 'experts_premium'%}">
+                    <form class="form-card" method="POST" action="{%url 'experts_premium2'%}">
                         {% csrf_token %}
                         <div class="row justify-content-between text-left">
                             <div class="form-group col-sm-6 flex-column d-flex"> 

@@ -350,7 +350,7 @@
     <div class="container mt-1">
         <div class="col-12 text-center mt-4 mb-4">
             <h3>
-                Manage appointments for face to face meetings.
+                Manage appointments for virtual meetings
             </h3>
         </div>
 
@@ -380,7 +380,7 @@
                                 <hr class="w-100">
 
                               {%if app.accepted == False%}    
-                                <form action="{%url 'manage_appointments'%}" method="POST">
+                                <form action="{%url 'manage_appointments2'%}" method="POST">
                                   {%csrf_token%}
                                   <div class="form-group">
                                       <input type="date" name="date" class="form-control mb-2" placeholder="dd-mm-yyyy" value="" min="1997-01-01"   max="2030-12-31">

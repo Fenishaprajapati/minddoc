@@ -197,7 +197,12 @@
             </li>
 
             {% if user.is_authenticated %} 
-                <li><a href="{%url 'experts_premium'%}" style="color:chocolate">Experts</a></li>
+                <li class="dropdown" ><a href="#"style="color:chocolate;">Experts +</a>
+                    <ul>
+                        <li><a href="{%url 'experts_premium'%}" >F2F Meet</a></li>
+                        <li><a href="{%url 'experts_premium2'%}">Virtual Meet</a></li>
+                    </ul>
+                </li>
                 <li><a href="{%url 'goal_based_care'%}" style="color:chocolate">Goal based care</a></li>
                 <li class="dropdown"><a href="#">Resources +</a>
                     <ul>
@@ -218,7 +223,12 @@
                 <li><a href="{%url 'login'%}">Premium member?</a></li>
             {% endif %}
             {%if user.is_staff%}
-                <li><a href="{%url 'manage_appointments'%}">Manage</a></li>
+                <li class="dropdown"><a href="#">Doctor Manages +</a>
+                    <ul>
+                        <li><a href="{%url 'manage_appointments'%}">Manage F2F</a></li>
+                        <li><a href="{%url 'manage_appointments2'%}">Manage Virtual</a></li>
+                    </ul>
+                </li>
             {%endif%}
         </ul>
     </nav>

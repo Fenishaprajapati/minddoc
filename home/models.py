@@ -100,3 +100,4 @@ class Appointments(models.Model):
     
     class Meta:
         ordering = ["sent_date"]
+

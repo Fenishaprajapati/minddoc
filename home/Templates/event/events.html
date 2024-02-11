@@ -1,0 +1,46 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+{% load static %}
+{%include 'event/event_base.html'%}
+
+<style>
+    body{
+        margin: 250px auto;
+    }
+    *{
+        font-family: Montserrat,sans-serif;
+    }
+    @media only screen and (max-width: 1024px){
+        body{
+        padding-top: 150px;
+        }
+    }
+    
+</style>
+
+<body>
+    <center>
+        <br><br>
+        <h2 style="letter-spacing: 3px;">Hello {{name}}! Events for {{ month }} {{ year }}</h2>
+        As of {{ time }}<br><br>
+        {{cal|safe}}
+        <br><br>
+        <h3 style="color: #343470; font-weight: 600;letter-spacing: 5px;">Events This Month</h3>
+        {%if event_list%}
+            {%for event in event_list%}
+                <div class="card w-75 mb-3">
+                    <div class="card-body">
+                    <h5 class="card-title" style="font-size: 23px;letter-spacing: 3px;">{{event}}</h5>
+                    <p class="card-text">{{event.event_date}}</p>
+                    <a href="{%url 'events_list'%}" class="btn btn-primary" style="background-color: chocolate; border-color: chocolate;">Go to event</a>
+                    </div>
+                </div><br>
+            {%endfor%}
+        {%else%}
+            Sorry.. no events this month
+        {%endif%}
+
+    </center>
+</body>
+{% endblock %}

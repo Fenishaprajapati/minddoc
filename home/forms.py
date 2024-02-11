@@ -1,16 +1,16 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
-from .models import Record
-
+from django.forms import ModelForm
+from .models import Record, Venue, Event
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(label="",
-                             widget=forms.TextInput(attrs={'class': 'forms-control', 'placeholder': 'Email Address'}))
-    firstname = forms.CharField(label="", max_length=20,
-                                widget=forms.TextInput(attrs={'class': 'forms-control', 'placeholder': 'Firstname'}))
-    lastname = forms.CharField(label="", max_length=20,
-                               widget=forms.TextInput(attrs={'class': 'forms-control', 'placeholder': 'lastname'}))
+                             widget=forms.TextInput(attrs={'class': 'form-control another','style':'width:730px', 'placeholder': 'Email Address'}))
+    firstname = forms.CharField(label="",
+                                widget=forms.TextInput(attrs={'class': 'forms-control another', 'style':'width:730px','placeholder': 'Firstname'}))
+    lastname = forms.CharField(label="",
+                               widget=forms.TextInput(attrs={'class': 'forms-control lastnameanother', 'style':'width:730px','placeholder': 'Lastname'}))
 
     class Meta:
         model = User
@@ -29,13 +29,13 @@ class SignUpForm(UserCreationForm):
         self.fields['password1'].widget.attrs['placeholder'] = 'Password'
         self.fields['password1'].label = ''
         self.fields[
-            'password1'].help_text = '<ul class="form-text text-muted small"><li>Your password can\'t be too similar to your other personal information.</li><li>Your password must contain at least 8 characters.</li><li>Your password can\'t be a commonly used password.</li><li>Your password can\'t be entirely numeric.</li></ul>'
+            'password1'].help_text = '<ul class="form-text text-muted small"><li>Your password must contain at least 8 characters.</li><li>Your password can\'t be entirely numeric.</li></ul>'
 
         self.fields['password2'].widget.attrs['class'] = 'form-control'
         self.fields['password2'].widget.attrs['placeholder'] = 'Confirm Password'
         self.fields['password2'].label = ''
         self.fields[
-            'password2'].help_text = '<span class="form-text text-muted"><small>Enter the same password as before, for verification.</small></span>'
+            'password2'].help_text = '<span class="form-text text-muted"></span>'
 
 
 
@@ -55,5 +55,70 @@ class AddRecordForm(forms.ModelForm):
 
 
 
+class VenueForm(forms.ModelForm):
+    class Meta:
+        model=Venue
+        # fields="__all__"#for all the fields of the venue model
+        fields=('name', 'address', 'zip_code','phone', 'web', 'email_address', 'venue_image')
+        labels={
+            'name':'',
+            'address':'',
+            'zip_code':'',
+            'phone':'',
+            'web':'',
+            'email_address':'',
+            'venue_image':'',
+        }
+        widgets={
+            'name':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Venue Name'}),
+            'address':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Venue Address'}),
+            'zip_code':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Zip code'}),
+            'phone':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Phone number'}),
+            'web':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Website'}),
+            'email_address':forms.EmailInput(attrs={'class':'form-control', 'placeholder':'Email address'}),
+        }
+#Admin superuserEVENT FORM
+class EventFormAdmin(forms.ModelForm):
+    class Meta:
+        model=Event
+        # fields="__all__"#for all the fields of the venue model
+        fields=('name', 'event_date', 'venue','manager', 'attendees', 'description')
+        labels={
+            'name':'',
+            'event_date':'YYYY-MM-DD HH:MM:SS',
+            'venue':'Venue',
+            'manager':'Manager',
+            'attendees':'Attendees',
+            'description':'',
+        }
+        widgets={
+            'name':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Event Name'}),
+            'event_date':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Event Date'}),
+            'venue':forms.Select(attrs={'class':'form-select', 'placeholder':'Venue'}),
+            'manager':forms.Select(attrs={'class':'form-select', 'placeholder':'Manager'}),            
+            'attendees':forms.SelectMultiple(attrs={'class':'form-control', 'placeholder':'Attendees'}),
+            'description':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Description'}),
+        }
+
+# User event form
+class EventForm(forms.ModelForm):
+    class Meta:
+        model=Event
+        # fields="__all__"#for all the fields of the venue model
+        fields=('name', 'event_date', 'venue', 'attendees', 'description')
+        labels={
+            'name':'',
+            'event_date':'YYYY-MM-DD HH:MM:SS',
+            'venue':'Venue',
+            'attendees':'Attendees',
+            'description':'',
+        }
+        widgets={
+            'name':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Event Name'}),
+            'event_date':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Event Date'}),
+            'venue':forms.Select(attrs={'class':'form-select', 'placeholder':'Venue'}),          
+            'attendees':forms.SelectMultiple(attrs={'class':'form-control', 'placeholder':'Attendees'}),
+            'description':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Description'}),
+        }
 
 

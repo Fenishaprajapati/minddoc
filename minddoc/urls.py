@@ -24,3 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# configure admin titles
+admin.site.site_header="MindDoc Administration"
+admin.site.site_title="MindDoc"
+admin.site.index_title="Hey Admin!"

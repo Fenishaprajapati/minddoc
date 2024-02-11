@@ -1,33 +1,107 @@
 {% extends 'home/base.html' %}
 {% block content %}
+{% load static %}
+
 <style>
-    .container{
-        margin: 170px auto;
-        margin-bottom: 0%;
+    body {
+        margin: 0;
+        font-family: Montserrat, sans-serif;
+        background-color: #090931;
     }
+
+    .container {
+        position: absolute;
+        top: 23%;
+        transform: translateX(28%);
+        background-color: #d0e2ee;
+        border-radius: 10px;
+        max-width: 800px; /* Adjusted max-width for responsiveness */
+        margin: auto; /* Center horizontally */
+        width: 765px;
+        background-image: url("{%static 'home/register1.jpg'%}");
+        margin-left: 24px;
+        border: 0px solid rgb(253, 236, 244);
+        box-shadow: 20px 20px 15px 0px black;
+        
+    }
+
+    .form-control{
+        width: 730px;
+        border: 1px solid #d2d2d2;
+    }
+
+    h2 {
+        color: darkblue;
+        font-weight: bold;
+        margin-bottom: 15px;
+        font-size: 30px;
+        margin-top: 20px;
+    }
+
+   
+
+    button {
+        margin-top:0px;
+        background-color: darkblue;
+        color: #ffffff;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        position: relative;
+        left: 42%;
+        transform: translateX(28%);
+        margin: 10px auto;
+    }
+
+    .alert {
+        margin-top: 10px;
+        background-color: #e74c3c;
+        color: #ffffff;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .another{
+        border: 1px solid #d2d2d2;
+        height: 42px;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .lastnameanother{
+        border: 1px solid #d2d2d2;
+        height: 42px;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    
 </style>
 
-<div class="col-md-6 offset-md-3 container">
-    <h2>Register</h2>
-    <br>
-    <form method="POST" action="">
-      {% csrf_token %}
+<body>
+    <div class="container">
+            <h2><center>REGISTER</center></h2>
 
-       # just for field empty errors
-           {% if form.errors %}
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    Your Form Has Errors
-                    {% for field in form %}
-                        {% if field.errors %}
-                            {{ field.errors }}
-                        {% endif %}
-                    {% endfor %}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-           {% endif %}
+            <form method="POST" action="">
+                {% csrf_token %}
 
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Register</button>
-    </form>
-</div>
+                                {% if form.errors %}
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        Your Form Has Errors
+                                        {% for field in form %}
+                                            {% if field.errors %}
+                                                {{ field.errors }}
+                                            {% endif %}
+                                        {% endfor %}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                {% endif %}
+
+                {{ form.as_p }}
+                <button type="submit">Register</button>
+            </form>
+
+    </div>
+</body>
 {% endblock %}

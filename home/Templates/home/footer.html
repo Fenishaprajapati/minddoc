@@ -94,8 +94,10 @@
           <h1 class="footer-logo"><a href="{% url 'home' %}" style="color: chocolate; font-family: Georgia, 'Times New Roman', Times, serif;">MindDoc</a></h1>
           <p>Pop your e-mail here to get our newsletter on 
               Mental health.</p>
-          <input class="footer-email" type="email" name="footer-email">
-          <button class="footer-button"><i class='bx bx-chevron-right bx-flip-vertical' ></i></button>
+          <form action="{%url 'home'%}" method="post">
+            <input class="footer-email" type="email" name="footer-email">
+            <button class="footer-button" type="submit" onclick="{%url 'home'%}">Send</button>
+          </form>
         </div>
   
         <div class="footer-content" id="footer-content-2">

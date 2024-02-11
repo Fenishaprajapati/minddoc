@@ -1,15 +1,222 @@
+from email.message import EmailMessage
+from django.views.generic.list import ListView
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .forms import SignUpForm, AddRecordForm
-from .models import QuizSubmissions, Record
+from minddoc.settings import EMAIL_HOST_USER
+from .forms import  EventForm, SignUpForm, AddRecordForm, EventFormAdmin
+from .models import QuizSubmissions, Record, Event, Venue, Appointments
+#import user model from django
+from django.contrib.auth.models import User
 from django.db.models import Count
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+import calendar
+from calendar import HTMLCalendar
+from datetime import datetime
+from .forms import VenueForm, EventForm
+from django.contrib.admin.views.decorators import staff_member_required
+from django.core.mail import EmailMessage
+from django.conf import settings
+from django.core.paginator import Paginator
 
-# from dns import message
 def home(request):
     records = Record.objects.all()
+    if request.method == 'POST':
+        email = request.POST.get('footer-email')
+        mail=EmailMessage("Newsletter from MindDoc!!!!!!", "Thankyou for visiting MindDoc", settings.EMAIL_HOST_USER, [email])
+        file_path = "Newsletter from MindDoc.pdf"
+        with open(file_path, "rb") as file:
+            mail.attach("Newsletter from MindDoc.pdf", file.read(), 'application/pdf')
+        mail.send()
+        messages.success(request, "Your newsletter is waiting in your gmail.")
+        return redirect('home')
+        
     return render(request, 'home/index.html', {'records': records})
+
+def experts_premium(request):
+    if request.method == 'POST':
+        fname = request.POST.get("fname")
+        lname = request.POST.get("lname")
+        email = request.POST.get("email")
+        mobile = request.POST.get("mob")
+        message = request.POST.get("request")
+        appointment = Appointments.objects.create(
+            first_name=fname,
+            last_name=lname,
+            email=email,
+            phone=mobile,
+            request=message,
+        )
+        appointment.save()
+        messages.add_message(request, messages.SUCCESS, f"Thanks {fname} for making an appointment, we will email you ASAP!")
+        return HttpResponseRedirect(request.path)
+    
+    return render(request, 'experts/experts_premium.html')
+
+@staff_member_required 
+def manage_appointments(request):
+    appointments = Appointments.objects.all().order_by('-sent_date')
+    paginator = Paginator(appointments, 3)  # Change the second argument to the number of items per page you want
+    page_number = request.GET.get('page')
+    appointments_p = paginator.get_page(page_number)
+    return render(request, "experts/manage_appointment.html", {'appointments_p':appointments_p})
+
+def events(request, year=datetime.now().year, month=datetime.now().strftime('%B')):
+    month=month.capitalize()
+    month_number=list(calendar.month_name).index(month)
+    month_number=int(month_number)
+    cal= HTMLCalendar().formatmonth(year, month_number)
+
+    now=datetime.now()
+    current_year=now.year
+    #query the events model for dates
+    event_list=Event.objects.filter(
+        event_date__year=year,
+        event_date__month=month_number
+    )
+    time=now.time()
+    return render(request, 'event/events.html',{ "year":year, "month":month, "month_number":month_number, "cal":cal, "current_year":current_year, "time":time,"event_list":event_list})
+
+def events_list(request):
+    events_list=Event.objects.all().order_by('-event_date')
+    return render(request, 'event/events_list.html', {'events_list':events_list})
+
+# @staff_member_required    
+def add_venue(request):
+    submitted=False
+    if request.method == "POST":
+        form = VenueForm(request.POST, request.FILES)
+        if form.is_valid():
+            venue=form.save(commit=False)
+            venue.owner=request.user.id
+            venue.save()
+            # form.save()
+            return HttpResponseRedirect('/add_venue?submitted=True')
+    else:
+        form=VenueForm
+        if 'submitted' in request.GET:
+            submitted=True
+
+    return render(request, 'event/add_venue.html', {'form':form, 'submitted':submitted})
+
+def list_venue(request):
+    # venue_list=Venue.objects.all().order_by('name')
+    venue_list=Venue.objects.all().order_by('name')
+
+    # set up pagination
+    p= Paginator(Venue.objects.all(), 3)
+    page=request.GET.get('page')
+    venues=p.get_page(page)
+    nums="a"*venues.paginator.num_pages
+    return render(request, 'event/venue.html', {'venue_list':venue_list, 'venues':venues, 'nums':nums})
+
+def venue_events(request, venue_id):
+    #grab the venue
+    venue=Venue.objects.get(id=venue_id)
+    #grab the events from that venue
+    events=venue.event_set.all()
+    return render(request,'event/venue_events.html',{'events':events, 'venue':venue})
+    
+def show_event(request, event_id):
+    event= Event.objects.get(pk=event_id)
+    return render(request,'event/show_event.html',{'event':event})
+
+def show_venue(request, venue_id):
+    venue= Venue.objects.get(pk=venue_id)
+    venue_owner= User.objects.get(pk=venue.owner)
+    return render(request, 'event/show_venue.html', {'venue':venue, 'venue_owner':venue_owner})
+
+def search_venues(request):
+    if request.method=="POST":
+        searched = request.POST['searched']
+        venues=Venue.objects.filter(name__contains=searched)
+        return render(request, 'event/search_venues.html',{'searched':searched, 'venues':venues})
+    else:
+        return render(request, 'event/search_venues.html')
+
+def venue_text(request):
+    response = HttpResponse(content_type='text/plain')
+    response['Content-Disposition'] = 'attachment; filename=venues.txt'
+
+    venues=Venue.objects.all()
+    lines=[]
+    for venue in venues:
+        lines.append(f'-{venue.name}\n{venue.address}\n{venue.phone}\n{venue.zip_code}\n{venue.phone}\n{venue.web}\n{venue.email_address}\n\n\n')
+    # write to text file
+    response.writelines(lines)
+    return response
+
+# @staff_member_required    
+def add_event(request):
+    submitted=False
+    if request.method == "POST":
+        if request.user.is_superuser:
+            form = EventFormAdmin(request.POST)
+            if form.is_valid():
+                form.save()
+                return HttpResponseRedirect('/add_event?submitted=True')
+        else:
+            form=EventForm(request.POST)
+
+            if form.is_valid():
+                # form.save()
+                event=form.save(commit=False)
+                event.manager=request.user
+                event.save()
+                return HttpResponseRedirect('/add_event?submitted=True')
+    else:
+        #just going to the page not submitting
+        if request.user.is_superuser:
+            form=EventFormAdmin
+        else:
+            form=EventForm
+        if 'submitted' in request.GET:
+            submitted=True
+
+    return render(request, 'event/add_event.html', {'form':form, 'submitted':submitted})
+
+
+def update_event(request, event_id):
+    event = Event.objects.get(pk=event_id)
+    if request.user.is_superuser:
+        form = EventFormAdmin(request.POST or None, instance=event)
+    else:
+        form = EventForm(request.POST or None, instance=event)
+
+    if form.is_valid():
+        form.save()
+        return redirect('events_list')
+    
+    return render(request, 'event/update_event.html', {'event':event, 'form':form})
+
+def delete_event(request, event_id):
+        event = Event.objects.get(pk=event_id)
+        if request.user==event.manager:
+            event.delete()
+            messages.success(request, "Record deleted successfully!")
+            return redirect('events_list')
+        else:
+            messages.success(request, "You are not authorized to delete this event.")
+            return redirect('events_list')
+
+def update_venue(request, venue_id):
+    venue = Venue.objects.get(pk=venue_id)
+    form = VenueForm(request.POST or None, instance=venue)
+    if form.is_valid():
+        form.save()
+        return redirect('list_venue')
+    
+    return render(request, 'event/update_venue.html', {'venue':venue, 'form':form})
+    
+def my_events(request):
+    if request.user.is_authenticated:
+        me=request.user.id
+        events=Event.objects.filter(attendees=me)
+        return render(request, 'event/my_events.html', {"events":events})
+    else:
+        messages.success(request, "You are not authorized to view this page.")
+        return redirect('home')
 
 def mental_state(request):
     return render(request, 'home/mental_state.html')
@@ -131,6 +338,9 @@ def experts(request):
 def premium(request):
     return render(request, 'home/premium.html')
 
+def forgotpassword(request):
+    return render(request, 'home/forgotpassword.html')
+
 def goal_based_care(request):
     return render(request, 'home/goal_based_care.html')
 
@@ -167,13 +377,13 @@ def calculate_mental_health(feeling_overwhelmed, being_judged, sleep_patterns, c
         score += 1
 
     # Scoring for 'being_judged'
-    if being_judged == 'Yes':
+    elif being_judged == 'Yes':
         score += 2
     elif being_judged == 'No':
         score += 1
 
     # Scoring for 'sleep_patterns'
-    if sleep_patterns == 'Poor':
+    elif sleep_patterns == 'Poor':
         score += 3
     elif sleep_patterns == 'Average':
         score += 2
@@ -183,13 +393,13 @@ def calculate_mental_health(feeling_overwhelmed, being_judged, sleep_patterns, c
     # Add similar scoring logic for other questions...
 
     # Define your mental health categories based on the total score
-    if score >= 10:
+    if score > 6:
         return 'Possible generalized anxiety and it could be cured with accurate precautions and control of sentiments'
     elif 8 < score < 10:
         return 'Moderately Stressed'
     elif 10 <= score <= 12:
         return 'Might be social anxiety'
-    elif score<=5:
+    elif 4<score<=5:
         return "Possible generalized anxiety"
     elif score<=3:
         return "Maybe few symptoms of social generalized anxiety"
@@ -221,12 +431,6 @@ def quiz_results(request):
         return render(request, 'home/quiz_results.html', {'mental_health_condition': mental_health_condition})
 
     return render(request, 'home/quiz_results.html')
-
-
-
-
-
-
 
 
 def login_user(request):
@@ -271,13 +475,16 @@ def register_user(request):
             login(request, user)
             messages.success(request, "you are registered!")
             return redirect('login')
-    else:
-        form = SignUpForm()
-        return render(request, 'home/register.html', {'form': form})
-
+    
+    form = SignUpForm()
     return render(request, 'home/register.html', {'form': form})
 
 
+def premium_goal_based_care(request):
+    return render(request, 'home/premium_goal_based_care.html')
+
+def premium_experts(request):
+    return render(request, 'home/premium_experts.html')
 # def customer_record(request, pk):
 #     # if request.user.is_authenticated:
 #     #     # to see records

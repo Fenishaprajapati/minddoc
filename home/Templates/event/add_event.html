@@ -1,0 +1,47 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+{% load static %}
+{%include 'event/event_base.html'%}
+<style>
+    body{
+        margin: 250px auto;
+    }
+    h4{
+        position: absolute;
+        bottom: 57%;
+        color: #1F405A;
+        left: 43%;
+        font-weight: bold;
+    }
+    @media only screen and (max-width: 1024px){
+        body{
+            padding-top: 150px;
+        }
+    }
+    form{
+        position: relative;
+        margin-top: 70px;
+    }
+</style>
+    <h4>Add event to database</h4><br><br>
+    {% if submitted %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Hey! </strong>Your event was successfully submitted!!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <form action="" method=POST>
+            {% csrf_token %}
+            {{form.as_p}}
+            <center><input type="submit" value="Submit" class="btn btn-primary" style="background-color: chocolate; border-color: chocolate;"></center>
+        </form>
+    {% else %}    
+        <form action="" method=POST>
+            {% csrf_token %}
+            {{form.as_p}}
+            <center><input type="submit" value="Submit" class="btn btn-primary" style="background-color: chocolate; border-color: chocolate;"></center>
+        </form>
+    {% endif %}
+<br/><br/>	
+
+{% endblock %}

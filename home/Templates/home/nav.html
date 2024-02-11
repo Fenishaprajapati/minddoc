@@ -1,42 +1,55 @@
+{% block content %}
 <style>    
-    *{
+    * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
         font-family: Montserrat, sans-serif;
     }
 
-    a{
+    a {
         text-decoration: none;
     }
+
+    .content-container {
+        position: relative;
+    }
+
     .nav-logo {
-                width: 190px; 
-                height: auto;
-                left: 0px;
-                right:10px;
-                position: absolute;
-                font-weight:bolder;
-                font-size:200%;
-                color: chocolate;
-                font-family:Georgia, 'Times New Roman', Times, serif;
-                top:-7%;
-                left:10;
-                margin-left: 70px;
-                margin-top: 30px;
-                transition: 0.5s;
-                cursor: pointer;
-            }
-            
-    .nav-logo:hover
-            {
-                width: 190px; 
-                height: auto;
-                background-color: #D6EEFF;
-                color:#5a60a3;
-                border-radius: 90px;
-            }
-    
-    nav{
+        width: 190px; 
+        height: auto;
+        position: absolute;
+        font-weight: bolder;
+        font-size: 200%;
+        color: chocolate;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        top: 20px;
+        left: 70px;
+        transition: 0.5s;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .nav-logo:hover {
+        width: 190px; 
+        height: auto;
+        background-color: #D6EEFF;
+        color: #5a60a3;
+        border-radius: 90px;
+    }
+
+    .hamburger {
+        display: none;
+        cursor: pointer;
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-size: 20px;
+        z-index: 2;
+        position: fixed;
+    }
+
+    nav {
         background: white;
         border-radius: 50px;
         padding: 4px;
@@ -47,11 +60,11 @@
         position: fixed;
         width: 90%;
         top: 1%;
-        z-index: 1000;
+        z-index: 1; /* Ensure the menu stays below the logo */
         margin-left: 70px;
     }
 
-    nav li{
+    nav li {
         list-style: none;
         display: inline-block;
         padding: 10px 30px 0px;
@@ -66,9 +79,7 @@
         justify-content: space-between;
     }
 
-    
-
-    nav ul li::after{
+    nav ul li::after {
         content: '';
         background: #D6EEFF;
         width: 100%;
@@ -82,152 +93,159 @@
         opacity: 0;
     }
 
-     nav ul a:hover{
+    nav ul a:hover {
         color: black;
     } 
 
-    nav ul li:hover::after{
+    nav ul li:hover::after {
         top: 60%;
         opacity: 1;
         color: black;
     }
 
     /* Dropdown styles */
-        nav ul .dropdown {
-            position: relative;
-        }
-
-        nav ul .dropdown ul {
-            display: none;
-            position: absolute;
-            top: 110%;
-            left: 0%;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-        }
-
-        nav ul .dropdown:hover ul {
-            display: block;
-
-        }
-
-        nav ul .dropdown ul li {
-            padding: 10px;
-
-        }
-
-        nav ul .dropdown ul li:hover {
-            background-color: transparent;
-        }
-
-        @media screen and (max-width: 768px) {
-        /* Styles for smaller screens */
-        .navbar {
-            flex-direction: column;
-        }
-
-        .navbar li {
-            width: 100%;
-            text-align: center;
-            margin: 5px 0;
-        }
+    nav ul .dropdown {
+        position: relative;
+        z-index:10;
     }
-    nav .mainul{
+
+    nav ul .dropdown ul {
+        display: none;
+        position: absolute;
+        top: 110%;
+        left: 0%;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+    }
+
+    /* nav ul .dropdown:hover ul {
+        display: block;
+    } */
+
+    nav ul .dropdown ul li {
+        padding: 8px;
+    }
+
+    /* nav ul .dropdown ul li:hover {
+        background-color: transparent;
+    } */
+
+    nav .mainul {
         margin-top: 10px;
         margin-left: 150px;
     }
-</style>
-{% load static %}
+    
 
+    /* Add styles for the hamburger icon */
+    @media only screen and (max-width: 1024px) {
+        .nav-logo {
+            left: 20px; /* Adjust the left position based on your layout */
+        }
+
+        .hamburger {
+            display: block;
+            right: 20px; /* Adjust the right position based on your layout */
+            top:20px;
+            position: fixed;
+        }
+
+        nav ul {
+            display: none;
+        }
+
+        .mainul.show {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            position: absolute;
+            top: 60px; /* Adjust the top position based on your layout */
+            left: 0;
+            width: 100%;
+            background-color: white;
+            z-index: 1000;
+        }
+
+        nav li {
+            display: block;
+            margin: 10px;
+            margin-left:-120px;
+            right: 10%;
+        }
+    }
+</style>
+
+<div class="content-container">
+    
+
+    <div class="hamburger" onclick="toggleMenu()">
+        &#9776; <!-- Unicode for hamburger icon -->
+    </div>
 
     <nav>
+        <a href="{%url 'home'%}" class="nav-logo" onclick="toggleMenu()">MindDoc</a>
         <ul class="mainul">
-            <a href="{% url 'home' %}" class="nav-logo">MindDoc</a>
-            <li ><a href="{% url 'home' %}">Home</a></li>
-            <li class="dropdown"><a href="#mentalstate">Explore +</a>
+            <li><a href="{%url 'home'%}">Home</a></li>
+            <li class="dropdown"><a href="#">Explore +</a>
                 <ul>
-                    <li><a href="{% url 'mental_state' %}">Mental State</a></li>
-                    <li><a href="{% url 'phobias' %}">Phobias</a></li>
+                    <li><a href="{%url 'mental_state'%}">Mental State</a></li>
+                    <li><a href="{%url 'phobias'%}">Phobias</a></li>
                 </ul>
             </li>
 
             {% if user.is_authenticated %} 
-                <li>
-                    <a href="{% url 'experts' %}" style="color:chocolate">Experts</a>
-                </li>
-                <li>
-                    <a href="{% url 'goal_based_care' %}" style="color:chocolate">Goal based care</a>
-                </li>
-                <li class="dropdown"><a href="#mentalstate">Resources +</a>
+                <li><a href="{%url 'experts_premium'%}" style="color:chocolate">Experts</a></li>
+                <li><a href="{%url 'goal_based_care'%}" style="color:chocolate">Goal based care</a></li>
+                <li class="dropdown"><a href="#">Resources +</a>
                     <ul>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="{% url 'quiz' %}">Quiz</a></li>
-                        <li><a href="#guides">Guides</a></li>
+                        <li><a href="{%url 'events'%}">Events</a></li>
+                        <li><a href="{%url 'quiz'%}">Quiz</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="{% url 'logout' %}">Logout</a>
-                </li>
+                <li><a href="{%url 'logout'%}">Logout</a></li>
             {% else %}
-                <li>
-                    <a href="{% url 'experts' %}">Experts</a>
-                </li>
-                <li>
-                    <a href="{% url 'goal_based_care' %}">Goal based care</a>
-                </li>
-                <li class="dropdown"><a href="#mentalstate">Resources +</a>
+                <li><a href="{%url 'experts'%}">Experts</a></li>
+                <li><a href="{%url 'goal_based_care'%}">Goal based care</a></li>
+                <li class="dropdown"><a href="#">Resources +</a>
                     <ul>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="{% url 'quiz' %}">Quiz</a></li>
-                        <li><a href="#guides">Guides</a></li>
+                        <li><a href="{%url 'events'%}">Events</a></li>
+                        <li><a href="{%url 'quiz'%}">Quiz</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="{% url 'login' %}">Premium member?</a>
-                </li>
+                <li><a href="{%url 'login'%}">Premium member?</a></li>
             {% endif %}
-            
-
+            {%if user.is_staff%}
+                <li><a href="{%url 'manage_appointments'%}">Manage</a></li>
+            {%endif%}
         </ul>
     </nav>
+</div>
 
+<script>
+    // JavaScript function to toggle the menu visibility
+    function toggleMenu() {
+        const menu = document.querySelector('.mainul');
+        menu.classList.toggle('show');
+    }
 
+    // JavaScript function to handle dropdown hover
+    document.addEventListener('DOMContentLoaded', function () {
+        const dropdownItems = document.querySelectorAll('.dropdown');
 
+        dropdownItems.forEach(function (item) {
+            item.addEventListener('mouseover', function () {
+                this.querySelector('ul').style.display = 'block';
+            });
 
+            item.addEventListener('mouseout', function () {
+                this.querySelector('ul').style.display = 'none';
+            });
+        });
+    });
 
+</script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+{% load static %}
+{%include 'event/event_base.html'%}
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Montserrat,sans-serif;
+    }
+    @media only screen and (max-width: 1024px){
+        body{
+            padding-top: 150px;
+        }
+    }
+    .container center{
+        position: absolute;
+        top: 36%;
+        left: 43%;
+    }
+
+</style>
+<div class="container">
+    <center>
+        {%if searched%}
+            <h4>You searched for
+                {{searched}}
+            </h4><br>
+            {% for venue in venues %}
+                <a href="{% url 'show_venue' venue.id %}">{{ venue }}</a><br>
+            {%endfor%}
+        {%else%}
+        <h4>You forgot to search for venue</h4>
+        {%endif%}
+        
+    </center>
+</div>
+    
+
+{% endblock %}

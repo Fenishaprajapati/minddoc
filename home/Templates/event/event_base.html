@@ -1,0 +1,119 @@
+<style>
+    *{
+        font-family: Montserrat,sans-serif;
+    }
+.menu{
+    height: 67px;
+    width: 1300px;
+    border: 1px solid rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    position: fixed;
+    top:20%;
+    z-index:0;
+    background-color:white;
+}
+.submenu h3{
+    color:darkblue;
+    position: relative;
+    font-size: 21px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.submenu{
+    border: 2px solid rgb(255, 255, 255);
+    text-align: center;
+    width: 213px;
+    height: 67px;
+    
+}
+
+.submenu h3:hover{
+    color: chocolate;
+    font-size: larger;
+    transition: 0.5s ease-out;
+    /* background-color: #e8effc; */
+    border-radius: 20px;
+    padding-top: 7px;
+    height: 35px;
+}
+
+.search{
+    position: absolute;
+    bottom: -83%;
+    left: 89%;
+}
+@media only screen and (max-width: 1024px){
+  body{
+    padding-top: 150px;
+  }
+    .menu{
+      height: 67px;
+      width: 1300px;
+      border: 1px solid rgb(255, 255, 255);
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-top: 100px;
+      margin-left: -25px
+  }
+  } 
+
+</style>
+<body>
+ <div class="menu">
+    <a href="{%url 'events'%}">
+        <div class="submenu obj">
+            <h3>CALENDER</h3>
+        </div>
+    </a>
+
+    {% comment %} <a href="{%url 'events' '2024' 'January'%}">
+        <div class="submenu sub">
+            <h3>MARCH</h3>
+        </div>
+    </a> {% endcomment %}
+    <a href="{%url 'events_list'%}">
+        <div class="submenu sit">
+            <h3>EVENTS</h3>
+        </div>
+    </a>
+    {% if user.is_authenticated %}
+        
+        <a href="{%url 'add_venue'%}">
+            <div class="submenu sit">
+                <h3>Add Venue</h3>
+            </div>
+        </a>
+        <a href="{%url 'add_event'%}">
+            <div class="submenu sit">
+                <h3>Add Event</h3>
+            </div>
+        </a>
+        
+    {% endif %}    
+    <a href="{%url 'list_venue'%}">
+        <div class="submenu sit" style="border-right-color: white;">
+            <h3>VENUES</h3>
+        </div>
+    </a>
+    <form class="d-flex search" method=POST action="{%url 'search_venues'%}" role="search" style="padding-top: 13px;">
+        {%csrf_token%}
+        <input class="form-control me-2" style="width: max-content; height: min-content;" type="search" placeholder="Search Venues" aria-label="Search" name="searched">
+        <button class="btn btn-outline-primary" style="width: max-content; height: min-content;" type="submit">Search</button>
+    </form>
+        
+</div>
+</body>
+
+
+
+
+{% block content %}
+{% endblock %}
+
+    

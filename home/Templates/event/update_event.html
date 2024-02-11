@@ -1,0 +1,60 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+{% load static %}
+{%include 'event/event_base.html'%}
+
+<style>
+    body{
+        margin: 250px auto;
+    }
+    h4{
+        position: absolute;
+        bottom: 57%;
+        color: #1F405A;
+        left: 45%;
+        font-weight: bold;
+    }
+    @media only screen and (max-width: 1024px){
+        body{
+            padding-top: 150px;
+        }
+    }
+    form{
+        position: relative;
+        margin-top: 360px;
+        
+    }
+    center .text-center{
+        position: relative;
+        top: 100px;
+    }
+</style>
+
+<body>
+    <center>
+        {%if user == event.manager%}
+            <h4>Update Event</h4>
+            <form action="" method=POST>
+            <strong>Logged in User:</strong> {{ user }}
+            <strong>Event Manager:</strong> {{ event.manager }}
+            <br>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <br/>
+                <input type="submit" value="Update" class="btn btn-secondary">
+            </form>
+        {%else%}  
+          <div class="card text-center">
+            <div class="card-header">
+                <strong>Access Denied</strong>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Only the event manager can update this event.</h5>
+              <p class="card-text"><strong>Logged in User:</strong>  {{ user }}<strong> Event Manager:</strong> {{ event.manager }}</p>
+            </div>
+          </div>
+        {%endif%}
+    </center>
+</body>
+{% endblock %}

@@ -1,27 +1,92 @@
 {% extends 'home/base.html' %}
 {% block content %}
+{% load static %}
 
 <style>
+  body {
+        margin: 0;
+        font-family: Montserrat, sans-serif;
+        background-color: rgb(9, 9, 49);
+    }
+
   .container{
-    margin: 200px auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #d0e2ee;
+    border-radius: 10px;
+    max-width: 800px; /* Adjusted max-width for responsiveness */
+    width: 100%;
+    background-image: url("{% static 'home/register1.jpg' %}");
+    border: 0px solid rgb(253, 236, 244);
+    box-shadow: 20px 20px 15px 0px rgb(0, 0, 0);
   }
+    .form-control{
+        max-width: 800px;
+        border: 1px solid #d2d2d2;
+        width: 530px;
+    }
+    .mb-3{
+        margin-left: -80px;
+    }
+
+      h2 {
+        color: darkblue;
+        font-weight: bold;
+        margin-bottom: 1px;
+        font-size: 30px;
+        margin-top: 20px;
+        text-align-last: center;
+    }
+    button {
+        margin-top:0px;
+        color: #ffffff;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        position: relative;
+        left: 41%;
+        transform: translateX(28%);
+        margin: 10px auto;
+    }
+    button.btn{
+      background-color: darkblue;
+      border: 1px solid darkblue;
+    }
+
+    .alert {
+        margin-top: 10px;
+        background-color: #e74c3c;
+        color: #ffffff;
+        padding: 10px;
+        border-radius: 5px;
+    }
 </style>
-
- <form method="POST" action="{% url 'login' %}">
+<body>
+<div class="container">
+    <form method="POST" action="{% url 'login' %}">
       {% csrf_token %}
-
-     <div class="col-md-6 offset-md-3 container">
+    
+    <div class="col-md-6 offset-md-3">
           <h2>Login!</h2><br>
-          <div class="mb-3">
+          <div class="mb-3" id="username">
             <input type="text" placeholder="Username" class="form-control" name="username" aria-describedby="emailHelp">
           </div>
 
-          <div class="mb-3">
+          <div class="mb-3" id="password">
             <input type="password" class="form-control" name="password" placeholder="Password">
           </div>
 
+          <div class="forgotpass">
+            <a href="{%url 'forgotpassword' %}" style="color: darkblue; margin-left: 140px;">Forgot password?</a>
+          </div>
           <button type="submit" class="btn btn-primary">Login</button>
-      </div>
-
+          
+    </div>
+    
     </form>
+</div>
+</body>
 {% endblock %}

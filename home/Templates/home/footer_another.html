@@ -51,6 +51,8 @@
         border-radius: 10px;
         border-color: chocolate;
         box-sizing: border-box;
+        caret-color: chocolate;
+        caret-shape: underscore;
       }
     
       .footer-content h2 {
@@ -81,22 +83,33 @@
         border-radius: 90px;
         width: 50px;
         border-color: chocolate;
+        color: black;
       }
     
-      .footer-button i {
+      button i {
         font-size: 22px;
+        color: beige;
       }
       </style>
       <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    
+      {%if message%}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      {%endif%}
+      
       <br><br>
           <section class="footer">
             <div class="footer-content" id="footer-content-1">
               <h1 class="footer-logo"><a href="{% url 'home' %}" style="color: chocolate; font-family: Georgia, 'Times New Roman', Times, serif;">MindDoc</a></h1>
               <p>Pop your e-mail here to get our newsletter on 
                   Mental health.</p>
-              <input class="footer-email" type="email" name="footer-email">
-              <button class="footer-button"><i class='bx bx-chevron-right bx-flip-vertical' ></i></button>
+                  <form action="{%url 'home'%}" method="post">
+                    {% csrf_token %}
+                    <input class="footer-email" type="email" name="footer-email">
+                    <button class="footer-button" type="submit"><strong>&#8594;</strong></button>
+                  </form>
             </div>
       
             <div class="footer-content" id="footer-content-2">
@@ -122,5 +135,4 @@
                 <li><a href="#">Guide</a></li>
             </div>
         </section>
-    
     

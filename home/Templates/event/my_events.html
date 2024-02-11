@@ -1,0 +1,26 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+{% load static %}
+{%include 'event/event_base.html'%}
+
+<style>
+    body{
+        margin: 250px auto;
+    }
+    @media only screen and (max-width: 1024px){
+        body{
+        padding-top: 150px;
+        }
+    }
+</style>
+
+<body>
+    <center>
+        <h4>My Events</h4>
+        {%for event in events%}
+            {{ event }}<br>
+        {%endfor%}
+    </center>
+</body>
+{% endblock %}

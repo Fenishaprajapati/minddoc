@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views
+from .import views
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -8,7 +8,22 @@ urlpatterns = [
     path('login/', views.login_user, name="login"),
     path('logout/', views.logout_user, name="logout"),
     path('register/', views.register_user, name="register"),
-    # path('record/<int:pk>', views.customer_record, name="record"),
+    path('<int:year>/<str:month>', views.events, name="events"),
+    path('events/', views.events, name="events"),
+    path('events_list/', views.events_list, name="events_list"),
+    path('add_venue/', views.add_venue, name="add_venue"),
+    path('list_venue/', views.list_venue, name="list_venue"),
+    path('show_venue/<venue_id>', views.show_venue, name="show_venue"),
+    path('search_venues/', views.search_venues, name="search_venues"),
+    path('venue_text/', views.venue_text, name="venue_text"),
+    path('add_event/', views.add_event, name="add_event"),
+    path('update_event/<event_id>', views.update_event, name="update_event"),
+    path('update_venue/<venue_id>', views.update_venue, name="update_venue"),
+    path('delete_event/<event_id>', views.delete_event, name="delete_event"),
+    path('my_events', views.my_events, name="my_events"),
+    path('venue_events/<venue_id>', views.venue_events, name="venue_events"),
+    path('show_event/<event_id>', views.show_event, name="show_event"),
+    
     # path('delete_record/<int:pk>', views.delete_record, name="delete_record"),
     # path('add_record/', views.add_record, name="add_record"),
     # path('update_record/<int:pk>', views.update_record, name="update_record"),
@@ -62,10 +77,16 @@ urlpatterns = [
     path('rhabdophobia/', views.rhabdophobia, name="rhabdophobia"),                   
     path('fomo/', views.fomo, name="fomo"),                                   
     path('experts/', views.experts, name="experts"),
+    path('experts_premium/', views.experts_premium, name="experts_premium"),
+
+    path("manage_appointments/", views.manage_appointments, name="manage_appointments"),
+
     path('premium/', views.premium, name="premium"),
     path('goal_based_care/', views.goal_based_care, name="goal_based_care"),
+    path('premium_goal_based_care/', views.premium_goal_based_care, name="premium_goal_based_care"),
     path('quiz/', views.quiz, name="quiz"),
     path('results/', views.quiz_results, name='quiz_results'),
+    path('forgotpassword/', views.forgotpassword, name='forgotpassword'),
 ]
 
 if settings.DEBUG:

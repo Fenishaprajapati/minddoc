@@ -1,0 +1,62 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+{% load static %}
+{%include 'event/event_base.html'%}
+
+<style>
+    body .card{
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 800px; /* Adjusted max-width for responsiveness */
+        width: 100%;
+        cursor: pointer;
+    }
+    
+    @media only screen and (max-width: 1024px){
+        body{
+        padding-top: 150px;
+        }
+    }
+    
+</style>
+
+<body>
+    
+        <div class="card text-center mb-3" style="max-width: 600px; box-shadow: 1px 2px 9px 15px rgb(135, 134, 134);">
+            <div class="row g-0">
+              {%if venue.venue_image%}  
+              <div class="col-md-4">
+                <img src="{{ venue.venue_image.url }}" class="img-fluid rounded-start" alt="alt.">
+              </div>
+              {%else%}
+              <div class="col-md-4">
+                <img src="{%static 'home/No Image On My Profile _ Designer & Fun T-Shirts _ Likoli.jpg'%}" class="img-fluid rounded-start" alt="alt."></div>
+              {%endif%}
+
+
+              <div class="col-md-8">
+
+                <div class="card-body" >
+                  <h5 class="card-title" style="text-transform: none; color: darkblue; font-size: 28px; font-weight: 600;">{{ venue }}</h5><br>
+                  <p class="card-text" style="font-size:15px;">
+                    Address:{{ venue.address }}<br>
+                    Zip code:{{ venue.zip_code }}<br>
+                    Phone number:{{ venue.phone }}<br>
+                    Email:{{ venue.email_address }}<br>
+                  </p>
+                  
+                  <p class="card-text">
+                    <small class="text-body-secondary">Owner-{{ venue_owner }}<br>Owner's Email-{{ venue_owner.email }}</small>
+                  </p>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+ 
+</body>
+{% endblock %}

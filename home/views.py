@@ -19,6 +19,9 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.core.mail import EmailMessage
 from django.conf import settings
 from django.core.paginator import Paginator
+from django.template import Context
+from django.template.loader import render_to_string, get_template
+import datetime
 
 def home(request):
     records = Record.objects.all()
@@ -56,13 +59,40 @@ def experts_premium(request):
 
 @staff_member_required 
 def manage_appointments(request):
-    appointments = Appointments.objects.all().order_by('-sent_date')
+    appointments = Appointments.objects.all().order_by('sent_date')
     paginator = Paginator(appointments, 3)  # Change the second argument to the number of items per page you want
     page_number = request.GET.get('page')
     appointments_p = paginator.get_page(page_number)
+
+    if request.method == 'POST':
+        date = request.POST.get("date")
+        appointment_id = request.POST.get("appointment_id")
+        appointment = Appointments.objects.get(id=appointment_id)
+        appointment.accepted = True
+        appointment.accepted_date = datetime.datetime.now()
+        appointment.save()
+
+        data = {
+            "fname": appointment.first_name,
+            "date": date,
+        }
+
+        message = get_template('experts/email.html').render(data)
+        email = EmailMessage(
+            "About your appointment",
+            message,
+            settings.EMAIL_HOST_USER,
+            [appointment.email],
+        )
+        email.content_subtype = "html"
+        email.send()
+
+        messages.add_message(request, messages.SUCCESS, f"You accepted the appointment of {appointment.first_name}")
+        return HttpResponseRedirect(request.path)
+
     return render(request, "experts/manage_appointment.html", {'appointments_p':appointments_p})
 
-def events(request, year=datetime.now().year, month=datetime.now().strftime('%B')):
+def events(request, year=datetime.datetime.now().year, month=datetime.datetime.now().strftime('%B')):
     month=month.capitalize()
     month_number=list(calendar.month_name).index(month)
     month_number=int(month_number)

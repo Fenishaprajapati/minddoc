@@ -347,7 +347,7 @@
 </style>
 
 <body>
-    <div class="container mt-5">
+    <div class="container mt-1">
         <div class="col-12 text-center mt-4 mb-4">
             <h3>
                 Manage appointments
@@ -378,12 +378,20 @@
                                     <span>{{app.request}}</span>
                                 </div>
                                 <hr class="w-100">
-                                <div class="form-group">
-                                    <input type="date" name="date" class="form-control mb-2" 
-                                        placeholder="dd-mm-yyyy" value=""
-                                        min="1997-01-01" max="2030-12-31">
-                                    <input class="btn-block btn-primary form-control" type="submit" value="Accept">
-                                </div>
+
+                              {%if app.accepted == False%}    
+                                <form action="{%url 'manage_appointments'%}" method="POST">
+                                  {%csrf_token%}
+                                  <div class="form-group">
+                                      <input type="date" name="date" class="form-control mb-2" 
+                                          placeholder="dd-mm-yyyy" value=""
+                                          min="1997-01-01" max="2030-12-31">
+                                      <input hidden="true" name="appointment_id" value="{{app.id}}">    
+                                      <input class="btn-block btn-primary form-control" type="submit" value="Accept">
+                                  </div>
+                                </form>
+                              {%endif%}  
+
                             </div>
                         </div>
                     </div>

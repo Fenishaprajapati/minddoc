@@ -33,7 +33,7 @@
                     <div class="card-body">
                     <h5 class="card-title" style="font-size: 23px;letter-spacing: 3px;">{{event}}</h5>
                     <p class="card-text">{{event.event_date}}</p>
-                    <a href="{%url 'events_list'%}" class="btn btn-primary" style="background-color: chocolate; border-color: chocolate;">Go to event</a>
+                    <a href="{%url 'show_event' event.id%}" class="btn btn-primary" style="background-color: chocolate; border-color: chocolate;">Go to event</a>
                     </div>
                 </div><br>
             {%endfor%}

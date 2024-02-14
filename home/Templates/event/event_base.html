@@ -82,7 +82,7 @@
             <h3>EVENTS</h3>
         </div>
     </a>
-    {% if user.is_authenticated %}
+    {%if user.is_staff%}
         
         <a href="{%url 'add_venue'%}">
             <div class="submenu sit">

@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 from django.forms import ModelForm
-from .models import Record, Venue, Event
+from .models import Record, Venue, Event, Goalbasedcare, Goalbasedcare2, Goalbasedcare3
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(label="",
@@ -82,21 +82,17 @@ class EventFormAdmin(forms.ModelForm):
     class Meta:
         model=Event
         # fields="__all__"#for all the fields of the venue model
-        fields=('name', 'event_date', 'venue','manager', 'attendees', 'description')
+        fields=('name', 'event_date', 'venue', 'description')
         labels={
             'name':'',
             'event_date':'YYYY-MM-DD HH:MM:SS',
             'venue':'Venue',
-            'manager':'Manager',
-            'attendees':'Attendees',
             'description':'',
         }
         widgets={
             'name':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Event Name'}),
             'event_date':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Event Date'}),
             'venue':forms.Select(attrs={'class':'form-select', 'placeholder':'Venue'}),
-            'manager':forms.Select(attrs={'class':'form-select', 'placeholder':'Manager'}),            
-            'attendees':forms.SelectMultiple(attrs={'class':'form-control', 'placeholder':'Attendees'}),
             'description':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Description'}),
         }
 
@@ -105,20 +101,31 @@ class EventForm(forms.ModelForm):
     class Meta:
         model=Event
         # fields="__all__"#for all the fields of the venue model
-        fields=('name', 'event_date', 'venue', 'attendees', 'description')
+        fields=('name', 'event_date', 'venue',  'description')
         labels={
             'name':'',
             'event_date':'YYYY-MM-DD HH:MM:SS',
             'venue':'Venue',
-            'attendees':'Attendees',
             'description':'',
         }
         widgets={
             'name':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Event Name'}),
             'event_date':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Event Date'}),
             'venue':forms.Select(attrs={'class':'form-select', 'placeholder':'Venue'}),          
-            'attendees':forms.SelectMultiple(attrs={'class':'form-control', 'placeholder':'Attendees'}),
             'description':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Description'}),
         }
 
+class GbcForm(forms.ModelForm):
+    class Meta:
+        model=Goalbasedcare
+        # fields="__all__"#for all the fields of the venue model
+        fields=('task', 'description')
+        labels={
+            'task':'',
+            'description':'',
+        }
+        widgets={
+            'task':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Task'}),
+            'description':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Description'}),
+        }
 

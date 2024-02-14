@@ -45,7 +45,6 @@
                             <li>Occured: {{ event.Is_Past }}</li>
                             <li>Days Till Event: {{ event.Days_till }}</li>
                             <li>Venue Website: {{ event.venue.web }}</li>
-                            <li>Manger: {{ event.manager }}</li>
                             <li>Brief details: {{ event.description }}</li>
                             <li>Attendees:
                                 {% for user in event.attendees.all %}
@@ -59,7 +58,6 @@
                 <div class="card-footer text-body-secondary">
                         <a class="btn btn-outline-secondary" href="{% url 'update_event' event.id %}">Update Event</a>
                         <a class="btn btn-outline-danger" href="{% url 'delete_event' event.id %}">Delete Event</a>
-                    
                 </div>
                 {%endif%}
             </div><br><br>

@@ -44,7 +44,6 @@ class Venue(models.Model):
     phone= models.CharField('Contact Phone', max_length=12)
     web= models.URLField('Website Address')
     email_address=models.EmailField('Email Address')
-    owner=models.IntegerField("Venue Owner", blank=False, default=1)
     venue_image=models.ImageField(null=True, blank=True, upload_to="images/")
     def __str__(self):
         return self.name
@@ -101,3 +100,36 @@ class Appointments(models.Model):
     class Meta:
         ordering = ["sent_date"]
 
+class Goalbasedcare(models.Model):
+    task_number = models.CharField(max_length=2)
+    task = models.CharField(max_length=250)
+    description= models.CharField(max_length=550)
+    image=models.ImageField(null=True, blank=True, upload_to="images/")
+    accepted_date = models.DateField(auto_now_add=False, null=True, blank=True)
+    finished = models.BooleanField("Task Attended", default=False)
+
+    def __str__(self):
+        return self.task_number
+    
+class Goalbasedcare2(models.Model):
+    task_number = models.CharField(max_length=2)
+    task = models.CharField(max_length=250)
+    description= models.CharField(max_length=550)
+    image=models.ImageField(null=True, blank=True, upload_to="images/")
+    accepted_date = models.DateField(auto_now_add=False, null=True, blank=True)
+    finished = models.BooleanField("Task Attended", default=False)
+
+    def __str__(self):
+        return self.task_number
+    
+class Goalbasedcare3(models.Model):
+    task_number = models.CharField(max_length=2)
+    task = models.CharField(max_length=250)
+    description= models.CharField(max_length=550)
+    image=models.ImageField(null=True, blank=True, upload_to="images/")
+    accepted_date = models.DateField(auto_now_add=False, null=True, blank=True)
+    finished = models.BooleanField("Task Attended", default=False)
+
+    def __str__(self):
+        return self.task_number
+    

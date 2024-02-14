@@ -1,0 +1,50 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+{% load static %}
+{%include 'event/event_base.html'%}
+
+<style>
+    body{
+        margin: 250px auto;
+    }
+    h4{
+        position: absolute;
+        bottom: 57%;
+        color: #1F405A;
+        left: 45%;
+        font-weight: bold;
+    }
+    @media only screen and (max-width: 1024px){
+        body{
+            padding-top: 150px;
+        }
+    }
+    form{
+        position: relative;
+        margin-top: 360px;
+        
+    }
+    center .text-center{
+        position: relative;
+        top: 100px;
+    }
+</style>
+
+<body>
+    <center>
+        {%if user.is_staff%}
+            <h4>Update Task</h4>
+            <form action="" method=POST>
+            <strong>LEVEL 1</strong>
+            <strong>Task Number:</strong> {{ goal.task_number }}
+            <br>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <br>
+                <input type="submit" value="Update" class="btn btn-secondary">
+            </form>
+        {%endif%}
+    </center>
+</body>
+{% endblock %}

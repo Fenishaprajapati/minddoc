@@ -4,8 +4,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from minddoc.settings import EMAIL_HOST_USER
-from .forms import  EventForm, SignUpForm, AddRecordForm, EventFormAdmin
-from .models import QuizSubmissions, Record, Event, Venue, Appointments
+from .forms import  EventForm, SignUpForm, AddRecordForm, EventFormAdmin, GbcForm
+from .models import QuizSubmissions, Record, Event, Venue, Appointments, Goalbasedcare, Goalbasedcare2, Goalbasedcare3
+from django.contrib.auth.decorators import login_required
 #import user model from django
 from django.contrib.auth.models import User
 from django.db.models import Count
@@ -22,6 +23,11 @@ from django.core.paginator import Paginator
 from django.template import Context
 from django.template.loader import render_to_string, get_template
 import datetime
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.urls import reverse
 
 def home(request):
     records = Record.objects.all()
@@ -37,9 +43,91 @@ def home(request):
         
     return render(request, 'home/index.html', {'records': records})
 
+@login_required
 def goal_based_care_premium(request):
-    pass
+    gbc = Goalbasedcare.objects.all()
+    # set up pagination
+    p= Paginator(Goalbasedcare.objects.all(), 1)
+    page=request.GET.get('page')
+    gbc=p.get_page(page)
+    nums="a"*gbc.paginator.num_pages
 
+    if request.method == 'POST':
+        gbc = Goalbasedcare.objects.all()
+        task_number = request.POST.get('task_number')
+        # Assuming task_number is unique and fetching one specific task
+        task = Goalbasedcare.objects.get(task_number=task_number)
+        task.finished = True  # Marking the task as finished
+        task.save()  # Save the changes
+        messages.success(request, f"You Completed the Task for Day {task_number}.")
+        return redirect('goal_based_care_premium')
+    
+    return render(request, 'gbc/goal_based_care_premium.html', {"gbc": gbc, "nums":nums})
+
+@login_required
+def goal_based_care_premium_level2(request):
+    gbc = Goalbasedcare2.objects.all()
+    # set up pagination
+    p= Paginator(Goalbasedcare2.objects.all(), 1)
+    page=request.GET.get('page')
+    gbc=p.get_page(page)
+    nums="a"*gbc.paginator.num_pages
+
+    if request.method == 'POST':
+        gbc = Goalbasedcare2.objects.all()
+        task_number = request.POST.get('task_number')
+        # Assuming task_number is unique and fetching one specific task
+        task = Goalbasedcare2.objects.get(task_number=task_number)
+        task.finished = True  # Marking the task as finished
+        task.save()  # Save the changes
+        messages.success(request, f"You Completed the Task for Day {task_number}.")
+        return redirect('goal_based_care_premium')
+    
+    return render(request, 'gbc/goal_based_care_premium_level2.html', {"gbc": gbc, "nums":nums})
+
+@login_required
+def goal_based_care_premium_level3(request):
+    gbc = Goalbasedcare3.objects.all()
+    # set up pagination
+    p= Paginator(Goalbasedcare3.objects.all(), 1)
+    page=request.GET.get('page')
+    gbc=p.get_page(page)
+    nums="a"*gbc.paginator.num_pages
+
+    if request.method == 'POST':
+        gbc = Goalbasedcare3.objects.all()
+        task_number = request.POST.get('task_number')
+        # Assuming task_number is unique and fetching one specific task
+        task = Goalbasedcare3.objects.get(task_number=task_number)
+        task.finished = True  # Marking the task as finished
+        task.save()  # Save the changes
+        messages.success(request, f"You Completed the Task for Day {task_number}.")
+        return redirect('goal_based_care_premium')
+    
+    return render(request, 'gbc/goal_based_care_premium_level3.html', {"gbc": gbc, "nums":nums})
+Goalbasedcare
+def report(request):
+    if not request.user.is_authenticated:
+        messages.error(request, "You must be logged in to access this page.")
+        return redirect(reverse('login'))  # Assuming your login URL is named 'login'
+    
+    return render(request, 'gbc/report.html')
+
+@staff_member_required 
+def update_gbc(request, gbc_id):
+    goal = get_object_or_404(Goalbasedcare, pk=gbc_id)
+    form = GbcForm(request.POST or None, instance=goal)
+    if form.is_valid():
+        form.save()
+        messages.success(request, "Task Updated Successfully")
+        return redirect('goal_based_care_premium')
+    
+    return render(request, 'gbc/update_gbc.html', {'goal':goal, 'form':form})
+
+
+
+
+@login_required
 def experts_premium(request):
     if request.method == 'POST':
         fname = request.POST.get("fname")
@@ -99,6 +187,7 @@ def manage_appointments(request):
 
     return render(request, "experts/manage_appointment.html", {'appointments_p':appointments_p})
 
+@login_required
 def experts_premium2(request):
     if request.method == 'POST':
         fname = request.POST.get("fname")
@@ -178,7 +267,7 @@ def events_list(request):
     events_list=Event.objects.all().order_by('-event_date')
     return render(request, 'event/events_list.html', {'events_list':events_list})
 
-# @staff_member_required    
+@staff_member_required    
 def add_venue(request):
     submitted=False
     if request.method == "POST":
@@ -220,8 +309,7 @@ def show_event(request, event_id):
 
 def show_venue(request, venue_id):
     venue= Venue.objects.get(pk=venue_id)
-    venue_owner= User.objects.get(pk=venue.owner)
-    return render(request, 'event/show_venue.html', {'venue':venue, 'venue_owner':venue_owner})
+    return render(request, 'event/show_venue.html', {'venue':venue})
 
 def search_venues(request):
     if request.method=="POST":
@@ -243,7 +331,7 @@ def venue_text(request):
     response.writelines(lines)
     return response
 
-# @staff_member_required    
+@staff_member_required    
 def add_event(request):
     submitted=False
     if request.method == "POST":
@@ -272,7 +360,7 @@ def add_event(request):
 
     return render(request, 'event/add_event.html', {'form':form, 'submitted':submitted})
 
-
+@staff_member_required
 def update_event(request, event_id):
     event = Event.objects.get(pk=event_id)
     if request.user.is_superuser:
@@ -282,20 +370,23 @@ def update_event(request, event_id):
 
     if form.is_valid():
         form.save()
+        messages.success(request, "Event Updated successfully!")
         return redirect('events_list')
     
     return render(request, 'event/update_event.html', {'event':event, 'form':form})
 
+@login_required
 def delete_event(request, event_id):
         event = Event.objects.get(pk=event_id)
         if request.user==event.manager:
             event.delete()
-            messages.success(request, "Record deleted successfully!")
+            messages.success(request, "Event deleted successfully!")
             return redirect('events_list')
         else:
             messages.success(request, "You are not authorized to delete this event.")
             return redirect('events_list')
 
+@login_required
 def update_venue(request, venue_id):
     venue = Venue.objects.get(pk=venue_id)
     form = VenueForm(request.POST or None, instance=venue)

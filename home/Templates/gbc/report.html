@@ -1,0 +1,65 @@
+{% block content %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Report.</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <style>
+        *{
+            margin: 0;
+            /* font-family: Montserrat, sans-serif; */
+            /* background-repeat: repeat;
+            background-size: cover;
+            background-position: center; */
+        }
+        body{
+            background-image: url("{% static 'home/report.png' %}");
+        }
+       body .report{
+        position: absolute;
+        top: 30%;
+        left: 30%;
+        padding:30px;
+       }
+
+       @media (max-width: 970px){
+        body .report {
+            max-width: 70%;
+            margin-left: -50px; /* Adjust width for smaller screens */
+        }
+    }
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Elsie">
+  </head>
+  <body>
+    <center>
+       
+          <div class="card text-center mb-3 mt-5 report" style="width: 38rem; height: fit-content; background-color: rgb(235, 228, 242); border-color: rgb(235, 228, 242); opacity: 90%;box-shadow: 10px 10px 10px black;">
+            <div class="card-body">
+              <h5 class="card-title" style="font-size: x-large; font-weight:170px; font-family: 'Times New Roman', Times, serif;"><b>Hey Fighter, Reached till here.</b></h5>
+              <p class="card-text">Congratulation, You have been so pateint, consistent and full of new experience throught this journey.</p>
+              <p class="card-text">Read This quotes and witness this pictures, they will make you feel more Joyful.</p>
+            </div>
+          </div>
+          
+</center>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

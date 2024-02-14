@@ -1,0 +1,106 @@
+{% extends 'home/base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Elsie">
+
+
+<style>
+    body{
+        margin: 0;
+        font-family: Montserrat, sans-serif;
+        
+    }
+    .container{
+        padding-top: 100px;     
+        
+    }
+    .container h4{
+        font-weight: bold;
+        font-size: x-large;
+        color:darkblue;
+        position: relative;
+        top: 10%;
+    }
+    @media only screen and (max-width: 1024px){
+        body{
+        padding-top: 150px;
+        }
+    }
+
+    .card{
+        color:rgb(46, 46, 50);
+    }
+</style>
+
+<body>
+    <div class="container">
+        <center><h4 style="letter-spacing: 3px; font-size: xx-large;">LEVEL 2</h4></center>
+{% for goal in gbc %}
+        <form action="" method="POST">
+            {%csrf_token%}
+            
+            <input type="hidden" name="task_number" value="{{ goal.task_number }}">
+            <div class="card" style="border-color: rgb(255, 255, 255); ">
+                <h5 class="card-header" style="background-color: #eff9fc; color: black;"><strong>Day {{ goal.task_number }}</strong></h5> 
+                
+                    <div class="card-body">
+                        <p class="card-text">
+                            <ul>
+                                <li>{{ goal.task }}<br>
+                                -{{ goal.description }}</li><br>
+                                {%if goal.task_number == '4' or goal.task_number == '14'%}
+                                    <label for="imageInput">Upload Photo:</label>
+                                    <input type="file" class="form-control-file" id="imageInput" name="image" upload_to="/images">
+                                {%endif%}
+                            </ul>
+                        </p>
+                        <button class="btn btn-secondary" style="margin-left: 30px; background-color: darkblue;" type="submit">Submit</button>
+                    </div>
+            </div><br>
+            
+        </form>    
+        {%if goal.task_number == '14'%}
+        <div class="accordion" id="accordionExample" style="margin-bottom:70px;">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
+                        <center style="margin-left: 40%;">Finished All the Task from Level 2?</center>
+                        </button>
+                </h2>
+        
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                <strong><a href="{%url 'goal_based_care_premium_level3'%}"><center>Move to next level &raquo;</center></a></strong><br> 
+                <center>In this level, you'll get tasks for 21   days straight.<br>
+                    Interesting and longer tasks that fit in your daily life schedule and your flourished mind.</center> 
+                </div>
+            </div>
+        
+            </div>
+        </div>
+    {%endif%}
+{% endfor %}
+
+<center>
+    <div aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            {%if gbc.has_previous%}
+                <!-- <li class="page-item "><a class="page-link" href="?page=1">&laquo First</a></li> -->
+                <li class="page-item "><a class="page-link" href="?page={{gbc.previous_page_number}}">&laquo Previous</a></li>
+            {%endif%}
+            <!-- <li class="page-item disabled" ><a href="#" style="color: chocolate; position: relative; top: 8px; left:2px; padding: 15px;">Page {{ venues.number }}/{{venues.paginator.num_pages}}</li></a> -->
+            {%for i in nums%}
+                <li class="page-item"><a class="page-link " href="?page={{ forloop.counter }}">{{ forloop.counter }}</a></li>
+            {%endfor%}
+            {%if gbc.has_next%}
+                <li class="page-item "><a class="page-link" href="?page={{ gbc.next_page_number }}">Next &raquo</a></li>
+                <!-- <li class="page-item "><a class="page-link" href="?page={{venues.paginator.num_pages}}">Last &raquo</a></li> -->
+            {%endif%}
+        </ul>
+    </div><br>
+    
+</center>
+
+    </div>   
+</body>
+{% endblock %}

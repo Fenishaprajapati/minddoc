@@ -5,7 +5,7 @@ from .models import Record
 from .models import Venue
 from .models import Event
 from .models import MindDocEventUser
-from .models import QuizSubmissions, Appointments
+from .models import QuizSubmissions, Appointments, Goalbasedcare, Goalbasedcare2, Goalbasedcare3
 
 admin.site.register(Record)
 admin.site.register(QuizSubmissions)
@@ -13,6 +13,9 @@ admin.site.register(Appointments)
 # admin.site.register(Venue)
 # admin.site.register(Event)
 admin.site.register(MindDocEventUser)
+admin.site.register(Goalbasedcare)
+admin.site.register(Goalbasedcare2)
+admin.site.register(Goalbasedcare3)
 
 
 @admin.register(Venue)
@@ -27,3 +30,4 @@ class EventAdmin(admin.ModelAdmin):
     list_display=('name', 'event_date', 'venue')
     list_filter=('event_date', 'venue',)
     ordering=('-event_date',)
+

@@ -23,6 +23,8 @@ urlpatterns = [
     path('my_events', views.my_events, name="my_events"),
     path('venue_events/<venue_id>', views.venue_events, name="venue_events"),
     path('show_event/<event_id>', views.show_event, name="show_event"),
+    path('update_gbc/<gbc_id>', views.update_gbc, name="update_gbc"),
+
     
     # path('delete_record/<int:pk>', views.delete_record, name="delete_record"),
     # path('add_record/', views.add_record, name="add_record"),
@@ -88,6 +90,10 @@ urlpatterns = [
     path('premium/', views.premium, name="premium"),
     path('goal_based_care/', views.goal_based_care, name="goal_based_care"),
     path('goal_based_care_premium/', views.goal_based_care_premium, name="goal_based_care_premium"),
+    path('goal_based_care_premium_level2/', views.goal_based_care_premium_level2, name="goal_based_care_premium_level2"),
+    path('goal_based_care_premium_level3/', views.goal_based_care_premium_level3, name="goal_based_care_premium_level3"),
+    path('report/', views.report, name="report"),
+    
     path('quiz/', views.quiz, name="quiz"),
     path('results/', views.quiz_results, name='quiz_results'),
     path('forgotpassword/', views.forgotpassword, name='forgotpassword'),
